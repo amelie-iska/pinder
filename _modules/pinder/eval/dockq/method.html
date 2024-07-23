@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pinder.eval.dockq.method &#8212; pinder 0.1.dev1+g8ad1ead documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=59943e95" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=28804041" />
+    <script src="../../../../_static/documentation_options.js?v=40280a1a"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/js/petite-vue.js"></script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../../index.html" title="Go to homepage"><img src="../../../../_static/pinder.png"/></a></h1>
+            <a id="source_link" href="https://github.com/pinder-org/pinder/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme_link.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/pinder.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../example_readme.html">Pinder abstractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq_link.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../limitations_link.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog_link.html">Dataset changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pinder.eval.dockq.method</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">repeat</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypedDict</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+
+<span class="kn">from</span> <span class="nn">pinder.core.index.utils</span> <span class="kn">import</span> <span class="n">get_index</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils</span> <span class="kn">import</span> <span class="n">setup_logger</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils.process</span> <span class="kn">import</span> <span class="n">process_starmap</span>
+<span class="kn">from</span> <span class="nn">pinder.core.index.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_pinder_location</span><span class="p">,</span>
+    <span class="n">IndexEntry</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pinder.core.structure.atoms</span> <span class="kn">import</span> <span class="n">atom_array_from_pdb_file</span>
+<span class="kn">from</span> <span class="nn">pinder.core.structure.models</span> <span class="kn">import</span> <span class="n">DatasetName</span><span class="p">,</span> <span class="n">MonomerName</span>
+<span class="kn">from</span> <span class="nn">pinder.eval.dockq.biotite_dockq</span> <span class="kn">import</span> <span class="n">BiotiteDockQ</span>
+
+<span class="n">pio</span><span class="o">.</span><span class="n">templates</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;plotly_dark&quot;</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">setup_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">subsets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;pinder_xl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pinder_s&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pinder_af2&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">dataset_root</span> <span class="o">=</span> <span class="n">get_pinder_location</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="InvalidChainsError">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.InvalidChainsError">[docs]</a>
+<span class="k">class</span> <span class="nc">InvalidChainsError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdb_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">chains</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pdb_file</span> <span class="o">=</span> <span class="n">pdb_file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chains</span> <span class="o">=</span> <span class="n">chains</span></div>
+
+
+
+<div class="viewcode-block" id="TooFewChainsError">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.TooFewChainsError">[docs]</a>
+<span class="k">class</span> <span class="nc">TooFewChainsError</span><span class="p">(</span><span class="n">InvalidChainsError</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">chain_str</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;PDB </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pdb_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2"> has too few chains for running eval:&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="p">)</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">chain_str</span><span class="si">}</span><span class="s2">)&quot;</span>
+            <span class="s2">&quot;There should be two chains: R (receptor) and L (ligand).&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+
+
+<div class="viewcode-block" id="ExpectedChainsNotFoundError">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.ExpectedChainsNotFoundError">[docs]</a>
+<span class="k">class</span> <span class="nc">ExpectedChainsNotFoundError</span><span class="p">(</span><span class="n">InvalidChainsError</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">chain_str</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chains</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;PDB </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">pdb_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2"> is missing expected chains for running eval:&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">chain_str</span><span class="si">}</span><span class="s2"> != R_L.&quot;</span>
+            <span class="s2">&quot;There should be two chains: R (receptor) and L (ligand).&quot;</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">msg</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_glob_dirs</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">parent</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()]</span>
+
+
+<div class="viewcode-block" id="validate_system_id">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.validate_system_id">[docs]</a>
+<span class="k">def</span> <span class="nf">validate_system_id</span><span class="p">(</span><span class="n">system</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">pinder_ids</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">system</span><span class="o">.</span><span class="n">stem</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">pinder_ids</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Invalid directory structure! </span><span class="si">{</span><span class="n">system</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2"> is not a pinder ID&quot;</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_valid_eval_systems">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.get_valid_eval_systems">[docs]</a>
+<span class="k">def</span> <span class="nf">get_valid_eval_systems</span><span class="p">(</span><span class="n">eval_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]]:</span>
+    <span class="c1"># Check that the eval_dir contains one of the acceptable formats</span>
+    <span class="c1"># If it doesn&#39;t, it will be rejected</span>
+    <span class="n">pindex</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">()</span>
+    <span class="n">pinder_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">pindex</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="n">eval_methods_or_subset</span> <span class="o">=</span> <span class="n">_glob_dirs</span><span class="p">(</span><span class="n">eval_dir</span><span class="p">)</span>
+    <span class="n">eval_systems</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">subdir</span> <span class="ow">in</span> <span class="n">eval_methods_or_subset</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">subdir</span><span class="o">.</span><span class="n">stem</span> <span class="ow">in</span> <span class="n">pinder_ids</span><span class="p">:</span>
+            <span class="c1"># Subdir is itself a pinder_id</span>
+            <span class="n">eval_system</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="n">subdir</span><span class="p">,</span>
+                <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="n">subdir</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="n">eval_systems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eval_system</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">subdir</span><span class="o">.</span><span class="n">stem</span> <span class="ow">in</span> <span class="n">subsets</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">subset_subdir</span> <span class="ow">in</span> <span class="n">_glob_dirs</span><span class="p">(</span><span class="n">subdir</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">subset_subdir</span><span class="o">.</span><span class="n">stem</span> <span class="ow">in</span> <span class="n">pinder_ids</span><span class="p">:</span>
+                    <span class="c1"># Assumption is method_name contains pinder subset dirs</span>
+                    <span class="n">eval_system</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="n">subset_subdir</span><span class="p">,</span>
+                        <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="n">subdir</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
+                    <span class="p">}</span>
+                    <span class="n">eval_systems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eval_system</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="k">for</span> <span class="n">system_subddir</span> <span class="ow">in</span> <span class="n">_glob_dirs</span><span class="p">(</span><span class="n">subset_subdir</span><span class="p">):</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">validate_system_id</span><span class="p">(</span><span class="n">system_subddir</span><span class="p">,</span> <span class="n">pinder_ids</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">system_subddir</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2"> not a valid ID, skipping&quot;</span><span class="p">)</span>
+                        <span class="k">continue</span>
+                    <span class="c1"># Assumption is pinder subset dir contains method_name dirs</span>
+                    <span class="n">eval_system</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="n">system_subddir</span><span class="p">,</span>
+                        <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="n">subset_subdir</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
+                    <span class="p">}</span>
+                    <span class="n">eval_systems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eval_system</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Eval dir contains subdirectories of method names</span>
+            <span class="k">for</span> <span class="n">system_subddir</span> <span class="ow">in</span> <span class="n">_glob_dirs</span><span class="p">(</span><span class="n">subdir</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">validate_system_id</span><span class="p">(</span><span class="n">system_subddir</span><span class="p">,</span> <span class="n">pinder_ids</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">system_subddir</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2"> not a valid ID, skipping&quot;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">eval_system</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;system&quot;</span><span class="p">:</span> <span class="n">system_subddir</span><span class="p">,</span>
+                    <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="n">subdir</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
+                <span class="p">}</span>
+                <span class="n">eval_systems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eval_system</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">eval_systems</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="s2">&quot;Invalid directory structure! Unable to locate methods &amp; systems!&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">eval_systems</span></div>
+
+
+
+<div class="viewcode-block" id="SubsetIds">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.SubsetIds">[docs]</a>
+<span class="k">class</span> <span class="nc">SubsetIds</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">ids</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="get_expected_counts">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.get_expected_counts">[docs]</a>
+<span class="k">def</span> <span class="nf">get_expected_counts</span><span class="p">(</span>
+    <span class="n">pindex</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">subsets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">SubsetIds</span><span class="p">]:</span>
+    <span class="n">expected_counts</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">SubsetIds</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="n">subsets</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">monomer_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;holo&quot;</span><span class="p">,</span> <span class="s2">&quot;apo&quot;</span><span class="p">,</span> <span class="s2">&quot;predicted&quot;</span><span class="p">]:</span>
+            <span class="n">subset_mono_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+                <span class="n">pindex</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2"> and (</span><span class="si">{</span><span class="n">monomer_name</span><span class="si">}</span><span class="s2">_R and </span><span class="si">{</span><span class="n">monomer_name</span><span class="si">}</span><span class="s2">_L)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">id</span>
+            <span class="p">)</span>
+            <span class="n">n_ids</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">subset_mono_ids</span><span class="p">)</span>
+            <span class="n">subset_expected</span><span class="p">:</span> <span class="n">SubsetIds</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="n">n_ids</span><span class="p">,</span>
+                <span class="s2">&quot;ids&quot;</span><span class="p">:</span> <span class="n">subset_mono_ids</span><span class="p">,</span>
+            <span class="p">}</span>
+            <span class="n">expected_counts</span><span class="p">[(</span><span class="n">subset</span><span class="p">,</span> <span class="n">monomer_name</span><span class="p">)]</span> <span class="o">=</span> <span class="n">subset_expected</span>
+    <span class="k">return</span> <span class="n">expected_counts</span></div>
+
+
+
+<div class="viewcode-block" id="summarize_valid_systems">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.summarize_valid_systems">[docs]</a>
+<span class="k">def</span> <span class="nf">summarize_valid_systems</span><span class="p">(</span>
+    <span class="n">eval_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">confirm</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">eval_systems</span> <span class="o">=</span> <span class="n">get_valid_eval_systems</span><span class="p">(</span><span class="n">eval_dir</span><span class="p">)</span>
+    <span class="n">pindex</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">csv_name</span><span class="o">=</span><span class="n">custom_index</span><span class="p">)</span> <span class="k">if</span> <span class="n">custom_index</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">get_index</span><span class="p">()</span>
+    <span class="n">counts_lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">eval_system</span> <span class="ow">in</span> <span class="n">eval_systems</span><span class="p">:</span>
+        <span class="n">system</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">eval_system</span><span class="p">[</span><span class="s2">&quot;system&quot;</span><span class="p">])</span>
+        <span class="n">method_name</span> <span class="o">=</span> <span class="n">eval_system</span><span class="p">[</span><span class="s2">&quot;method_name&quot;</span><span class="p">]</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">pindex</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;id == &quot;</span><span class="si">{</span><span class="n">system</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="n">IndexEntry</span><span class="p">(</span><span class="o">**</span><span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">subdirs</span> <span class="o">=</span> <span class="n">_glob_dirs</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">system</span><span class="p">))</span>
+        <span class="k">if</span> <span class="s2">&quot;_decoys&quot;</span> <span class="ow">in</span> <span class="n">subdirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">:</span>
+            <span class="n">decoy_subdirs</span> <span class="o">=</span> <span class="n">subdirs</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">decoy_subdirs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">subdirs</span><span class="p">:</span>
+                <span class="n">decoy_subdirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="s2">&quot;models&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">decoy_dir</span> <span class="ow">in</span> <span class="n">decoy_subdirs</span><span class="p">:</span>
+            <span class="n">models</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">decoy_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pdb&quot;</span><span class="p">))</span>
+            <span class="c1"># add which monomer kind and subset this is in</span>
+            <span class="k">if</span> <span class="n">decoy_dir</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s2">&quot;models&quot;</span><span class="p">:</span>
+                <span class="n">monomer_name</span> <span class="o">=</span> <span class="n">decoy_dir</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">stem</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">monomer_name</span> <span class="o">=</span> <span class="n">decoy_dir</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_decoys&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c1"># validate presence of two chains named R and L (only one decoy is checked)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">):</span>
+                <span class="n">test_decoy</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">decoy_chains</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">atom_array_from_pdb_file</span><span class="p">(</span><span class="n">test_decoy</span><span class="p">)</span><span class="o">.</span><span class="n">chain_id</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">decoy_chains</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">TooFewChainsError</span><span class="p">(</span><span class="n">test_decoy</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">decoy_chains</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">decoy_chains</span> <span class="o">!=</span> <span class="p">{</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">}:</span>
+                    <span class="k">raise</span> <span class="n">ExpectedChainsNotFoundError</span><span class="p">(</span><span class="n">test_decoy</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">decoy_chains</span><span class="p">))</span>
+            <span class="n">counts_lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+                    <span class="s2">&quot;pinder_xl&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="o">.</span><span class="n">pinder_xl</span><span class="p">,</span>
+                    <span class="s2">&quot;pinder_s&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="o">.</span><span class="n">pinder_s</span><span class="p">,</span>
+                    <span class="s2">&quot;pinder_af2&quot;</span><span class="p">:</span> <span class="n">entry</span><span class="o">.</span><span class="n">pinder_af2</span><span class="p">,</span>
+                    <span class="s2">&quot;monomer_name&quot;</span><span class="p">:</span> <span class="n">monomer_name</span><span class="p">,</span>
+                    <span class="s2">&quot;n_decoys&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">models</span><span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+    <span class="n">expected_counts</span> <span class="o">=</span> <span class="n">get_expected_counts</span><span class="p">(</span><span class="n">pindex</span><span class="p">,</span> <span class="n">subsets</span><span class="p">)</span>
+    <span class="n">counts</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">counts_lst</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">subset</span><span class="p">,</span> <span class="n">monomer</span><span class="p">),</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">expected_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">matching</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2"> and monomer_name == &#39;</span><span class="si">{</span><span class="n">monomer</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+        <span class="n">matching</span> <span class="o">=</span> <span class="n">matching</span><span class="p">[</span><span class="n">matching</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">expected</span><span class="p">[</span><span class="s2">&quot;ids&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">matching</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+        <span class="n">n_expected</span> <span class="o">=</span> <span class="n">expected</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="n">n_expected</span> <span class="o">-</span> <span class="n">actual</span>
+        <span class="n">missing_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">expected</span><span class="p">[</span><span class="s2">&quot;ids&quot;</span><span class="p">])</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">matching</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">actual</span> <span class="o">&lt;</span> <span class="n">n_expected</span><span class="p">:</span>
+            <span class="n">lab</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">monomer</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method is missing </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2"> systems from </span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following systems are missing:&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_ids</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;If you proceed with submission, these systems will receive metrics &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;that will penalize the method in </span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s2"> evaluation.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">confirm</span><span class="p">:</span>
+                <span class="n">proceed</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Do you wish to proceed? (y/n)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">proceed</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">proceed</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Method rejected! Missing systems!&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="download_entry">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.download_entry">[docs]</a>
+<span class="k">def</span> <span class="nf">download_entry</span><span class="p">(</span><span class="n">entry</span><span class="p">:</span> <span class="n">IndexEntry</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pinder.core</span> <span class="kn">import</span> <span class="n">PinderSystem</span>
+
+    <span class="c1"># Will download single entry if not present</span>
+    <span class="n">PinderSystem</span><span class="p">(</span><span class="n">entry</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_eval_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.get_eval_metrics">[docs]</a>
+<span class="k">def</span> <span class="nf">get_eval_metrics</span><span class="p">(</span>
+    <span class="n">eval_system</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">parallel_io</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">pindex</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">csv_name</span><span class="o">=</span><span class="n">custom_index</span><span class="p">)</span> <span class="k">if</span> <span class="n">custom_index</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">get_index</span><span class="p">()</span>
+    <span class="n">system</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">eval_system</span><span class="p">[</span><span class="s2">&quot;system&quot;</span><span class="p">])</span>
+    <span class="n">method_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">eval_system</span><span class="p">[</span><span class="s2">&quot;method_name&quot;</span><span class="p">])</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="n">pindex</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;id == &quot;</span><span class="si">{</span><span class="n">system</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="n">entry</span> <span class="o">=</span> <span class="n">IndexEntry</span><span class="p">(</span><span class="o">**</span><span class="n">row</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">native</span> <span class="o">=</span> <span class="n">dataset_root</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;pdbs/</span><span class="si">{</span><span class="n">entry</span><span class="o">.</span><span class="n">pinder_pdb</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">native</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="n">native</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">download_entry</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+    <span class="n">subdirs</span> <span class="o">=</span> <span class="n">_glob_dirs</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">system</span><span class="p">))</span>
+    <span class="k">if</span> <span class="s2">&quot;_decoys&quot;</span> <span class="ow">in</span> <span class="n">subdirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stem</span><span class="p">:</span>
+        <span class="n">decoy_subdirs</span> <span class="o">=</span> <span class="n">subdirs</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">decoy_subdirs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">subdirs</span><span class="p">:</span>
+            <span class="n">decoy_subdirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="s2">&quot;models&quot;</span><span class="p">)</span>
+
+    <span class="n">all_metrics</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">decoy_dir</span> <span class="ow">in</span> <span class="n">decoy_subdirs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">decoy_dir</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">decoy_dir</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">decoy_dir</span><span class="p">)))</span>
+        <span class="n">models</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">decoy_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pdb&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">models</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">decoy_dir</span><span class="si">}</span><span class="s2"> is missing decoys!&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="n">default_combos</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">)</span>
+        <span class="n">inverse_default</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">)</span>
+        <span class="n">dockgpt_combos</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span>
+        <span class="n">inverse_dockgpt</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">,</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Check chains in decoy</span>
+        <span class="n">ab_chains</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">test_decoy</span> <span class="o">=</span> <span class="n">models</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">decoy_chains</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">atom_array_from_pdb_file</span><span class="p">(</span><span class="n">test_decoy</span><span class="p">)</span><span class="o">.</span><span class="n">chain_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;A&quot;</span> <span class="ow">in</span> <span class="n">decoy_chains</span><span class="p">:</span>
+                <span class="n">ab_chains</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to extract chains from decoy </span><span class="si">{</span><span class="n">decoy_dir</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+        <span class="n">ab_method</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
+            <span class="n">alt_method</span> <span class="ow">in</span> <span class="n">method_name</span> <span class="k">for</span> <span class="n">alt_method</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dockgpt&quot;</span><span class="p">,</span> <span class="s2">&quot;af2mm&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">ab_method</span> <span class="ow">or</span> <span class="n">ab_chains</span><span class="p">:</span>
+            <span class="n">chain_permutes</span> <span class="o">=</span> <span class="p">[</span><span class="n">dockgpt_combos</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">homodimer</span><span class="p">:</span>
+                <span class="n">chain_permutes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inverse_dockgpt</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">chain_permutes</span> <span class="o">=</span> <span class="p">[</span><span class="n">default_combos</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">entry</span><span class="o">.</span><span class="n">homodimer</span><span class="p">:</span>
+                <span class="n">chain_permutes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inverse_default</span><span class="p">)</span>
+        <span class="n">permute_metrics</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">nat_R_chain</span><span class="p">,</span> <span class="n">nat_L_chain</span><span class="p">,</span> <span class="n">mod_R_chain</span><span class="p">,</span> <span class="n">mod_L_chain</span> <span class="ow">in</span> <span class="n">chain_permutes</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">bdq</span> <span class="o">=</span> <span class="n">BiotiteDockQ</span><span class="p">(</span>
+                    <span class="n">native</span><span class="p">,</span>
+                    <span class="n">models</span><span class="p">,</span>
+                    <span class="n">backbone_definition</span><span class="o">=</span><span class="s2">&quot;dockq&quot;</span><span class="p">,</span>
+                    <span class="n">native_receptor_chain</span><span class="o">=</span><span class="p">[</span><span class="n">nat_R_chain</span><span class="p">],</span>
+                    <span class="n">native_ligand_chain</span><span class="o">=</span><span class="p">[</span><span class="n">nat_L_chain</span><span class="p">],</span>
+                    <span class="n">decoy_receptor_chain</span><span class="o">=</span><span class="p">[</span><span class="n">mod_R_chain</span><span class="p">],</span>
+                    <span class="n">decoy_ligand_chain</span><span class="o">=</span><span class="p">[</span><span class="n">mod_L_chain</span><span class="p">],</span>
+                    <span class="n">parallel_io</span><span class="o">=</span><span class="n">parallel_io</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">metrics</span> <span class="o">=</span> <span class="n">bdq</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;receptor_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mod_R_chain</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;ligand_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mod_L_chain</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;native_receptor_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nat_R_chain</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;native_ligand_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nat_L_chain</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="c1"># What if R + L got flipped?</span>
+                <span class="n">bdq</span> <span class="o">=</span> <span class="n">BiotiteDockQ</span><span class="p">(</span>
+                    <span class="n">native</span><span class="p">,</span>
+                    <span class="n">models</span><span class="p">,</span>
+                    <span class="n">backbone_definition</span><span class="o">=</span><span class="s2">&quot;dockq&quot;</span><span class="p">,</span>
+                    <span class="n">native_receptor_chain</span><span class="o">=</span><span class="p">[</span><span class="n">nat_R_chain</span><span class="p">],</span>
+                    <span class="n">native_ligand_chain</span><span class="o">=</span><span class="p">[</span><span class="n">nat_L_chain</span><span class="p">],</span>
+                    <span class="n">decoy_receptor_chain</span><span class="o">=</span><span class="p">[</span><span class="n">mod_L_chain</span><span class="p">],</span>
+                    <span class="n">decoy_ligand_chain</span><span class="o">=</span><span class="p">[</span><span class="n">mod_R_chain</span><span class="p">],</span>
+                    <span class="n">parallel_io</span><span class="o">=</span><span class="n">parallel_io</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">metrics</span> <span class="o">=</span> <span class="n">bdq</span><span class="o">.</span><span class="n">calculate</span><span class="p">()</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;receptor_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mod_L_chain</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;ligand_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mod_R_chain</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;native_receptor_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nat_R_chain</span>
+                <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;native_ligand_chain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nat_L_chain</span>
+            <span class="n">permute_metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+        <span class="n">permute_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">permute_metrics</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Get best permutation per model (R/L), only multiple if homodimer</span>
+        <span class="n">decoy_metrics</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">permute_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;DockQ&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s2">&quot;model_name&quot;</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># add which monomer kind and subset this is in</span>
+        <span class="k">if</span> <span class="n">decoy_dir</span><span class="o">.</span><span class="n">stem</span> <span class="o">==</span> <span class="s2">&quot;models&quot;</span><span class="p">:</span>
+            <span class="n">monomer_name</span> <span class="o">=</span> <span class="n">decoy_dir</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">stem</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">monomer_name</span> <span class="o">=</span> <span class="n">decoy_dir</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_decoys&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">decoy_metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;monomer_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">monomer_name</span>
+        <span class="n">decoy_metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;method_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">method_name</span>
+        <span class="n">all_metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decoy_metrics</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_metrics</span><span class="p">):</span>
+        <span class="n">metrics_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_metrics</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">metrics_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">metrics_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;pinder_xl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">pinder_xl</span>
+        <span class="n">metrics_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;pinder_s&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">pinder_s</span>
+        <span class="n">metrics_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;pinder_af2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">pinder_af2</span>
+        <span class="k">return</span> <span class="n">metrics_df</span></div>
+
+
+
+<div class="viewcode-block" id="safe_get_eval_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.safe_get_eval_metrics">[docs]</a>
+<span class="k">def</span> <span class="nf">safe_get_eval_metrics</span><span class="p">(</span>
+    <span class="n">system</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">],</span>
+    <span class="n">parallel_io</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_eval_metrics</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">parallel_io</span><span class="p">,</span> <span class="n">custom_index</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">system_path</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+            <span class="n">method_name</span> <span class="o">=</span> <span class="n">system</span><span class="p">[</span><span class="s2">&quot;method_name&quot;</span><span class="p">]</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">system_path</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">method_name</span> <span class="o">=</span> <span class="n">system</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to get metrics for </span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="get_eval_metrics_all_methods">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.get_eval_metrics_all_methods">[docs]</a>
+<span class="k">def</span> <span class="nf">get_eval_metrics_all_methods</span><span class="p">(</span>
+    <span class="n">eval_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">eval_systems</span> <span class="o">=</span> <span class="n">get_valid_eval_systems</span><span class="p">(</span><span class="n">eval_dir</span><span class="p">)</span>
+    <span class="n">parallel_io</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">parallel</span>
+    <span class="n">all_metrics</span> <span class="o">=</span> <span class="n">process_starmap</span><span class="p">(</span>
+        <span class="n">safe_get_eval_metrics</span><span class="p">,</span>
+        <span class="nb">zip</span><span class="p">(</span><span class="n">eval_systems</span><span class="p">,</span> <span class="n">repeat</span><span class="p">(</span><span class="n">parallel_io</span><span class="p">),</span> <span class="n">repeat</span><span class="p">(</span><span class="n">custom_index</span><span class="p">)),</span>
+        <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span>
+        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">all_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">df</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">all_metrics</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">all_metrics</span></div>
+
+
+
+<div class="viewcode-block" id="get_method_eval_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.get_method_eval_metrics">[docs]</a>
+<span class="k">def</span> <span class="nf">get_method_eval_metrics</span><span class="p">(</span>
+    <span class="n">run_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span>
+    <span class="n">dataset_name</span><span class="p">:</span> <span class="n">DatasetName</span><span class="p">,</span>
+    <span class="n">monomer_name</span><span class="p">:</span> <span class="n">MonomerName</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">parallel_io</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">parallel</span>
+    <span class="n">method_metrics</span> <span class="o">=</span> <span class="n">process_starmap</span><span class="p">(</span>
+        <span class="n">get_eval_metrics</span><span class="p">,</span>
+        <span class="nb">zip</span><span class="p">(</span><span class="n">run_dirs</span><span class="p">,</span> <span class="n">repeat</span><span class="p">(</span><span class="n">parallel_io</span><span class="p">),</span> <span class="n">repeat</span><span class="p">(</span><span class="n">custom_index</span><span class="p">)),</span>
+        <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span>
+        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">method_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">df</span> <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">method_metrics</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">method_name</span><span class="p">:</span>
+        <span class="n">method_name</span> <span class="o">=</span> <span class="n">run_dirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">stem</span>
+    <span class="n">method_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;method_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">method_name</span>
+    <span class="n">method_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;dataset_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset_name</span>
+    <span class="n">method_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;monomer_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">monomer_name</span>
+    <span class="k">return</span> <span class="n">method_df</span></div>
+
+
+
+<div class="viewcode-block" id="add_pinder_set">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.add_pinder_set">[docs]</a>
+<span class="k">def</span> <span class="nf">add_pinder_set</span><span class="p">(</span>
+    <span class="n">metrics</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">allow_missing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">pindex</span> <span class="o">=</span> <span class="n">get_index</span><span class="p">(</span><span class="n">csv_name</span><span class="o">=</span><span class="n">custom_index</span><span class="p">)</span> <span class="k">if</span> <span class="n">custom_index</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">get_index</span><span class="p">()</span>
+    <span class="n">expected_counts</span> <span class="o">=</span> <span class="n">get_expected_counts</span><span class="p">(</span><span class="n">pindex</span><span class="p">,</span> <span class="n">subsets</span><span class="p">)</span>
+    <span class="n">method_counts</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">metrics</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;method_name&quot;</span><span class="p">,</span> <span class="s2">&quot;monomer_name&quot;</span><span class="p">]]</span>
+        <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">patched_metrics</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">counts</span> <span class="ow">in</span> <span class="n">method_counts</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;method_name&quot;</span><span class="p">):</span>
+        <span class="n">counts</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">method_metrics</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;method_name == &#39;</span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+            <span class="n">drop</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">subset</span><span class="p">,</span> <span class="n">monomer</span><span class="p">),</span> <span class="n">expected</span> <span class="ow">in</span> <span class="n">expected_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">matching</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;monomer_name == &#39;</span><span class="si">{</span><span class="n">monomer</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">matching</span> <span class="o">=</span> <span class="n">matching</span><span class="p">[</span><span class="n">matching</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">expected</span><span class="p">[</span><span class="s2">&quot;ids&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+                <span class="n">drop</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+            <span class="n">actual</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">matching</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+            <span class="n">n_expected</span> <span class="o">=</span> <span class="n">expected</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]</span>
+            <span class="n">missing</span> <span class="o">=</span> <span class="n">n_expected</span> <span class="o">-</span> <span class="n">actual</span>
+            <span class="n">expected_ids</span> <span class="o">=</span> <span class="n">expected</span><span class="p">[</span><span class="s2">&quot;ids&quot;</span><span class="p">]</span>
+            <span class="n">missing_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">expected_ids</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">matching</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">monomer_metrics</span> <span class="o">=</span> <span class="n">method_metrics</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;monomer_name == &#39;</span><span class="si">{</span><span class="n">monomer</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">monomer_metrics</span> <span class="o">=</span> <span class="n">monomer_metrics</span><span class="p">[</span>
+                <span class="n">monomer_metrics</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">expected_ids</span><span class="p">)</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">monomer_metrics</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">monomer_metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;pinder_set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">subset</span>
+            <span class="k">if</span> <span class="n">actual</span> <span class="o">&lt;</span> <span class="n">n_expected</span><span class="p">:</span>
+                <span class="n">lab</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">monomer</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2"> is missing </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2"> systems from </span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_missing</span><span class="p">:</span>
+                    <span class="n">penalty_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+                        <span class="p">[</span>
+                            <span class="n">get_missing_system_penalty_metrics</span><span class="p">(</span>
+                                <span class="nb">id</span><span class="p">,</span> <span class="n">monomer</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">subset</span>
+                            <span class="p">)</span>
+                            <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">missing_ids</span>
+                        <span class="p">]</span>
+                    <span class="p">)</span>
+                    <span class="n">penalty_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                        <span class="n">penalty_metrics</span><span class="p">,</span>
+                        <span class="n">pindex</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;pinder_xl&quot;</span><span class="p">,</span> <span class="s2">&quot;pinder_s&quot;</span><span class="p">,</span> <span class="s2">&quot;pinder_af2&quot;</span><span class="p">]],</span>
+                    <span class="p">)</span>
+                    <span class="n">monomer_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+                        <span class="p">[</span><span class="n">monomer_metrics</span><span class="p">,</span> <span class="n">penalty_metrics</span><span class="p">]</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">patched_metrics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">monomer_metrics</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">patched_metrics</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No valid systems from pinder subsets present in metrics!&quot;</span><span class="p">)</span>
+    <span class="n">patched_metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">patched_metrics</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">patched_metrics</span></div>
+
+
+
+<div class="viewcode-block" id="get_missing_system_penalty_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.get_missing_system_penalty_metrics">[docs]</a>
+<span class="k">def</span> <span class="nf">get_missing_system_penalty_metrics</span><span class="p">(</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">monomer_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">method_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">pinder_set</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">penalty_rmsd</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">penalty_record</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="s2">&quot;missing_decoy_1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;native_name&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+        <span class="s2">&quot;model_folder&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">monomer_name</span><span class="si">}</span><span class="s2">_decoys&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="n">penalty_rmsd</span><span class="p">,</span>
+        <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="n">penalty_rmsd</span><span class="p">,</span>
+        <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="s2">&quot;CAPRI&quot;</span><span class="p">:</span> <span class="s2">&quot;Incorrect&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;receptor_chain&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ligand_chain&quot;</span><span class="p">:</span> <span class="s2">&quot;L&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;monomer_name&quot;</span><span class="p">:</span> <span class="n">monomer_name</span><span class="p">,</span>
+        <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+        <span class="s2">&quot;rank&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;decoy&quot;</span><span class="p">:</span> <span class="s2">&quot;missing_decoy_1.pdb&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pinder_set&quot;</span><span class="p">:</span> <span class="n">pinder_set</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">penalty_record</span></div>
+
+
+
+<div class="viewcode-block" id="CapriClass">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.CapriClass">[docs]</a>
+<span class="k">class</span> <span class="nc">CapriClass</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">capri_ranks</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Undef&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;Incorrect&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;Acceptable&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;Medium&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;High&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">capri_ranks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">inverse</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">capri_ranks</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="k">return</span> <span class="n">inverse</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Incorrect&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="MethodMetrics">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics">[docs]</a>
+<span class="k">class</span> <span class="nc">MethodMetrics</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">eval_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+        <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">allow_missing_systems</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">custom_index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Evaluate method using reference-based metrics.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        eval_dir : Path</span>
+<span class="sd">            Path containing one of two valid formats for eval directories.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">eval_dir</span> <span class="o">=</span> <span class="n">eval_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="n">parallel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allow_missing</span> <span class="o">=</span> <span class="n">allow_missing_systems</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">custom_index</span> <span class="o">=</span> <span class="n">custom_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display_columns</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;Interface RMSD (Å)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;Ligand RMSD(Å)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Method&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;pinder_set&quot;</span><span class="p">:</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;monomer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Monomer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;CAPRI_hit_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;CAPRI Hit Rate (%)&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;method_name&quot;</span><span class="p">,</span> <span class="s2">&quot;monomer_name&quot;</span><span class="p">,</span> <span class="s2">&quot;pinder_set&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank_regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d+(?=\D*$)&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_workers</span> <span class="o">=</span> <span class="n">max_workers</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;pd.Dataframe: The metrics table for the evaluation. If not yet computed, it is computed and cached.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metrics</span>
+
+<div class="viewcode-block" id="MethodMetrics.add_rank_column">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.add_rank_column">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">add_rank_column</span><span class="p">(</span><span class="n">metrics</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">rank_regex</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">ranks</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">decoy_name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">model_name</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rank_regex</span><span class="p">,</span> <span class="n">decoy_name</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="n">m</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;`</span><span class="si">{</span><span class="n">decoy_name</span><span class="si">}</span><span class="s2">` file name is unparsable&quot;</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">rank</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Unable to infer decoy rank from decoy name! </span><span class="si">{</span><span class="n">decoy_name</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;Note the regex pattern used to infer is </span><span class="si">{</span><span class="n">rank_regex</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+            <span class="n">ranks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>
+        <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;rank&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ranks</span>
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.get_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.get_metrics">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">get_eval_metrics_all_methods</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eval_dir</span><span class="p">,</span>
+            <span class="n">parallel</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parallel</span><span class="p">,</span>
+            <span class="n">custom_index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_index</span><span class="p">,</span>
+            <span class="n">max_workers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_workers</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_rank_column</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank_regex</span><span class="p">)</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">CapriClass</span><span class="p">()</span>
+        <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">CAPRI</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+        <span class="n">metrics</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;decoy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">model_name</span> <span class="o">+</span> <span class="s2">&quot;.pdb&quot;</span>
+        <span class="c1"># BiotiteDockQ columns that are superceded by MethodMetrics</span>
+        <span class="n">metrics</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">add_pinder_set</span><span class="p">(</span>
+            <span class="n">metrics</span><span class="p">,</span>
+            <span class="n">allow_missing</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">allow_missing</span><span class="p">,</span>
+            <span class="n">custom_index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">custom_index</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">metrics</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Insufficient systems to calculate leaderboard!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.oracle_median_summary">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.oracle_median_summary">[docs]</a>
+    <span class="k">def</span> <span class="nf">oracle_median_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">oracle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_oracle</span><span class="p">()</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span>
+        <span class="n">metric_cols</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+        <span class="n">agg</span> <span class="o">=</span> <span class="p">{</span><span class="n">metric</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">metric_cols</span><span class="p">}</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">agg</span><span class="p">)</span>
+        <span class="n">hit_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">oracle</span><span class="o">.</span><span class="n">CAPRI_rank</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">oracle</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;CAPRI_hit_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hit_rate</span>
+        <span class="k">return</span> <span class="n">summary</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">display_columns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.get_leaderboard_entry">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.get_leaderboard_entry">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_leaderboard_entry</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">top1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_k</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">top5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_k</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">q25</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_percentile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+        <span class="n">q50</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">top_percentile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="mf">0.50</span><span class="p">)</span>
+        <span class="n">system_oracle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">system_oracle</span><span class="p">()</span>
+
+        <span class="n">oracle_hit_rates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_hit_rates</span><span class="p">(</span><span class="n">system_oracle</span><span class="p">,</span> <span class="s2">&quot;oracle&quot;</span><span class="p">)</span>
+        <span class="n">top1_hit_rates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_hit_rates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_k_oracle</span><span class="p">(</span><span class="n">top1</span><span class="p">),</span> <span class="s2">&quot;Max(Top 1)&quot;</span><span class="p">)</span>
+        <span class="n">top5_hit_rates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_hit_rates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top_k_oracle</span><span class="p">(</span><span class="n">top5</span><span class="p">),</span> <span class="s2">&quot;Max(Top 5)&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get median metrics of oracle across all systems</span>
+        <span class="n">oracle_med</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_oracle</span><span class="p">(</span><span class="n">system_oracle</span><span class="p">)</span>
+        <span class="c1"># Get median metrics of the max(top K) across all systems</span>
+        <span class="n">top5_med</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_oracle</span><span class="p">(</span><span class="n">top5</span><span class="p">)</span>
+        <span class="n">top1_med</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_oracle</span><span class="p">(</span><span class="n">top1</span><span class="p">)</span>
+        <span class="c1"># Get median metrics of the max(top X percentile) across all systems</span>
+        <span class="n">q25_med</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_oracle</span><span class="p">(</span><span class="n">q25</span><span class="p">)</span>
+        <span class="n">q50_med</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">median_oracle</span><span class="p">(</span><span class="n">q50</span><span class="p">)</span>
+
+        <span class="n">top1_med</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;I-RMSD Median(Top 1)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;L-RMSD Median(Top 1)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="s2">&quot;Fnat Median(Top 1)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DockQ Median(Top 1)&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">top5_med</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;I-RMSD Median(Max(Top 5))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;L-RMSD Median(Max(Top 5))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="s2">&quot;Fnat Median(Max(Top 5))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DockQ Median(Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">q25_med</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;I-RMSD Median(Max(25%))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;L-RMSD Median(Max(25%))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="s2">&quot;Fnat Median(Max(25%))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DockQ Median(Max(25%))&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">q50_med</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;I-RMSD Median(Max(50%))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;L-RMSD Median(Max(50%))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="s2">&quot;Fnat Median(Max(50%))&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DockQ Median(Max(50%))&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">oracle_med</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;iRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;I-RMSD Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;LRMS&quot;</span><span class="p">:</span> <span class="s2">&quot;L-RMSD Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Fnat&quot;</span><span class="p">:</span> <span class="s2">&quot;Fnat Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;DockQ&quot;</span><span class="p">:</span> <span class="s2">&quot;DockQ Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">oracle_hit_rates</span><span class="p">,</span> <span class="n">top1_hit_rates</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">leaderboard</span><span class="p">,</span> <span class="n">top5_hit_rates</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">leaderboard</span><span class="p">,</span> <span class="n">top1_med</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+        <span class="p">)</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">leaderboard</span><span class="p">,</span> <span class="n">top5_med</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+        <span class="p">)</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">leaderboard</span><span class="p">,</span> <span class="n">q25_med</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+        <span class="p">)</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">leaderboard</span><span class="p">,</span> <span class="n">q50_med</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+        <span class="p">)</span>
+        <span class="n">leaderboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">leaderboard</span><span class="p">,</span> <span class="n">oracle_med</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+        <span class="p">)</span>
+        <span class="n">leaderboard</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">display_columns</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">col_order</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;Method&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Monomer&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD Median(Top 1)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD Median(Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD Median(Max(25%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD Median(Max(50%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD % ≤ 2Å (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD % ≤ 2Å (Max(Top 1))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;I-RMSD % ≤ 2Å (Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD Median(Top 1)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD Median(Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD Median(Max(25%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD Median(Max(50%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD % ≤ 5Å (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD % ≤ 5Å (Max(Top 1))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;L-RMSD % ≤ 5Å (Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat Median(Top 1)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat Median(Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat Median(Max(25%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat Median(Max(50%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat % ≥ 0.8 (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat % ≥ 0.8 (Max(Top 1))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Fnat % ≥ 0.8 (Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ Median(Top 1)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ Median(Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ Median(Max(25%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ Median(Max(50%))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ Median(Max(100%)) (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ </span><span class="si">% a</span><span class="s2">cceptable (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ % medium (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ </span><span class="si">% hi</span><span class="s2">gh (oracle)&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ </span><span class="si">% a</span><span class="s2">cceptable (Max(Top 1))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ % medium (Max(Top 1))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ </span><span class="si">% hi</span><span class="s2">gh (Max(Top 1))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ </span><span class="si">% a</span><span class="s2">cceptable (Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ % medium (Max(Top 5))&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;DockQ </span><span class="si">% hi</span><span class="s2">gh (Max(Top 5))&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">col_order</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Method&quot;</span><span class="p">,</span> <span class="s2">&quot;Dataset&quot;</span><span class="p">,</span> <span class="s2">&quot;Monomer&quot;</span><span class="p">]:</span>
+                <span class="n">leaderboard</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">leaderboard</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">leaderboard</span><span class="p">[</span><span class="n">col_order</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.median_oracle">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.median_oracle">[docs]</a>
+    <span class="k">def</span> <span class="nf">median_oracle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="c1"># Pandas agg for getting median of each metric</span>
+        <span class="n">med_agg</span> <span class="o">=</span> <span class="p">{</span><span class="n">metric</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">}</span>
+        <span class="n">method_groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span>
+        <span class="n">sys_groups</span> <span class="o">=</span> <span class="n">method_groups</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="c1"># Get &quot;oracle&quot; (max) within top 5 (by rank) per system</span>
+        <span class="n">sys_max</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">sys_groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">)</span>
+        <span class="c1"># Get median metrics of the oracle across all systems in df</span>
+        <span class="n">method_med</span> <span class="o">=</span> <span class="n">sys_max</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">method_groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">med_agg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">method_med</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.get_hit_rates">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.get_hit_rates">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_hit_rates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sys_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pose_set</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">hit_rates</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cols</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sys_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span><span class="p">):</span>
+            <span class="n">n_systems</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">irmsd_2A</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;iRMS &lt;= 2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_systems</span>
+            <span class="n">lrmsd_5A</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;LRMS &lt;= 5&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_systems</span>
+            <span class="n">fnat_08</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Fnat &gt;= 0.8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_systems</span>
+
+            <span class="n">acceptable</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank &gt;= 1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_systems</span>
+            <span class="n">med</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank &gt;= 2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_systems</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;CAPRI_rank &gt;= 3&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_systems</span>
+
+            <span class="n">row</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span><span class="p">}</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;I-RMSD % ≤ 2Å (</span><span class="si">{</span><span class="n">pose_set</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">irmsd_2A</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;L-RMSD % ≤ 5Å (</span><span class="si">{</span><span class="n">pose_set</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lrmsd_5A</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Fnat % ≥ 0.8 (</span><span class="si">{</span><span class="n">pose_set</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fnat_08</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;DockQ % acceptable (</span><span class="si">{</span><span class="n">pose_set</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">acceptable</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;DockQ % medium (</span><span class="si">{</span><span class="n">pose_set</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">med</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;DockQ % high (</span><span class="si">{</span><span class="n">pose_set</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">high</span> <span class="o">*</span> <span class="mi">100</span>
+            <span class="n">hit_rates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="n">hit_rates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">hit_rates</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">hit_rates</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.top_k">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.top_k">[docs]</a>
+    <span class="k">def</span> <span class="nf">top_k</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;rank&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.top_k_oracle">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.top_k_oracle">[docs]</a>
+    <span class="k">def</span> <span class="nf">top_k_oracle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.top_percentile">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.top_percentile">[docs]</a>
+    <span class="k">def</span> <span class="nf">top_percentile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">top_q</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">group_cols</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">):</span>
+            <span class="n">q_cut</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rank&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rank &lt;= </span><span class="si">{</span><span class="n">q_cut</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">top_q</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="n">top_q</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">top_q</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">top_q</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.system_oracle">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.system_oracle">[docs]</a>
+    <span class="k">def</span> <span class="nf">system_oracle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">oracle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">)</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">CapriClass</span><span class="p">()</span>
+        <span class="n">oracle</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;CAPRI&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">oracle</span><span class="o">.</span><span class="n">CAPRI_rank</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cc</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">oracle</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.system_median">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.system_median">[docs]</a>
+    <span class="k">def</span> <span class="nf">system_median</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">metric_aggs</span> <span class="o">=</span> <span class="p">{</span><span class="n">metric</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">metric_aggs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.method_median">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.method_median">[docs]</a>
+    <span class="k">def</span> <span class="nf">method_median</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span>
+        <span class="n">metric_aggs</span> <span class="o">=</span> <span class="p">{</span><span class="n">metric</span><span class="p">:</span> <span class="s2">&quot;median&quot;</span> <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">metric_aggs</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.method_oracle">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.method_oracle">[docs]</a>
+    <span class="k">def</span> <span class="nf">method_oracle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span>
+        <span class="n">oracle</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">oracle</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.system_capri_hit_rate">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.system_capri_hit_rate">[docs]</a>
+    <span class="k">def</span> <span class="nf">system_capri_hit_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">hit_rate</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groups</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">]</span>
+            <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;CAPRI_rank&quot;</span><span class="p">:</span> <span class="s2">&quot;CAPRI_hit_rate&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">hit_rate</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.median_capri_hit_rate">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.median_capri_hit_rate">[docs]</a>
+    <span class="k">def</span> <span class="nf">median_capri_hit_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">system_capri_hit_rate</span><span class="p">()</span><span class="o">.</span><span class="n">CAPRI_hit_rate</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MethodMetrics.histogram_plot">
+<a class="viewcode-back" href="../../../../source/pinder.eval.dockq.html#pinder.eval.dockq.method.MethodMetrics.histogram_plot">[docs]</a>
+    <span class="k">def</span> <span class="nf">histogram_plot</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">metric_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">metric_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&lt;br&gt;</span><span class="si">{</span><span class="n">monomer</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">monomer</span><span class="p">,</span> <span class="n">dataset</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">(</span><span class="n">metric_df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">metric</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
+                <span class="n">metric_df</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">value_vars</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">metric_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+                <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oracle_agg</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="p">)</span>
+            <span class="n">long</span> <span class="o">=</span> <span class="n">metric_df</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span>
+                <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata_cols</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="n">value_vars</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="s2">&quot;metric&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
+                <span class="n">long</span><span class="p">,</span>
+                <span class="n">x</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span>
+                <span class="n">facet_col</span><span class="o">=</span><span class="s2">&quot;metric&quot;</span><span class="p">,</span>
+                <span class="n">facet_col_wrap</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                <span class="n">barmode</span><span class="o">=</span><span class="s2">&quot;overlay&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">matches</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showticklabels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">matches</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">showticklabels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">bingroup</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, VantAI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+
+<p id="theme_credit"></p>
+  </body>
+</html>

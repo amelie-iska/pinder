@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pinder.data.qc.annotation_check &#8212; pinder 0.1.dev1+g8ad1ead documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=59943e95" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=28804041" />
+    <script src="../../../../_static/documentation_options.js?v=40280a1a"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/js/petite-vue.js"></script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../../index.html" title="Go to homepage"><img src="../../../../_static/pinder.png"/></a></h1>
+            <a id="source_link" href="https://github.com/pinder-org/pinder/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme_link.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/pinder.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../example_readme.html">Pinder abstractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq_link.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../limitations_link.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog_link.html">Dataset changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pinder.data.qc.annotation_check</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">pinder.core</span> <span class="kn">import</span> <span class="n">get_metadata</span>
+<span class="kn">from</span> <span class="nn">pinder.core.index.utils</span> <span class="kn">import</span> <span class="n">setup_logger</span>
+<span class="kn">from</span> <span class="nn">pinder.data.qc.utils</span> <span class="kn">import</span> <span class="n">load_index</span><span class="p">,</span> <span class="n">load_metadata</span>
+<span class="kn">from</span> <span class="nn">pinder.data.config</span> <span class="kn">import</span> <span class="n">ClusterConfig</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">setup_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="get_paired_uniprot_intersection">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.get_paired_uniprot_intersection">[docs]</a>
+<span class="k">def</span> <span class="nf">get_paired_uniprot_intersection</span><span class="p">(</span>
+    <span class="n">split_index</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">against</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the intersection of the uniprot pairs between the train and test/val splits</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        split_index: the split index dataframe</span>
+<span class="sd">        against: the split to compare against, either &quot;test&quot; or &quot;val&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">against</span> <span class="o">=</span> <span class="n">against</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">against</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;against must be either &#39;test&#39; or &#39;val&#39;&quot;</span><span class="p">)</span>
+
+    <span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;uniprot_pairs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">tuple</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">R</span><span class="p">,</span> <span class="n">L</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">R</span><span class="p">,</span> <span class="n">L</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">split_index</span><span class="o">.</span><span class="n">uniprot_R</span><span class="p">,</span> <span class="n">split_index</span><span class="o">.</span><span class="n">uniprot_L</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Creating sets of uniprot pairs for &#39;train&#39; and the chosen &#39;against&#39; split</span>
+    <span class="n">uniprot_train_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">split_index</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;uniprot_pairs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">uniprot_against_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">split_index</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">against</span><span class="p">,</span> <span class="s2">&quot;uniprot_pairs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Calculating the intersection of pairs</span>
+    <span class="n">problem_uniprots</span> <span class="o">=</span> <span class="n">uniprot_against_pairs</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">uniprot_train_pairs</span><span class="p">)</span>
+
+    <span class="c1"># Now compute the number of *elements* with problem uniprots</span>
+    <span class="n">problem_elements</span> <span class="o">=</span> <span class="n">split_index</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">against</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;uniprot_pairs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_uniprots</span><span class="p">))</span>
+    <span class="p">]</span>
+
+    <span class="c1"># What if we exclude &quot;UNDEFINED?&quot;</span>
+    <span class="n">problem_elements_noUNDEF</span> <span class="o">=</span> <span class="n">split_index</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">against</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;uniprot_pairs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_uniprots</span><span class="p">))</span>
+        <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;uniprot_pairs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([(</span><span class="s2">&quot;UNDEFINED&quot;</span><span class="p">,</span> <span class="s2">&quot;UNDEFINED&quot;</span><span class="p">)]))</span>
+    <span class="p">]</span>
+
+    <span class="n">against_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">split_index</span><span class="p">[</span><span class="n">split_index</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">against</span><span class="p">])</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Problem cases: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">problem_elements</span><span class="p">)</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="n">against_count</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">problem_elements</span><span class="p">)</span><span class="o">/</span><span class="n">against_count</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%) in &#39;</span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2">&#39; split&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Problem cases (excluding UNDEFINED): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">problem_elements_noUNDEF</span><span class="p">)</span><span class="si">}</span><span class="s2"> out of </span><span class="si">{</span><span class="n">against_count</span><span class="si">}</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">problem_elements_noUNDEF</span><span class="p">)</span><span class="o">/</span><span class="n">against_count</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%) in &#39;</span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2">&#39; split&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">frac_intersect</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">problem_elements_noUNDEF</span><span class="p">)</span> <span class="o">/</span> <span class="n">against_count</span> <span class="k">if</span> <span class="n">against_count</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;nan&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">problem_elements</span><span class="p">,</span> <span class="n">frac_intersect</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="metadata_to_ecod_pairs">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.metadata_to_ecod_pairs">[docs]</a>
+<span class="k">def</span> <span class="nf">metadata_to_ecod_pairs</span><span class="p">(</span>
+    <span class="n">meta_data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pindex</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert the metadata dataframe to a dataframe with ECOD pairs</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        meta_data: the metadata dataframe</span>
+<span class="sd">        pindex: the pindex dataframe</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ecod_RL: the ECOD pairs dataframe</span>
+<span class="sd">        test_ids: the test ids</span>
+<span class="sd">        val_ids: the val ids</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Using vectorized operations for interface lengths</span>
+    <span class="n">meta_data</span><span class="p">[</span><span class="s2">&quot;chain_R_interface_len&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">meta_data</span><span class="p">[</span><span class="s2">&quot;chain_1_residues&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">meta_data</span><span class="p">[</span><span class="s2">&quot;chain_L_interface_len&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">meta_data</span><span class="p">[</span><span class="s2">&quot;chain_2_residues&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Extracting unique test and validation IDs</span>
+    <span class="n">test_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">pindex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <span class="n">val_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">pindex</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+    <span class="c1"># Prepare right and left side ECOD data</span>
+    <span class="n">rename_R</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;ECOD_names_R&quot;</span><span class="p">:</span> <span class="s2">&quot;ECOD_names&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ECOD_intersection_R&quot;</span><span class="p">:</span> <span class="s2">&quot;ECOD_intersection&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chain_R_interface_len&quot;</span><span class="p">:</span> <span class="s2">&quot;interface_len&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">rename_L</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;ECOD_names_L&quot;</span><span class="p">:</span> <span class="s2">&quot;ECOD_names&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ECOD_intersection_L&quot;</span><span class="p">:</span> <span class="s2">&quot;ECOD_intersection&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chain_L_interface_len&quot;</span><span class="p">:</span> <span class="s2">&quot;interface_len&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">ecod_R</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">rename_R</span><span class="o">.</span><span class="n">keys</span><span class="p">())]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename_R</span><span class="p">)</span>
+    <span class="n">ecod_L</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">rename_L</span><span class="o">.</span><span class="n">keys</span><span class="p">())]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename_L</span><span class="p">)</span>
+
+    <span class="n">ecod_R</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;R&quot;</span>
+    <span class="n">ecod_L</span><span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;L&quot;</span>
+
+    <span class="c1"># Combining right and left side data</span>
+    <span class="n">ecod_RL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ecod_R</span><span class="p">,</span> <span class="n">ecod_L</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ecod_RL</span><span class="p">,</span> <span class="n">test_ids</span><span class="p">,</span> <span class="n">val_ids</span></div>
+
+
+
+<div class="viewcode-block" id="annotate_longest_intersecting_ecod_domain">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.annotate_longest_intersecting_ecod_domain">[docs]</a>
+<span class="k">def</span> <span class="nf">annotate_longest_intersecting_ecod_domain</span><span class="p">(</span>
+    <span class="n">ecod_RL</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">min_intersection</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">frac_interface_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Annotate the longest intersecting ECOD domain for each chain in the pair</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ecod_RL: the ECOD annotated dataframe</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ecod_RL_with_ecod: the ECOD annotated dataframe with the longest intersecting domain</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">max_intersect</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_intersect_domain</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sufficient_overlap</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ecod_labels</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">ecod_names</span><span class="p">,</span> <span class="n">ecod_inter</span><span class="p">,</span> <span class="n">interface_len</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">ecod_RL</span><span class="p">[</span><span class="s2">&quot;ECOD_names&quot;</span><span class="p">],</span> <span class="n">ecod_RL</span><span class="p">[</span><span class="s2">&quot;ECOD_intersection&quot;</span><span class="p">],</span> <span class="n">ecod_RL</span><span class="p">[</span><span class="s2">&quot;interface_len&quot;</span><span class="p">]</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ecod_inter</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">ecod_inter</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">intersections</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">ecod_inter</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)))</span>
+            <span class="n">largest_domain</span> <span class="o">=</span> <span class="n">ecod_names</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">intersections</span><span class="p">)]</span>
+            <span class="n">largest_intersect</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">intersections</span><span class="p">)</span>
+            <span class="n">sufficient</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">largest_intersect</span> <span class="o">&gt;</span> <span class="n">min_intersection</span>
+                <span class="ow">and</span> <span class="p">(</span><span class="n">largest_intersect</span> <span class="o">/</span> <span class="n">interface_len</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">frac_interface_threshold</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">sufficient</span><span class="p">:</span>
+                <span class="n">ecod_label</span> <span class="o">=</span> <span class="n">largest_domain</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ecod_label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">largest_intersect</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">largest_domain</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="n">sufficient</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">ecod_label</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">max_intersect</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">largest_intersect</span><span class="p">)</span>
+        <span class="n">max_intersect_domain</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">largest_domain</span><span class="p">)</span>
+        <span class="n">sufficient_overlap</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sufficient</span><span class="p">)</span>
+        <span class="n">ecod_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ecod_label</span><span class="p">)</span>
+
+    <span class="n">ecod_RL_with_ecod</span> <span class="o">=</span> <span class="n">ecod_RL</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">ecod_RL_with_ecod</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;ecod_domain&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_intersect_domain</span>
+    <span class="n">ecod_RL_with_ecod</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;ecod_domain_len&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_intersect</span>
+    <span class="n">ecod_RL_with_ecod</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;sufficient_overlap&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sufficient_overlap</span>
+    <span class="n">ecod_RL_with_ecod</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;ecod_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ecod_labels</span>
+
+    <span class="n">ecod_R</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ecod_RL_with_ecod</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;body == &#39;R&#39;&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="s2">&quot;ECOD_names&quot;</span><span class="p">,</span> <span class="s2">&quot;ECOD_intersection&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">ecod_L</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ecod_RL_with_ecod</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;body == &#39;L&#39;&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="s2">&quot;ECOD_names&quot;</span><span class="p">,</span> <span class="s2">&quot;ECOD_intersection&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">ecod_R</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+        <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">_R&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ecod_R</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;id&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">ecod_L</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+        <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">_L&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ecod_L</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;id&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ecod_RL_with_ecod</span><span class="p">,</span> <span class="n">ecod_R</span><span class="p">,</span> <span class="n">ecod_L</span></div>
+
+
+
+<div class="viewcode-block" id="merge_annotated_interfaces_with_pindex">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.merge_annotated_interfaces_with_pindex">[docs]</a>
+<span class="k">def</span> <span class="nf">merge_annotated_interfaces_with_pindex</span><span class="p">(</span>
+    <span class="n">pindex</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ecod_R</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">ecod_L</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Merge the annotated interfaces with the pindex dataframe</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pindex: the pindex dataframe</span>
+<span class="sd">        ecod_R: the ECOD annotated dataframe for chain R</span>
+<span class="sd">        ecod_L: the ECOD annotated dataframe for chain L</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pindex_with_RL: the pindex dataframe with the ECOD annotations</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pindex_with_RL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pindex</span><span class="p">,</span> <span class="n">ecod_R</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+    <span class="n">pindex_with_RL</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pindex_with_RL</span><span class="p">,</span> <span class="n">ecod_L</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+    <span class="n">str_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ecod_domain_R&quot;</span><span class="p">,</span> <span class="s2">&quot;ecod_label_R&quot;</span><span class="p">,</span> <span class="s2">&quot;ecod_domain_L&quot;</span><span class="p">,</span> <span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span>
+    <span class="n">int_cols</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;interface_len_R&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;interface_len_L&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ecod_domain_len_R&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ecod_domain_len_L&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">str_cols</span><span class="p">:</span>
+        <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">int_cols</span><span class="p">:</span>
+        <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+        <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">sufficient_overlap_R</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="s2">&quot;sufficient_overlap_R&quot;</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+        <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">sufficient_overlap_L</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="s2">&quot;sufficient_overlap_L&quot;</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;--&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">([</span><span class="n">r_lab</span><span class="p">,</span> <span class="n">l_lab</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">r_lab</span><span class="p">,</span> <span class="n">l_lab</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+            <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">],</span> <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_overlap_ratio_R&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_domain_len_R&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;interface_len_R&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_overlap_ratio_L&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_domain_len_L&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;interface_len_L&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">pindex_with_RL</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_safe_percentage</span><span class="p">(</span><span class="n">numerator</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">denom</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">denom</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">pct</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denom</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Total systems in denominator is 0, returning NaN&quot;</span><span class="p">)</span>
+        <span class="n">pct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">return</span> <span class="n">pct</span>
+
+
+<div class="viewcode-block" id="get_ecod_paired_leakage">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.get_ecod_paired_leakage">[docs]</a>
+<span class="k">def</span> <span class="nf">get_ecod_paired_leakage</span><span class="p">(</span>
+    <span class="n">metadata</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">pindex</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">frac_interface_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">min_intersection</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">top_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the ECOD paired leakage between the test and train/val splits</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        metadata: the metadata dataframe</span>
+<span class="sd">        pindex: the pindex dataframe</span>
+<span class="sd">        frac_interface_threshold: the fraction of the interface that must be covered by the ECOD domain</span>
+<span class="sd">        min_intersection: int</span>
+<span class="sd">            the minimum length of an interface</span>
+<span class="sd">        top_n: int</span>
+<span class="sd">            The number of leaked pairs to include in the output dataframe</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        problem_cases_test: the problem cases (potentially leaked ECOD accession pairs) in the test split</span>
+<span class="sd">        problem_cases_val: the problem cases (potentially leaked ECOD accession pairs) in the val split</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ecod_RL</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">metadata_to_ecod_pairs</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">pindex</span><span class="p">)</span>
+    <span class="n">ecod_RL</span><span class="p">,</span> <span class="n">ecod_R</span><span class="p">,</span> <span class="n">ecod_L</span> <span class="o">=</span> <span class="n">annotate_longest_intersecting_ecod_domain</span><span class="p">(</span>
+        <span class="n">ecod_RL</span><span class="p">,</span>
+        <span class="n">frac_interface_threshold</span><span class="o">=</span><span class="n">frac_interface_threshold</span><span class="p">,</span>
+        <span class="n">min_intersection</span><span class="o">=</span><span class="n">min_intersection</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">pindex_with_RL</span> <span class="o">=</span> <span class="n">merge_annotated_interfaces_with_pindex</span><span class="p">(</span><span class="n">pindex</span><span class="p">,</span> <span class="n">ecod_R</span><span class="p">,</span> <span class="n">ecod_L</span><span class="p">)</span>
+
+    <span class="n">unknown_domains</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;F_UNCLASSIFIED&quot;</span><span class="p">,</span> <span class="s2">&quot;UNK_F_TYPE&quot;</span><span class="p">]</span>
+    <span class="n">af2_test_ecod_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;pinder_af2 and ecod_label_R not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s2"> and ecod_label_L not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ecod_pair</span>
+    <span class="p">)</span>
+    <span class="n">af2_train_ecod_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;af2_train and ecod_label_R not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s2"> and ecod_label_L not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ecod_pair</span>
+    <span class="p">)</span>
+
+    <span class="n">pindex_nonpeptide</span> <span class="o">=</span> <span class="n">pindex_with_RL</span><span class="p">[</span>
+        <span class="o">~</span><span class="p">(</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;cluster_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;-1&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;cluster_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;p_p&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="p">]</span>
+    <span class="n">test_ecod_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">pindex_nonpeptide</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;split == &quot;test&quot; and ecod_label_R not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s1"> and ecod_label_L not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ecod_pair</span>
+    <span class="p">)</span>
+    <span class="n">val_ecod_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">pindex_nonpeptide</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;split == &quot;val&quot; and ecod_label_R not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s1"> and ecod_label_L not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ecod_pair</span>
+    <span class="p">)</span>
+
+    <span class="n">train_ecod_pairs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="n">pindex_nonpeptide</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;split == &quot;train&quot; and ecod_label_R not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s1"> and ecod_label_L not in </span><span class="si">{</span><span class="n">unknown_domains</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">ecod_pair</span>
+    <span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Total unique ECOD pairs: Test = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">test_ecod_pairs</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Val = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">val_ecod_pairs</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Train = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">train_ecod_pairs</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;AF2-Test = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">af2_test_ecod_pairs</span><span class="p">)</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;AF2-Train = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">af2_train_ecod_pairs</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">problem_cases_test</span> <span class="o">=</span> <span class="n">train_ecod_pairs</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">test_ecod_pairs</span><span class="p">)</span>
+    <span class="n">problem_cases_val</span> <span class="o">=</span> <span class="n">train_ecod_pairs</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">val_ecod_pairs</span><span class="p">)</span>
+    <span class="n">problem_cases_af2</span> <span class="o">=</span> <span class="n">af2_train_ecod_pairs</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">af2_test_ecod_pairs</span><span class="p">)</span>
+
+    <span class="c1"># What percent of the test set has ecod overlap with train?</span>
+    <span class="n">num_test_with_problems</span> <span class="o">=</span> <span class="n">pindex_nonpeptide</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">pindex_nonpeptide</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_nonpeptide</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_cases_test</span><span class="p">))</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">num_test_total</span> <span class="o">=</span> <span class="n">pindex_nonpeptide</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;split == &quot;test&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pct_test_overlap</span> <span class="o">=</span> <span class="n">_safe_percentage</span><span class="p">(</span><span class="n">num_test_with_problems</span><span class="p">,</span> <span class="n">num_test_total</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of test set with same ECOD pair as train:&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">pct_test_overlap</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% (</span><span class="si">{</span><span class="n">num_test_with_problems</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">num_test_total</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">num_af_with_problems</span> <span class="o">=</span> <span class="n">pindex_with_RL</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;pinder_af2&quot;</span><span class="p">])</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_cases_af2</span><span class="p">))</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">num_af_total</span> <span class="o">=</span> <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;pinder_af2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pct_af_overlap</span> <span class="o">=</span> <span class="n">_safe_percentage</span><span class="p">(</span><span class="n">num_af_with_problems</span><span class="p">,</span> <span class="n">num_af_total</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of PINDER-AF2 set with same ECOD pair as AF2-train:&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">pct_af_overlap</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% (</span><span class="si">{</span><span class="n">num_af_with_problems</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">num_af_total</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># What percent of the val set has ecod overlap with train?</span>
+    <span class="n">num_val_with_problems</span> <span class="o">=</span> <span class="n">pindex_nonpeptide</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">pindex_nonpeptide</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;val&quot;</span><span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_nonpeptide</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_cases_val</span><span class="p">))</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">num_val_total</span> <span class="o">=</span> <span class="n">pindex_nonpeptide</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;split == &quot;val&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pct_val_overlap</span> <span class="o">=</span> <span class="n">_safe_percentage</span><span class="p">(</span><span class="n">num_val_with_problems</span><span class="p">,</span> <span class="n">num_val_total</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of val set with same ECOD pair as train:&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="n">pct_val_overlap</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% (</span><span class="si">{</span><span class="n">num_val_with_problems</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">num_val_total</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;Measure&quot;</span><span class="p">:</span> <span class="s2">&quot;Leakage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Metric&quot;</span><span class="p">:</span> <span class="s2">&quot;ECOD pair&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Test&quot;</span><span class="p">:</span> <span class="n">pct_test_overlap</span><span class="p">,</span>
+                <span class="s2">&quot;Val&quot;</span><span class="p">:</span> <span class="n">pct_val_overlap</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">df_problem_cases_af2</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pindex_with_RL</span><span class="p">[(</span><span class="n">pindex_with_RL</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_cases_af2</span><span class="p">))]</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">,</span> <span class="s2">&quot;pinder_af2&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">top_n</span> <span class="k">if</span> <span class="n">top_n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="n">df_problem_cases_test</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pindex_nonpeptide</span><span class="p">[(</span><span class="n">pindex_nonpeptide</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_cases_test</span><span class="p">))]</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">top_n</span> <span class="k">if</span> <span class="n">top_n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="n">df_problem_cases_val</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pindex_nonpeptide</span><span class="p">[(</span><span class="n">pindex_nonpeptide</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">problem_cases_val</span><span class="p">))]</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">],</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">top_n</span> <span class="k">if</span> <span class="n">top_n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pindex_with_RL</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ecod_pair&quot;</span><span class="p">,</span> <span class="s2">&quot;split&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">df_problem_cases_test</span><span class="p">,</span>
+        <span class="n">df_problem_cases_val</span><span class="p">,</span>
+        <span class="n">df_problem_cases_af2</span><span class="p">,</span>
+        <span class="n">pindex_with_RL</span><span class="p">,</span>
+        <span class="n">report</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_binding_leakage">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.get_binding_leakage">[docs]</a>
+<span class="k">def</span> <span class="nf">get_binding_leakage</span><span class="p">(</span>
+    <span class="n">annotated_pindex</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">against</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtains the chain level binding site leakage between the test/val and train splits&quot;&quot;&quot;</span>
+    <span class="n">against</span> <span class="o">=</span> <span class="n">against</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">against</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;test&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;val&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pinder_af2&quot;</span><span class="p">,</span>
+    <span class="p">],</span> <span class="s2">&quot;against must be either test, val or pinder_af2&quot;</span>
+    <span class="k">assert</span> <span class="s2">&quot;ecod_label_R&quot;</span> <span class="ow">in</span> <span class="n">annotated_pindex</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;ecod_label_R not in pindex&quot;</span>
+    <span class="k">assert</span> <span class="s2">&quot;ecod_label_L&quot;</span> <span class="ow">in</span> <span class="n">annotated_pindex</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s2">&quot;ecod_label_L not in pindex&quot;</span>
+
+    <span class="n">annotated_pindex_all</span> <span class="o">=</span> <span class="n">annotated_pindex</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">annotated_pindex</span> <span class="o">=</span> <span class="n">annotated_pindex</span><span class="p">[</span>
+        <span class="o">~</span><span class="p">(</span><span class="n">annotated_pindex</span><span class="p">[</span><span class="s2">&quot;cluster_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;-1&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="o">&amp;</span> <span class="o">~</span><span class="p">(</span><span class="n">annotated_pindex</span><span class="p">[</span><span class="s2">&quot;cluster_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;p_p&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="p">]</span>
+
+    <span class="n">ecod_labels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">split_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;pinder_af2&quot;</span><span class="p">,</span> <span class="s2">&quot;af2_train&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;af2&quot;</span> <span class="ow">in</span> <span class="n">split_type</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">annotated_pindex_all</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">split_type</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">annotated_pindex</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">split_type</span>
+        <span class="n">split_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">ecod_labels</span><span class="p">[</span><span class="n">split_type</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">split_data</span><span class="o">.</span><span class="n">ecod_label_R</span><span class="p">)</span><span class="o">.</span><span class="n">union</span><span class="p">(</span>
+            <span class="nb">set</span><span class="p">(</span><span class="n">split_data</span><span class="o">.</span><span class="n">ecod_label_L</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Report this:</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="s2">&quot;Total unique ECOD domains: &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Test = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s1">&#39;test&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Val = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Train = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;AF2-Test = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s1">&#39;pinder_af2&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;AF2-Train = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s1">&#39;af2_train&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># We want to know how many unique ecods we have in our test/val set</span>
+    <span class="k">if</span> <span class="n">against</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">]:</span>
+        <span class="n">pindex_df</span> <span class="o">=</span> <span class="n">annotated_pindex</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">against_mask</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">against</span>
+        <span class="c1"># unique_test_val_ecods</span>
+        <span class="n">unique_ecod_labels</span> <span class="o">=</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">])</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">]))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">ecod_labels</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pindex_df</span> <span class="o">=</span> <span class="n">annotated_pindex_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">against_mask</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;pinder_af2&quot;</span><span class="p">]</span>
+        <span class="c1"># unique pinder_af2 ecods</span>
+        <span class="n">unique_ecod_labels</span> <span class="o">=</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ecod_labels</span><span class="p">[</span><span class="s2">&quot;pinder_af2&quot;</span><span class="p">]))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">ecod_labels</span><span class="p">[</span><span class="s2">&quot;af2_train&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="c1"># How many test set members have no ECOD not in train?</span>
+    <span class="n">no_unique_ecod</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="o">~</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="o">~</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># How many test set members have exactly one ECOD not in train?</span>
+    <span class="n">one_unique_ecod</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">^</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># How many test set members have exactly one ECOD not in train?</span>
+    <span class="n">both_unique_ecod_df</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">both_unique_ecod</span> <span class="o">=</span> <span class="n">both_unique_ecod_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># What is the size of our set?</span>
+    <span class="n">against_size</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="n">against_mask</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Size of </span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2"> set: </span><span class="si">{</span><span class="n">against_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of </span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2"> set with &lt;0, 1, 2&gt; unique ECOD:</span><span class="se">\t</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">no_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">one_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">both_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&gt;&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">pair_ecod_diversity</span> <span class="o">=</span> <span class="n">_safe_percentage</span><span class="p">(</span><span class="n">both_unique_ecod</span><span class="p">,</span> <span class="n">against_size</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of </span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2"> set with at least 1 unique ECOD:</span><span class="se">\t</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">one_unique_ecod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">both_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1">## Now to look at heterodimers</span>
+    <span class="c1"># How many heterdimers are there, anyway?</span>
+    <span class="n">num_het</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_L&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_R&quot;</span><span class="p">])</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># How many test set heterodimers have no ECOD not in train?</span>
+    <span class="n">het_no_unique_ecod</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="o">~</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="o">~</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_L&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_R&quot;</span><span class="p">])</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># How many test set heterodimers have exactly one ECOD not in train?</span>
+    <span class="n">het_one_unique_ecod</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">^</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_L&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_R&quot;</span><span class="p">])</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># How many test set heterodimers have exactly one ECOD not in train?</span>
+    <span class="n">het_both_unique_ecod</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_L&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;uniprot_R&quot;</span><span class="p">])</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of </span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2"> set that are heterodimers: </span><span class="se">\t</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">num_het</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of </span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2"> set that are heterodimers with &lt;0, 1, 2&gt; unique ECOD:</span><span class="se">\t</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">het_no_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">het_one_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">het_both_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&gt;&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Percent of </span><span class="si">{</span><span class="n">against</span><span class="si">}</span><span class="s2"> set that are heterodimers with at least 1 unique ECOD:</span><span class="se">\t</span><span class="s2"> &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_safe_percentage</span><span class="p">(</span><span class="n">het_one_unique_ecod</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">het_both_unique_ecod</span><span class="p">,</span><span class="w"> </span><span class="n">against_size</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="c1"># We are interested in the &quot;at least one unique&quot; set, mostly</span>
+    <span class="n">test_unique_ecod_df</span> <span class="o">=</span> <span class="n">pindex_df</span><span class="p">[</span>
+        <span class="n">against_mask</span>
+        <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_R&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+            <span class="o">|</span> <span class="n">pindex_df</span><span class="p">[</span><span class="s2">&quot;ecod_label_L&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">unique_ecod_labels</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">test_unique_ecod_df</span><span class="p">,</span> <span class="n">pair_ecod_diversity</span></div>
+
+
+
+<div class="viewcode-block" id="binding_leakage_main">
+<a class="viewcode-back" href="../../../../source/pinder.data.qc.html#pinder.data.qc.annotation_check.binding_leakage_main">[docs]</a>
+<span class="k">def</span> <span class="nf">binding_leakage_main</span><span class="p">(</span>
+    <span class="n">index_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">metadata_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">frac_interface_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">min_intersection</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract ECOD paired binding site leakage for test and val splits.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        index_file (str | None): Path to custom/intermediate index file, if not provided will use get_index().</span>
+<span class="sd">        metadata_file (str | None): Path to custom/intermediate metadata file, if not provided will use get_metadata().</span>
+<span class="sd">        frac_interface_threshold (float): Fraction of interface required to be covered by ECOD domain.</span>
+<span class="sd">            Default is 0.25.</span>
+<span class="sd">        min_intersection (int): Minimum required intersection between interface and ECOD domain.</span>
+<span class="sd">            Default is 10.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple[pd.DataFrame, pd.DataFrame]: The test and val split binding leakage, respectively.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="s2">&quot;Starting ECOD paired binding leakage analysis script, parsing arguments...&quot;</span>
+    <span class="p">)</span>
+    <span class="n">pindex</span> <span class="o">=</span> <span class="n">load_index</span><span class="p">(</span><span class="n">index_file</span><span class="p">)</span>
+    <span class="n">metadata</span> <span class="o">=</span> <span class="n">load_metadata</span><span class="p">(</span><span class="n">metadata_file</span><span class="p">)</span>
+
+    <span class="n">pindex</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">get_metadata</span><span class="p">()</span>
+
+    <span class="n">pindex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pindex</span><span class="p">,</span> <span class="n">meta</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+    <span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;object&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="n">af2_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">ClusterConfig</span><span class="p">()</span><span class="o">.</span><span class="n">alphafold_cutoff_date</span><span class="p">)</span>
+    <span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;af2_train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">af2_date</span>
+
+    <span class="c1"># Get the leakage between train and [val, test]</span>
+    <span class="n">all_splits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;invalid&quot;</span><span class="p">]</span>
+    <span class="n">pindex_all_splits</span> <span class="o">=</span> <span class="n">pindex</span><span class="p">[</span><span class="n">pindex</span><span class="p">[</span><span class="s2">&quot;split&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">all_splits</span><span class="p">)]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">(</span>
+        <span class="n">test_problems</span><span class="p">,</span>
+        <span class="n">val_problems</span><span class="p">,</span>
+        <span class="n">af2_problems</span><span class="p">,</span>
+        <span class="n">pindex_RL</span><span class="p">,</span>
+        <span class="n">leak_report</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">get_ecod_paired_leakage</span><span class="p">(</span>
+        <span class="n">metadata</span><span class="p">,</span>
+        <span class="n">pindex_all_splits</span><span class="p">,</span>
+        <span class="n">frac_interface_threshold</span><span class="o">=</span><span class="n">frac_interface_threshold</span><span class="p">,</span>
+        <span class="n">min_intersection</span><span class="o">=</span><span class="n">min_intersection</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">test_at_least_one_unique</span><span class="p">,</span> <span class="n">test_ecod_pair_diversity</span> <span class="o">=</span> <span class="n">get_binding_leakage</span><span class="p">(</span>
+        <span class="n">pindex_RL</span><span class="p">,</span> <span class="n">against</span><span class="o">=</span><span class="s2">&quot;test&quot;</span>
+    <span class="p">)</span>
+    <span class="n">val_at_least_one_unique</span><span class="p">,</span> <span class="n">val_ecod_pair_diversity</span> <span class="o">=</span> <span class="n">get_binding_leakage</span><span class="p">(</span>
+        <span class="n">pindex_RL</span><span class="p">,</span> <span class="n">against</span><span class="o">=</span><span class="s2">&quot;val&quot;</span>
+    <span class="p">)</span>
+    <span class="n">af2_at_least_one_unique</span><span class="p">,</span> <span class="n">af2_ecod_pair_diversity</span> <span class="o">=</span> <span class="n">get_binding_leakage</span><span class="p">(</span>
+        <span class="n">pindex_RL</span><span class="p">,</span> <span class="n">against</span><span class="o">=</span><span class="s2">&quot;pinder_af2&quot;</span>
+    <span class="p">)</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;Measure&quot;</span><span class="p">:</span> <span class="s2">&quot;Diversity&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Metric&quot;</span><span class="p">:</span> <span class="s2">&quot;Unique ECOD pairs&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Test&quot;</span><span class="p">:</span> <span class="n">test_ecod_pair_diversity</span><span class="p">,</span>
+                <span class="s2">&quot;Val&quot;</span><span class="p">:</span> <span class="n">val_ecod_pair_diversity</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">report</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">report</span><span class="p">,</span> <span class="n">leak_report</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">test_at_least_one_unique</span><span class="p">,</span>
+        <span class="n">val_at_least_one_unique</span><span class="p">,</span>
+        <span class="n">af2_at_least_one_unique</span><span class="p">,</span>
+        <span class="n">report</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, VantAI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+
+<p id="theme_credit"></p>
+  </body>
+</html>

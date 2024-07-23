@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pinder.data.pipeline.data_pipeline &#8212; pinder 0.1.dev1+g8ad1ead documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/basic_mod.css?v=59943e95" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=28804041" />
+    <script src="../../../../_static/documentation_options.js?v=40280a1a"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/js/petite-vue.js"></script>
+    <link rel="icon" href="../../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../../index.html" title="Go to homepage"><img src="../../../../_static/pinder.png"/></a></h1>
+            <a id="source_link" href="https://github.com/pinder-org/pinder/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme_link.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/pinder.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../example_readme.html">Pinder abstractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../faq_link.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../limitations_link.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog_link.html">Dataset changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pinder.data.pipeline.data_pipeline</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Sized</span><span class="p">,</span> <span class="n">TypeVar</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">ParamSpec</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils.log</span> <span class="kn">import</span> <span class="n">setup_logger</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils.cloud</span> <span class="kn">import</span> <span class="n">get_container_cpu_frac</span>
+<span class="kn">from</span> <span class="nn">pinder.data</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">alignment_utils</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">,</span>
+    <span class="n">find_transitive_hits</span><span class="p">,</span>
+    <span class="n">foldseek_utils</span><span class="p">,</span>
+    <span class="n">get_alignment_similarity</span><span class="p">,</span>
+    <span class="n">get_annotations</span><span class="p">,</span>
+    <span class="n">get_apo</span><span class="p">,</span>
+    <span class="n">get_clusters</span><span class="p">,</span>
+    <span class="n">get_data</span><span class="p">,</span>
+    <span class="n">get_dimers</span><span class="p">,</span>
+    <span class="n">get_splits</span><span class="p">,</span>
+    <span class="n">get_test_set</span><span class="p">,</span>
+    <span class="n">graph_utils</span><span class="p">,</span>
+    <span class="n">rcsb_rsync</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pinder.data.annotation</span> <span class="kn">import</span> <span class="n">graphql</span>
+<span class="kn">from</span> <span class="nn">pinder.data.csv_utils</span> <span class="kn">import</span> <span class="n">read_csv_non_default_na</span>
+<span class="kn">from</span> <span class="nn">pinder.data.pipeline</span> <span class="kn">import</span> <span class="n">cache</span><span class="p">,</span> <span class="n">scatter</span>
+<span class="kn">from</span> <span class="nn">pinder.data.pipeline.tasks</span> <span class="kn">import</span> <span class="n">get_stage_tasks</span><span class="p">,</span> <span class="n">run_task</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">ParamSpec</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">setup_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">stages</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bool</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;download_rcsb_files&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_download_rcsb_files_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;download_rcsb_files&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;codes&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ingest_rcsb_files&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_cif_ingest_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ingest_rcsb_files&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;mmcif_files&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_pisa_annotations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_pisa_annotation_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_pisa_annotations&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;mmcif_files&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_rcsb_annotations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_rcsb_annotation_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_rcsb_annotations&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;pdb_ids&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;join_rcsb_annotations&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_dimer_annotations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_dimer_annotation_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_dimer_annotations&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;dimer_pdbs&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;collect_dimer_annotations&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_dimer_contacts&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_foldseek_contacts_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_dimer_contacts&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;dimer_pdbs&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;collect_foldseek_contacts&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;populate_entries&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_populate_entry_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;populate_entries&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;entry_dirs&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;populate_predicted&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_populate_predicted_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;populate_predicted&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;entry_dirs&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;index_dimers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;index_dimers&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;add_predicted_monomers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;add_predicted_monomers&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_apo&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_valid_apo_monomers&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_apo_pairing_metric_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_apo_pairing_metrics&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;df_batch&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;join_apo_pairing_metrics&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;add_apo_pairings_to_index&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;foldseek&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;create_foldseek_dbs&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_foldseek_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;run_foldseek&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;db_indices&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;join_foldseek&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;mmseqs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;create_mmseqs_dbs&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_mmseqs_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;run_mmseqs&quot;</span><span class="p">,</span> <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;db_indices&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;join_mmseqs&quot;</span><span class="p">,</span> <span class="s2">&quot;join_step&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;interface_graph&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;construct_interface_graph&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;foldseek_graph&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;construct_foldseek_graph&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;mmseqs_graph&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;construct_mmseqs_graph&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;cluster&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;deleak&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;generate_find_leakage_tasks&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;find_leakage&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributed&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;input_kwarg&quot;</span><span class="p">:</span> <span class="s2">&quot;graph_batch&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_transitive_hits&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_af2_hard_difficulty_transitive_hits&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_splits&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_splits&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_alignment_similarity&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;construct_final_index&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;get_test_set&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;method_name&quot;</span><span class="p">:</span> <span class="s2">&quot;get_test_set&quot;</span><span class="p">,</span> <span class="s2">&quot;distributor&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="save_stage_metadata">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.save_stage_metadata">[docs]</a>
+<span class="k">def</span> <span class="nf">save_stage_metadata</span><span class="p">(</span>
+    <span class="n">pinder_mount</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">step_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">version_metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">pinder_mount</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">step_name</span><span class="si">}</span><span class="s2">-metadata.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">version_metadata</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="year_month">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.year_month">[docs]</a>
+<span class="k">def</span> <span class="nf">year_month</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">pinder_version</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pinder_version</span></div>
+
+
+
+<div class="viewcode-block" id="task_step">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.task_step">[docs]</a>
+<span class="k">def</span> <span class="nf">task_step</span><span class="p">(</span>
+    <span class="n">step_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">save_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span><span class="p">]],</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]]:</span>
+    <span class="k">def</span> <span class="nf">task_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">:</span> <span class="n">DataIngestPipeline</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">save_metadata</span><span class="p">:</span>
+                <span class="c1"># Only save per-stage version metadata json if requested.</span>
+                <span class="c1"># We want to avoid overwriting same file if the task is being scattered.</span>
+                <span class="n">save_stage_metadata</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span><span class="p">,</span> <span class="n">step_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_version_metadata</span>
+                <span class="p">)</span>
+            <span class="c1"># Pre-invocation logic, determine whether to skip the task</span>
+            <span class="n">skip</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">skip_step</span><span class="p">(</span>
+                <span class="n">step_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_specific_step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_specific_step</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">skip</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">task_decorator</span></div>
+
+
+
+<div class="viewcode-block" id="scatter_step">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.scatter_step">[docs]</a>
+<span class="k">def</span> <span class="nf">scatter_step</span><span class="p">(</span>
+    <span class="n">step_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span><span class="p">]],</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]]:</span>
+    <span class="k">def</span> <span class="nf">scatter_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">:</span> <span class="n">DataIngestPipeline</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">P</span><span class="o">.</span><span class="n">kwargs</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Auto-save per-stage version metadata json</span>
+            <span class="n">save_stage_metadata</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span><span class="p">,</span> <span class="n">step_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_version_metadata</span>
+            <span class="p">)</span>
+            <span class="c1"># Pre-invocation logic, determine whether to skip the task</span>
+            <span class="n">skip</span> <span class="o">=</span> <span class="n">cache</span><span class="o">.</span><span class="n">skip_step</span><span class="p">(</span>
+                <span class="n">step_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_specific_step</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_specific_step</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">skip</span><span class="p">:</span>
+                <span class="c1"># Set scatter_batches and short-circuit the steps scatter method</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="p">[[]]</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapper</span>
+
+    <span class="k">return</span> <span class="n">scatter_decorator</span></div>
+
+
+
+<div class="viewcode-block" id="DataIngestPipeline">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline">[docs]</a>
+<span class="k">class</span> <span class="nc">DataIngestPipeline</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">image</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="n">pinder_mount_point</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;.local/share/pinder&quot;</span><span class="p">),</span>
+        <span class="n">pinder_release</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;2024-02&quot;</span><span class="p">,</span>
+        <span class="n">ingest_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">PinderDataGenConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">PinderDataGenConfig</span><span class="p">(),</span>
+        <span class="n">contact_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">ContactConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ContactConfig</span><span class="p">(),</span>
+        <span class="n">transient_interface_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">TransientInterfaceConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">TransientInterfaceConfig</span><span class="p">(),</span>
+        <span class="n">foldseek_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">FoldseekConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">FoldseekConfig</span><span class="p">(),</span>
+        <span class="n">mmseqs_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">MMSeqsConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">MMSeqsConfig</span><span class="p">(),</span>
+        <span class="n">scatter_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">ScatterConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ScatterConfig</span><span class="p">(),</span>
+        <span class="n">graph_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">GraphConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">GraphConfig</span><span class="p">(),</span>
+        <span class="n">cluster_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">ClusterConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ClusterConfig</span><span class="p">(),</span>
+        <span class="n">apo_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">ApoPairingConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">ApoPairingConfig</span><span class="p">(),</span>
+        <span class="n">ialign_config</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">IalignConfig</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">IalignConfig</span><span class="p">(),</span>
+        <span class="n">two_char_code</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">run_specific_step</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">skip_specific_step</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">google_cloud_project</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;vantai-analysis&quot;</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        image: str</span>
+<span class="sd">            The fully-specified docker image to use for data ingestion. It is stored along with pinder_release in</span>
+<span class="sd">            in a json file per pipeline stage as version metadata. If running locally, it default to `local`.</span>
+<span class="sd">        pinder_mount_point: str</span>
+<span class="sd">            The root directory in which to store data ingestion. Defaults to /pinder.</span>
+<span class="sd">            Note: this parameter and the pipeline are compatible with NFS file mount locations.</span>
+<span class="sd">        pinder_release: str</span>
+<span class="sd">            The year-month formatted pinder version to use. Defaults to static release.</span>
+<span class="sd">            Specify empty string to switch to current month.</span>
+<span class="sd">        ingest_config: config.PinderDataGenConfig</span>
+<span class="sd">            Configuration parameters used for data ingestion / generation.</span>
+<span class="sd">        contact_config: config.ContactConfig</span>
+<span class="sd">            Configuration parameters used for extracting dimer contacts in foldseek residue numbering conventions.</span>
+<span class="sd">        transient_interface_config: config.TransientInterfaceConfig</span>
+<span class="sd">            Configuration parameters used for assigning labels to potentially transient/weak interfaces.</span>
+<span class="sd">        foldseek_config: config.FoldseekConfig</span>
+<span class="sd">            Configuration parameters used for running foldseek on dimer chains.</span>
+<span class="sd">        mmseqs_config: config.MMSeqsConfig</span>
+<span class="sd">            Configuration parameters used for running mmseqs on dimer chains.</span>
+<span class="sd">        scatter_config: config.ScatterConfig</span>
+<span class="sd">            Batching parameters used for defining foreach scatter task sizes.</span>
+<span class="sd">        graph_config: config.GraphConfig</span>
+<span class="sd">            Config parameters for constructing graphs from alignment files.</span>
+<span class="sd">        cluster_config: config.ClusterConfig</span>
+<span class="sd">            Config parameters for clustering the pinder dimers and generating splits.</span>
+<span class="sd">        apo_config: config.ApoPairingConfig</span>
+<span class="sd">            Config parameters for evaluating and pairing apo monomers with holo dimer monomers.</span>
+<span class="sd">        ialign_config: config.IalignConfig</span>
+<span class="sd">            Configuration parameters for evaluating potential alignment leakage via iAlign.</span>
+<span class="sd">        two_char_code: str | None</span>
+<span class="sd">            A two character code representing the batch of files to download.</span>
+<span class="sd">            If not provided, all files will be downloaded. Pattern is *{two_char_code}* for matching PDB IDs.</span>
+<span class="sd">        run_specific_step: str</span>
+<span class="sd">           Target a specific step of the workflow (only works if there has been a partial run previously).</span>
+<span class="sd">           The value should be the name of a DAG step.</span>
+<span class="sd">        skip_specific_step: str</span>
+<span class="sd">           Skip a specific step of the workflow (only works if there has been a partial run previously).</span>
+<span class="sd">           The value should be the name of a DAG step.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">step_name</span> <span class="o">=</span> <span class="s2">&quot;start&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">run_specific_step</span> <span class="o">=</span> <span class="n">run_specific_step</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip_specific_step</span> <span class="o">=</span> <span class="n">skip_specific_step</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">ingest_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">contact_config</span> <span class="o">=</span> <span class="n">contact_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">transient_interface_config</span> <span class="o">=</span> <span class="n">transient_interface_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">foldseek_config</span> <span class="o">=</span> <span class="n">foldseek_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mmseqs_config</span> <span class="o">=</span> <span class="n">mmseqs_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span> <span class="o">=</span> <span class="n">scatter_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span> <span class="o">=</span> <span class="n">graph_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span> <span class="o">=</span> <span class="n">cluster_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">apo_config</span> <span class="o">=</span> <span class="n">apo_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ialign_config</span> <span class="o">=</span> <span class="n">ialign_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span> <span class="o">=</span> <span class="n">use_cache</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">two_char_code</span> <span class="o">=</span> <span class="n">two_char_code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">google_cloud_project</span> <span class="o">=</span> <span class="n">google_cloud_project</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pinder_version</span> <span class="o">=</span> <span class="n">pinder_release</span> <span class="k">if</span> <span class="n">pinder_release</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="k">else</span> <span class="n">year_month</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">pinder_mount_point</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stage_version_metadata</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">image</span><span class="p">,</span>
+            <span class="s2">&quot;pinder_version&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_version</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">save_stage_metadata</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span><span class="p">,</span> <span class="n">step_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_version_metadata</span><span class="p">)</span>
+        <span class="c1"># Save config collection to json with config dataclass name as file name.</span>
+        <span class="n">config_collection</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">ingest_config</span><span class="p">,</span>
+            <span class="n">contact_config</span><span class="p">,</span>
+            <span class="n">transient_interface_config</span><span class="p">,</span>
+            <span class="n">foldseek_config</span><span class="p">,</span>
+            <span class="n">mmseqs_config</span><span class="p">,</span>
+            <span class="n">scatter_config</span><span class="p">,</span>
+            <span class="n">graph_config</span><span class="p">,</span>
+            <span class="n">cluster_config</span><span class="p">,</span>
+            <span class="n">apo_config</span><span class="p">,</span>
+            <span class="n">ialign_config</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">cfg</span> <span class="ow">in</span> <span class="n">config_collection</span><span class="p">:</span>
+            <span class="n">cfg_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cfg_name</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">contact_config_hash</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_config_hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_config_hash</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_config_hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_config_hash</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get_config_hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_config_hash</span><span class="si">}</span><span class="s2">.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_config</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataIngestPipeline.run">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.run">[docs]</a>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">stage</span> <span class="ow">in</span> <span class="n">stages</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;# Starting PINDER-DATA stage </span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span> <span class="o">*</span> <span class="mi">20</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">run_stage</span><span class="p">(</span><span class="n">stage</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.run_stage">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.run_stage">[docs]</a>
+    <span class="k">def</span> <span class="nf">run_stage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stage_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">specific_method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">stage_name</span> <span class="ow">in</span> <span class="n">stages</span>
+        <span class="n">batches</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">step_spec</span> <span class="ow">in</span> <span class="n">stages</span><span class="p">[</span><span class="n">stage_name</span><span class="p">]:</span>
+            <span class="n">method_name</span> <span class="o">=</span> <span class="n">step_spec</span><span class="p">[</span><span class="s2">&quot;method_name&quot;</span><span class="p">]</span>
+            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">specific_method</span> <span class="ow">and</span> <span class="n">specific_method</span> <span class="o">!=</span> <span class="n">method_name</span><span class="p">:</span>
+                <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Skipping </span><span class="si">{</span><span class="n">stage_name</span><span class="si">}</span><span class="s2">-&gt;</span><span class="si">{</span><span class="n">method_name</span><span class="si">}</span><span class="s2">, specific_method was </span><span class="si">{</span><span class="n">specific_method</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">run_func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">step_spec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;distributor&quot;</span><span class="p">):</span>
+                <span class="n">run_func</span><span class="p">()</span>
+                <span class="n">batches</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;scatter_batches&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">step_spec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;distributed&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">batches</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">batches</span><span class="p">,</span> <span class="n">Sized</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">scatter_input</span> <span class="ow">in</span> <span class="n">batches</span><span class="p">:</span>
+                        <span class="n">run_func</span><span class="p">(</span><span class="n">scatter_input</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">run_func</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_download_rcsb_files_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_download_rcsb_files_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;download_rcsb_files&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_download_rcsb_files_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_char_code</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">self</span><span class="o">.</span><span class="n">two_char_code</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+                <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;two_char_codes&quot;</span><span class="p">,</span>
+                <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">two_char_batch_size</span><span class="p">,</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.download_rcsb_files">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.download_rcsb_files">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;download_rcsb_files&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">download_rcsb_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">codes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">rcsb_rsync</span><span class="o">.</span><span class="n">download_two_char_codes</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">codes</span><span class="o">=</span><span class="n">codes</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">redirect_stdout</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;codes&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_cif_ingest_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_cif_ingest_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;ingest_rcsb_files&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_cif_ingest_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;cif&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">mmcif_batch_size</span><span class="p">,</span>
+            <span class="n">cache_func</span><span class="o">=</span><span class="n">cache</span><span class="o">.</span><span class="n">get_uningested_mmcif</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.ingest_rcsb_files">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.ingest_rcsb_files">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;ingest_rcsb_files&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">ingest_rcsb_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mmcif_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MMCIF FILES: </span><span class="si">{</span><span class="n">mmcif_files</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_data</span><span class="o">.</span><span class="n">ingest_mmcif_list</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">mmcif_list</span><span class="o">=</span><span class="n">mmcif_files</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;mmcif_list&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_pisa_annotation_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_pisa_annotation_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;get_pisa_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_pisa_annotation_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;cif&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">mmcif_batch_size</span><span class="p">,</span>
+            <span class="n">cache_func</span><span class="o">=</span><span class="n">cache</span><span class="o">.</span><span class="n">get_pisa_unannotated</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_pisa_annotations">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_pisa_annotations">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_pisa_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_pisa_annotations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mmcif_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_annotations</span><span class="o">.</span><span class="n">get_pisa_annotations</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">mmcif_list</span><span class="o">=</span><span class="n">mmcif_files</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;mmcif_list&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_rcsb_annotation_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_rcsb_annotation_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;get_rcsb_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_rcsb_annotation_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;pdb_ids&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">graphql_batch_size</span><span class="p">,</span>
+            <span class="n">cache_func</span><span class="o">=</span><span class="n">cache</span><span class="o">.</span><span class="n">get_rcsb_unannotated</span><span class="p">,</span>
+            <span class="n">cache_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;pinder_dir&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">},</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_rcsb_annotations">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_rcsb_annotations">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_rcsb_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_rcsb_annotations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pdb_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">graphql</span><span class="o">.</span><span class="n">populate_rcsb_annotations</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">pdb_ids</span><span class="o">=</span><span class="n">pdb_ids</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;pdb_ids&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.join_rcsb_annotations">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.join_rcsb_annotations">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_rcsb_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">join_rcsb_annotations</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">graphql</span><span class="o">.</span><span class="n">collect_rcsb_annotations</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_dimer_annotation_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_dimer_annotation_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;get_dimer_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_dimer_annotation_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;dimers&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">dimer_batch_size</span><span class="p">,</span>
+            <span class="n">cache_func</span><span class="o">=</span><span class="n">cache</span><span class="o">.</span><span class="n">get_unannotated_dimer_pdbs</span><span class="p">,</span>
+            <span class="n">cache_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;use_cache&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">},</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_dimer_annotations">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_dimer_annotations">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_dimer_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_dimer_annotations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimer_pdbs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_annotations</span><span class="o">.</span><span class="n">get_dimer_annotations</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">dimer_list</span><span class="o">=</span><span class="n">dimer_pdbs</span><span class="p">,</span>
+                <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;dimer_list&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.collect_dimer_annotations">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.collect_dimer_annotations">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_dimer_annotations&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">collect_dimer_annotations</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_annotations</span><span class="o">.</span><span class="n">collect</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_foldseek_contacts_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_foldseek_contacts_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;get_dimer_contacts&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_foldseek_contacts_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;dimers&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">dimer_batch_size</span><span class="p">,</span>
+            <span class="n">cache_func</span><span class="o">=</span><span class="n">cache</span><span class="o">.</span><span class="n">get_dimer_pdbs_missing_foldseek_contacts</span><span class="p">,</span>
+            <span class="n">cache_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;config_hash&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">contact_config_hash</span><span class="p">},</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_dimer_contacts">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_dimer_contacts">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_dimer_contacts&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_dimer_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimer_pdbs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">alignment_utils</span><span class="o">.</span><span class="n">populate_foldseek_contacts</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">dimer_pdbs</span><span class="o">=</span><span class="n">dimer_pdbs</span><span class="p">,</span>
+                <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                <span class="n">contact_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;dimer_pdbs&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.collect_foldseek_contacts">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.collect_foldseek_contacts">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_dimer_contacts&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">collect_foldseek_contacts</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">alignment_utils</span><span class="o">.</span><span class="n">collect_contact_jsons</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+                <span class="n">dimer_pdbs</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*/*/*__*--*__*.pdb&quot;</span><span class="p">)),</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_config</span><span class="p">,</span>
+                <span class="n">config_hash</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">contact_config_hash</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;dimer_pdbs&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_populate_entry_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_populate_entry_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;populate_entries&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_populate_entry_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;entries&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">dimer_batch_size</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.populate_entries">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.populate_entries">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;populate_entries&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">populate_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_dimers</span><span class="o">.</span><span class="n">populate_entries</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">google_cloud_project</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">google_cloud_project</span><span class="p">,</span>
+                <span class="n">entry_dirs</span><span class="o">=</span><span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">entry_dirs</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()],</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">populate_alphafold</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;entry_dirs&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_populate_predicted_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_populate_predicted_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;populate_predicted&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_populate_predicted_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;entries&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">predicted_batch_size</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.populate_predicted">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.populate_predicted">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;populate_predicted&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">populate_predicted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">entry_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_dimers</span><span class="o">.</span><span class="n">populate_predicted_from_monomers</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">google_cloud_project</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">google_cloud_project</span><span class="p">,</span>
+                <span class="n">entry_dirs</span><span class="o">=</span><span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">entry_dirs</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()],</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;entry_dirs&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.index_dimers">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.index_dimers">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;index_dimers&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">index_dimers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_dimers</span><span class="o">.</span><span class="n">get_populated_entries</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span><span class="p">,</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">google_cloud_project</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">google_cloud_project</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">transient_interface_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">transient_interface_config</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.add_predicted_monomers">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.add_predicted_monomers">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;add_predicted_monomers&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">add_predicted_monomers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_dimers</span><span class="o">.</span><span class="n">add_predicted_monomers_to_index</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_valid_apo_monomers">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_valid_apo_monomers">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_apo&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_valid_apo_monomers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_apo</span><span class="o">.</span><span class="n">get_valid_apo_monomer_ids</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">apo_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">remove_chain_copies</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_apo_pairing_metric_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_apo_pairing_metric_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;get_apo&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_apo_pairing_metric_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;putative_apo_pairings&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">apo_pairing_id_batch_size</span><span class="p">,</span>
+            <span class="n">scatter_method</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">chunk_apo_pairing_ids</span><span class="p">,</span>
+            <span class="n">scatter_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;pinder_dir&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">},</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_apo_pairing_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_apo_pairing_metrics">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_apo&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_apo_pairing_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pairing_batch</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="n">get_container_cpu_frac</span><span class="p">(</span><span class="n">max_cpu_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pairing_batch</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">pairing_ids</span><span class="p">,</span> <span class="n">output_pqt</span> <span class="o">=</span> <span class="n">pairing_batch</span>
+            <span class="n">run_task</span><span class="p">(</span>
+                <span class="n">get_apo</span><span class="o">.</span><span class="n">get_apo_pairing_metrics</span><span class="p">,</span>
+                <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                    <span class="n">putative_pairs</span><span class="o">=</span><span class="n">pairing_ids</span><span class="p">,</span>
+                    <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">apo_config</span><span class="p">,</span>
+                    <span class="n">max_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">,</span>
+                    <span class="n">output_parquet</span><span class="o">=</span><span class="n">output_pqt</span><span class="p">,</span>
+                    <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.join_apo_pairing_metrics">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.join_apo_pairing_metrics">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_apo&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">join_apo_pairing_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_apo</span><span class="o">.</span><span class="n">collate_apo_metrics</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">metric_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;apo_metrics/pair_eval&quot;</span><span class="p">,</span>
+                <span class="n">output_parquet</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span>
+                <span class="o">/</span> <span class="s2">&quot;apo_metrics/two_sided_apo_monomer_metrics.parquet&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.add_apo_pairings_to_index">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.add_apo_pairings_to_index">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_apo&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">add_apo_pairings_to_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_apo</span><span class="o">.</span><span class="n">add_all_apo_pairings_to_index</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">apo_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.create_foldseek_dbs">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.create_foldseek_dbs">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;foldseek&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">create_foldseek_dbs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">foldseek_utils</span><span class="o">.</span><span class="n">setup_foldseek_dbs</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">foldseek_db_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">foldseek_db_size</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_foldseek_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_foldseek_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;foldseek&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_foldseek_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;foldseek&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">foldseek_db_size</span><span class="p">,</span>
+            <span class="n">scatter_method</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">chunk_all_vs_all_indices</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.run_foldseek">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.run_foldseek">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;foldseek&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run_foldseek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_indices</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">foldseek_utils</span><span class="o">.</span><span class="n">run_foldseek_db_pair</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">db_indices</span><span class="o">=</span><span class="n">db_indices</span><span class="p">,</span>
+                <span class="n">foldseek_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">foldseek_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;db_indices&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.join_foldseek">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.join_foldseek">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;foldseek&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">join_foldseek</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">foldseek_utils</span><span class="o">.</span><span class="n">collate_foldseek_alignments</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">foldseek_db_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">foldseek_db_size</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">alignment_filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">foldseek_config</span><span class="o">.</span><span class="n">alignment_filename</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.create_mmseqs_dbs">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.create_mmseqs_dbs">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;mmseqs&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">create_mmseqs_dbs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">foldseek_utils</span><span class="o">.</span><span class="n">setup_mmseqs_dbs</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">mmseqs_db_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">foldseek_db_size</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_mmseqs_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_mmseqs_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;mmseqs&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_mmseqs_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># We just point to the foldseek PDB dir and use the same index-pairing as in foldseek</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="n">data_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;foldseek&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">foldseek_db_size</span><span class="p">,</span>
+            <span class="n">scatter_method</span><span class="o">=</span><span class="n">scatter</span><span class="o">.</span><span class="n">chunk_all_vs_all_indices</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.run_mmseqs">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.run_mmseqs">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;mmseqs&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run_mmseqs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db_indices</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">foldseek_utils</span><span class="o">.</span><span class="n">run_mmseqs_db_pair</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">db_indices</span><span class="o">=</span><span class="n">db_indices</span><span class="p">,</span>
+                <span class="n">mmseqs_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mmseqs_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">iterable_kwarg</span><span class="o">=</span><span class="s2">&quot;db_indices&quot;</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.join_mmseqs">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.join_mmseqs">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;mmseqs&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">join_mmseqs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">foldseek_utils</span><span class="o">.</span><span class="n">collate_mmseqs_alignments</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">foldseek_db_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">scatter_config</span><span class="o">.</span><span class="n">foldseek_db_size</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">alignment_filename</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">mmseqs_config</span><span class="o">.</span><span class="n">alignment_filename</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.construct_interface_graph">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.construct_interface_graph">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;interface_graph&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">construct_interface_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">interface_pkl</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pinder_mnt_dir</span>
+            <span class="o">/</span> <span class="s2">&quot;foldseek_contacts&quot;</span>
+            <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">contact_config_hash</span>
+            <span class="o">/</span> <span class="s2">&quot;interfaces.pkl&quot;</span>
+        <span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">graph_utils</span><span class="o">.</span><span class="n">construct_interface_graph</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">interface_pkl</span><span class="o">=</span><span class="n">interface_pkl</span><span class="p">,</span>
+                <span class="n">output_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span><span class="p">,</span>
+                <span class="n">graph_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.construct_foldseek_graph">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.construct_foldseek_graph">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;foldseek_graph&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">construct_foldseek_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output_hash_fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_config_hash</span>
+        <span class="n">interface_pkl</span> <span class="o">=</span> <span class="n">output_hash_fp</span> <span class="o">/</span> <span class="s2">&quot;min_length_interfaces.pkl&quot;</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">graph_utils</span><span class="o">.</span><span class="n">construct_interface_alignment_graph</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">interface_pkl</span><span class="o">=</span><span class="n">interface_pkl</span><span class="p">,</span>
+                <span class="n">alignment_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek/foldseek_dbs/alignment.txt&quot;</span><span class="p">,</span>
+                <span class="n">alignment_type</span><span class="o">=</span><span class="s2">&quot;foldseek&quot;</span><span class="p">,</span>
+                <span class="n">output_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span><span class="p">,</span>
+                <span class="n">graph_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.construct_mmseqs_graph">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.construct_mmseqs_graph">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;mmseqs_graph&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">construct_mmseqs_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output_hash_fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_config_hash</span>
+        <span class="n">interface_pkl</span> <span class="o">=</span> <span class="n">output_hash_fp</span> <span class="o">/</span> <span class="s2">&quot;min_length_interfaces.pkl&quot;</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">graph_utils</span><span class="o">.</span><span class="n">construct_interface_alignment_graph</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">interface_pkl</span><span class="o">=</span><span class="n">interface_pkl</span><span class="p">,</span>
+                <span class="n">alignment_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs2/mmseqs_dbs/alignment.txt&quot;</span><span class="p">,</span>
+                <span class="n">alignment_type</span><span class="o">=</span><span class="s2">&quot;mmseqs&quot;</span><span class="p">,</span>
+                <span class="n">output_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span><span class="p">,</span>
+                <span class="n">graph_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.cluster">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.cluster">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">graph_fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_config_hash</span>
+        <span class="n">mmseqs_pkl</span> <span class="o">=</span> <span class="n">graph_fp</span> <span class="o">/</span> <span class="s2">&quot;cleaned_mmseqs_alignment_graph.pkl&quot;</span>
+        <span class="n">foldseek_pkl</span> <span class="o">=</span> <span class="n">graph_fp</span> <span class="o">/</span> <span class="s2">&quot;cleaned_foldseek_alignment_graph.pkl&quot;</span>
+        <span class="n">interface_pkl</span> <span class="o">=</span> <span class="n">graph_fp</span> <span class="o">/</span> <span class="s2">&quot;min_length_interfaces.pkl&quot;</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">read_csv_non_default_na</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;index.1.csv.gz&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;pdb_id&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">foldseek_graph</span> <span class="o">=</span> <span class="n">graph_utils</span><span class="o">.</span><span class="n">load_graph_pickle</span><span class="p">(</span><span class="n">foldseek_pkl</span><span class="p">)</span>
+        <span class="n">mmseqs_graph</span> <span class="o">=</span> <span class="n">graph_utils</span><span class="o">.</span><span class="n">load_graph_pickle</span><span class="p">(</span><span class="n">mmseqs_pkl</span><span class="p">)</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="n">alignment_utils</span><span class="o">.</span><span class="n">load_interface_pkl</span><span class="p">(</span><span class="n">interface_pkl</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_clusters</span><span class="o">.</span><span class="n">cluster</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span>
+                <span class="n">foldseek_graph</span><span class="o">=</span><span class="n">foldseek_graph</span><span class="p">,</span>
+                <span class="n">mmseqs_graph</span><span class="o">=</span><span class="n">mmseqs_graph</span><span class="p">,</span>
+                <span class="n">interfaces_clean</span><span class="o">=</span><span class="n">interfaces</span><span class="p">,</span>
+                <span class="n">output_index_filename</span><span class="o">=</span><span class="s2">&quot;index.2.csv.gz&quot;</span><span class="p">,</span>
+                <span class="n">checkpoint_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;cluster&quot;</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_config_hash</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.generate_find_leakage_tasks">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.generate_find_leakage_tasks">[docs]</a>
+    <span class="nd">@scatter_step</span><span class="p">(</span><span class="s2">&quot;deleak&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">generate_find_leakage_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scatter_batches</span> <span class="o">=</span> <span class="n">get_stage_tasks</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;graphs&quot;</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph_config_hash</span><span class="p">,</span>
+            <span class="n">input_type</span><span class="o">=</span><span class="s2">&quot;graph_types&quot;</span><span class="p">,</span>
+            <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.find_leakage">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.find_leakage">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;deleak&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">find_leakage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph_batch</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Scatter batch is a list of len 1 for each graph type</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph_batch</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="n">graph_spec</span> <span class="o">=</span> <span class="n">graph_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">graph_spec</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="n">graph_type</span><span class="p">,</span> <span class="n">af2_transitive_hits</span> <span class="o">=</span> <span class="n">graph_spec</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">find_transitive_hits</span><span class="o">.</span><span class="n">get_leakage_dict</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">graph_type</span><span class="o">=</span><span class="n">graph_type</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">graph_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">af2_transitive_hits</span><span class="o">=</span><span class="n">af2_transitive_hits</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_transitive_hits">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_transitive_hits">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;deleak&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_transitive_hits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">find_transitive_hits</span><span class="o">.</span><span class="n">get_transitive_hits</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">graph_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">af2_transitive_hits</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_af2_hard_difficulty_transitive_hits">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_af2_hard_difficulty_transitive_hits">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;deleak&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_af2_hard_difficulty_transitive_hits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">thresh_label</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="o">.</span><span class="n">foldseek_af2_difficulty_threshold</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">find_transitive_hits</span><span class="o">.</span><span class="n">get_transitive_hits</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">graph_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">graph_config</span><span class="p">,</span>
+                <span class="n">test_systems_output</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;af2_lddt</span><span class="si">{</span><span class="n">thresh_label</span><span class="si">}</span><span class="s2">_test_sys_table.csv&quot;</span><span class="p">,</span>
+                <span class="n">deleak_map_output</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;af2_lddt</span><span class="si">{</span><span class="n">thresh_label</span><span class="si">}</span><span class="s2">_transitive_hits_mapping.csv&quot;</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+                <span class="n">af2_transitive_hits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_splits">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_splits">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_splits&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_splits</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_splits</span><span class="o">.</span><span class="n">get_splits</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_alignment_similarity">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_alignment_similarity">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_splits&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_alignment_similarity</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_alignment_similarity</span><span class="o">.</span><span class="n">get_alignment_similarity</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">cluster_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">ialign_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ialign_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.construct_final_index">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.construct_final_index">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_splits&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">construct_final_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_splits</span><span class="o">.</span><span class="n">construct_final_index</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_config</span><span class="p">,</span>
+                <span class="n">apo_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">apo_config</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataIngestPipeline.get_test_set">
+<a class="viewcode-back" href="../../../../source/pinder.data.pipeline.html#pinder.data.pipeline.data_pipeline.DataIngestPipeline.get_test_set">[docs]</a>
+    <span class="nd">@task_step</span><span class="p">(</span><span class="s2">&quot;get_test_set&quot;</span><span class="p">,</span> <span class="n">save_metadata</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_test_set</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_task</span><span class="p">(</span>
+            <span class="n">get_test_set</span><span class="o">.</span><span class="n">curate_test_split</span><span class="p">,</span>
+            <span class="n">task_input</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">pinder_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pinder_dir</span><span class="p">,</span>
+                <span class="n">use_cache</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">local_pinder_mount</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;pinder-data-pipeline&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">local_pinder_mount</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">local_pinder_mount</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">run_specific_step</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>  <span class="c1"># &quot;download_rcsb_files&quot;</span>
+    <span class="n">pipe</span> <span class="o">=</span> <span class="n">DataIngestPipeline</span><span class="p">(</span>
+        <span class="n">image</span><span class="o">=</span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+        <span class="n">pinder_mount_point</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">local_pinder_mount</span><span class="p">),</span>
+        <span class="n">run_specific_step</span><span class="o">=</span><span class="n">run_specific_step</span><span class="p">,</span>
+        <span class="n">two_char_code</span><span class="o">=</span><span class="s2">&quot;bo&quot;</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="c1"># pipe.run_stage(pipe.run_specific_step)</span>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, VantAI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+
+<p id="theme_credit"></p>
+  </body>
+</html>

@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pinder.core.structure package &#8212; pinder 0.1.dev1+g8ad1ead documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=59943e95" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=28804041" />
+    <script src="../_static/documentation_options.js?v=40280a1a"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pinder.core.submit package" href="pinder.core.submit.html" />
+    <link rel="prev" title="pinder.core.loader package" href="pinder.core.loader.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage"><img src="../_static/pinder.png"/></a></h1>
+            <a id="source_link" href="https://github.com/pinder-org/pinder/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme_link.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="pinder.html">API reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="pinder.core.html">pinder.core package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pinder.core.index.html">pinder.core.index package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pinder.core.loader.html">pinder.core.loader package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">pinder.core.structure package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pinder.core.submit.html">pinder.core.submit package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pinder.core.utils.html">pinder.core.utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pinder.data.html">pinder.data package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinder.eval.html">pinder.eval package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinder.methods.html">pinder.methods package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../example_readme.html">Pinder abstractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq_link.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../limitations_link.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog_link.html">Dataset changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="pinder-core-structure-package">
+<h1>pinder.core.structure package<a class="headerlink" href="#pinder-core-structure-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-pinder.core.structure.atoms">
+<span id="pinder-core-structure-atoms-module"></span><h2>pinder.core.structure.atoms module<a class="headerlink" href="#module-pinder.core.structure.atoms" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.biotite_pdbxfile">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">biotite_pdbxfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TextFile</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#biotite_pdbxfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.biotite_pdbxfile" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.biotite_pdbfile">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">biotite_pdbfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TextFile</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#biotite_pdbfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.biotite_pdbfile" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.rust_pdbfile">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">rust_pdbfile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TextFile</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#rust_pdbfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.rust_pdbfile" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.atom_array_from_pdb_file">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">atom_array_from_pdb_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fastpdb'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_fields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#atom_array_from_pdb_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.atom_array_from_pdb_file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.atom_vdw_radius">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">atom_vdw_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">at</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Atom</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#atom_vdw_radius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.atom_vdw_radius" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.backbone_mask">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">backbone_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pinder.core.structure.models.BackboneDefinition" title="pinder.core.structure.models.BackboneDefinition"><span class="pre">BackboneDefinition</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">bool_</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#backbone_mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.backbone_mask" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.mask_from_res_list">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">mask_from_res_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">bool_</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#mask_from_res_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.mask_from_res_list" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.apply_mask">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">apply_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">bool_</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#apply_mask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.apply_mask" title="Link to this definition">¶</a></dt>
+<dd><p>Apply a boolean mask to an AtomArray or AtomArrayStack to filter atoms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>atoms</strong><span class="classifier">(AtomArray | AtomArrayStack)</span></dt><dd><p>The atoms to be filtered.</p>
+</dd>
+<dt><strong>mask</strong><span class="classifier">NDArray[np.bool_]</span></dt><dd><p>The boolean mask that specifies which atoms to keep.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>AtomArray | AtomArrayStack:</dt><dd><p>The filtered atoms.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.filter_atoms">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">filter_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calpha_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pinder.core.structure.models.BackboneDefinition" title="pinder.core.structure.models.BackboneDefinition"><span class="pre">BackboneDefinition</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dockq'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#filter_atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.filter_atoms" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_backbone_atom_masks">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_backbone_atom_masks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">native</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoy_stack</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calpha_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_definition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pinder.core.structure.models.BackboneDefinition" title="pinder.core.structure.models.BackboneDefinition"><span class="pre">BackboneDefinition</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'dockq'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">bool_</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">bool_</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_backbone_atom_masks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_backbone_atom_masks" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.assign_receptor_ligand">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">assign_receptor_ligand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#assign_receptor_ligand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.assign_receptor_ligand" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.renumber_res_ids">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">renumber_res_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#renumber_res_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.renumber_res_ids" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.standardize_atom_array">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">standardize_atom_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#standardize_atom_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.standardize_atom_array" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.stack_filter_intersect">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">stack_filter_intersect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardize_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArrayStack</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#stack_filter_intersect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.stack_filter_intersect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_seq_alignments">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_seq_alignments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_penalty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(-10.0,</span> <span class="pre">-1.0)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Alignment</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_seq_alignments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_seq_alignments" title="Link to this definition">¶</a></dt>
+<dd><p>Generate optimal global alignments between two sequences using BLOSUM62 matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ref_seq</strong><span class="classifier">(str)</span></dt><dd><p>The reference sequence.</p>
+</dd>
+<dt><strong>subject_seq</strong><span class="classifier">(str)</span></dt><dd><p>The subject sequence.</p>
+</dd>
+<dt><strong>gap_penalty</strong><span class="classifier">(tuple[float, float], optional)</span></dt><dd><p>A tuple consisting of the gap open penalty and the gap extension penalty.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>list[Alignment]:</dt><dd><p>A list of <cite>Alignment</cite> objects that represent the optimal global alignment(s).</p>
+</dd>
+<dt>Note:</dt><dd><p>The function uses the BLOSUM62 matrix by default for alignment scoring.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_seq_identity">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_seq_identity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alignments</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Alignment</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_penalty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(-10.0,</span> <span class="pre">-1.0)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_seq_identity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_seq_identity" title="Link to this definition">¶</a></dt>
+<dd><p>Align an arbitrary sequence with the reference sequence
+Return sequence identity between the two.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.calc_num_mismatches">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">calc_num_mismatches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alignments</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Alignment</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#calc_num_mismatches"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.calc_num_mismatches" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate number of mismatches in sequence alignment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>alignments</strong><span class="classifier">list[Alignment]</span></dt><dd><p>sequence alignment(s)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>tuple[int, int]:</dt><dd><p>A tuple containing number of mismatches and matches in sequence alignment, respectively.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.align_sequences">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">align_sequences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject_seq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_numbering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject_numbering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#align_sequences"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.align_sequences" title="Link to this definition">¶</a></dt>
+<dd><p>Aligns two sequences and returns a tuple containing the aligned sequences
+and their respective numbering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ref_seq</strong><span class="classifier">(str)</span></dt><dd><p>The reference sequence to align to.</p>
+</dd>
+<dt><strong>subject_seq</strong><span class="classifier">(str)</span></dt><dd><p>The subject sequence to be aligned.</p>
+</dd>
+<dt><strong>ref_numbering</strong><span class="classifier">(list[int], optional)</span></dt><dd><p>List of residue numbers for the reference sequence.</p>
+</dd>
+<dt><strong>subject_numbering</strong><span class="classifier">(list[int], optional)</span></dt><dd><p>List of residue numbers for the subject sequence.</p>
+</dd>
+<dt><strong>Returns:</strong></dt><dd><dl class="simple">
+<dt>tuple: A tuple containing:</dt><dd><ul class="simple">
+<li><p>Aligned reference sequence (str)</p></li>
+<li><p>Aligned subject sequence (str)</p></li>
+<li><p>Numbering of the aligned reference sequence (list[int])</p></li>
+<li><p>Numbering of the aligned subject sequence (list[int])</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>ValueError if the sequences cannot be aligned.</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.resn2seq">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">resn2seq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#resn2seq"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.resn2seq" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_seq_aligned_structures">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_seq_aligned_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fastpdb'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_seq_aligned_structures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_seq_aligned_structures" title="Link to this definition">¶</a></dt>
+<dd><p>Computes per-chain sequence alignments between reference and subject
+structures, and creates a new set of structures where the residue numbers
+in the subject structure are renumbered to match those in the reference
+structure for the aligned sequence segments for each chain.</p>
+<p>This function processes each chain separately, aligns their sequences,
+and then constructs the multi-chain structure using the chain-aligned
+sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ref</strong><span class="classifier">Path | _AtomArrayOrStack</span></dt><dd><p>The file path or structure array of the reference structure.</p>
+</dd>
+<dt><strong>subject</strong><span class="classifier">Path | _AtomArrayOrStack</span></dt><dd><p>The file path or structure array of the subject structure to align with the reference.</p>
+</dd>
+<dt><strong>pdb_engine</strong><span class="classifier">str, optional</span></dt><dd><p>The backend engine to use for PDB file processing, defaults to “fastpdb”.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>tuple</dt><dd><p>A tuple containing:
+- Reference structure with aligned sequence and residue numbering (_AtomArrayOrStack).
+- Subject structure with aligned sequence and residue numbering (_AtomArrayOrStack).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the reference and subject structures do not have the same number of chains or if the chains cannot be matched properly.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pinder.core</span> <span class="kn">import</span> <span class="n">PinderSystem</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ps</span> <span class="o">=</span> <span class="n">PinderSystem</span><span class="p">(</span><span class="s2">&quot;8i2f__A1_O34841--8i2f__B1_P54421&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref_structure</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">holo_receptor</span><span class="o">.</span><span class="n">atom_array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subject_structure</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">apo_receptor</span><span class="o">.</span><span class="n">atom_array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref_aln</span><span class="p">,</span> <span class="n">subj_aln</span> <span class="o">=</span> <span class="n">get_seq_aligned_structures</span><span class="p">(</span><span class="n">ref_structure</span><span class="p">,</span> <span class="n">subject_structure</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">((</span><span class="n">ref_aln</span><span class="o">.</span><span class="n">res_id</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">subj_aln</span><span class="o">.</span><span class="n">res_id</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="go">(8, 8)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_per_chain_seq_alignments">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_per_chain_seq_alignments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_engine</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'fastpdb'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_per_chain_seq_alignments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_per_chain_seq_alignments" title="Link to this definition">¶</a></dt>
+<dd><p>Computes per-chain sequence alignments between reference and subject
+structures, and provides a mapping of residue numbers from the subject
+to the reference for each chain.</p>
+<p>This function processes each chain separately, aligns their sequences,
+and creates a mapping of residue numbering from the subject structure
+to the reference structure based on sequence alignment. It is designed
+to work with multi-chain structures, aligning each chain independently.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>ref</strong><span class="classifier">Path | _AtomArrayOrStack</span></dt><dd><p>The file path or structure array of the reference structure.</p>
+</dd>
+<dt><strong>subject</strong><span class="classifier">Path | _AtomArrayOrStack</span></dt><dd><p>The file path or structure array of the subject structure to align with the reference.</p>
+</dd>
+<dt><strong>pdb_engine</strong><span class="classifier">str, optional</span></dt><dd><p>The backend engine to use for PDB file processing, defaults to “fastpdb”.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>dict[str, dict[int, int]]</dt><dd><p>A dictionary where keys are chain identifiers from the subject structure and values are dictionaries mapping residue numbers in the subject structure to those in the reference structure for the aligned sequence segments.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If the reference and subject structures do not have the same number of chains or if the chains cannot be matched properly.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pinder.core</span> <span class="kn">import</span> <span class="n">PinderSystem</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ps</span> <span class="o">=</span> <span class="n">PinderSystem</span><span class="p">(</span><span class="s2">&quot;8i2f__A1_O34841--8i2f__B1_P54421&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ref_structure</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">holo_receptor</span><span class="o">.</span><span class="n">atom_array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subject_structure</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">apo_receptor</span><span class="o">.</span><span class="n">atom_array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mappings</span> <span class="o">=</span> <span class="n">get_per_chain_seq_alignments</span><span class="p">(</span><span class="n">ref_structure</span><span class="p">,</span> <span class="n">subject_structure</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mappings</span><span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">])</span>
+<span class="go">{7: 8, 8: 9, 9: 10, 10: 11, ...}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.invert_chain_seq_map">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">invert_chain_seq_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#invert_chain_seq_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.invert_chain_seq_map" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_buried_sasa">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_buried_sasa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_ions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_buried_sasa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_buried_sasa" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the rounded dSASA value for a pair of interacting substructures (chains).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">struc.AtomArray</span></dt><dd><p>The first substructure (chain).</p>
+</dd>
+<dt><strong>b</strong><span class="classifier">struc.AtomArray</span></dt><dd><p>The second substructure (chain).</p>
+</dd>
+<dt><strong>point_number</strong><span class="classifier">int, optional</span></dt><dd><p>The number of points per atom, by default 200.
+This parameter affects the speed and the accuracy of the calculation.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>int</dt><dd><p>The rounded dSASA value.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atom1a</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atom</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">chain_id</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atom2a</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atom</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">chain_id</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atom1b</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atom</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">chain_id</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atom2b</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">Atom</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">chain_id</span><span class="o">=</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">atom1a</span><span class="p">,</span> <span class="n">atom2a</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">struc</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">atom1b</span><span class="p">,</span> <span class="n">atom2b</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">get_buried_sasa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ignore_ions</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_resolved_resi_from_atom_array">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_resolved_resi_from_atom_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_resolved_resi_from_atom_array"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_resolved_resi_from_atom_array" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a list of resolved resi (only checking the CA atom) in the PDB file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">_AtomArrayOrStack</span></dt><dd><p>AtomArray or Stack</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>List[int]</dt><dd><p>A list of resolved resi in the PDB file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.get_resolved_resi">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">get_resolved_resi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#get_resolved_resi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.get_resolved_resi" title="Link to this definition">¶</a></dt>
+<dd><p>Returns a list of resolved resi (only checking the CA atom) in the PDB file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pdb_path</strong><span class="classifier">str</span></dt><dd><p>The path to the PDB file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>List[int]</dt><dd><p>A list of resolved resi in the PDB file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.write_pdb">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">write_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#write_pdb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.write_pdb" title="Link to this definition">¶</a></dt>
+<dd><p>Write AtomArray to a PDB file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>arr</strong><span class="classifier">AtomArray</span></dt><dd><p>AtomArray to save to PDB file.</p>
+</dd>
+<dt><strong>filepath</strong><span class="classifier">Path</span></dt><dd><p>Path to outut PDB file.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.rename_chains">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">rename_chains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#rename_chains"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.rename_chains" title="Link to this definition">¶</a></dt>
+<dd><p>Rename chains in a PDB file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pdb_path</strong><span class="classifier">str</span></dt><dd><p>The path to the PDB file whose chains are to be renamed.</p>
+</dd>
+<dt><strong>new_chain</strong><span class="classifier">Union[str, dict]</span></dt><dd><p>The new name(s) for the chain(s). If a string is provided, all chains are renamed to this string.
+If a dictionary is provided, chains are renamed according to the dictionary. If the key is an integer,
+the alphabetically sorted chain at that index is renamed to the value. If the key is a string, the chain
+with that name is renamed to the value.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.cif_to_pdb">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">cif_to_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cif_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#cif_to_pdb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.cif_to_pdb" title="Link to this definition">¶</a></dt>
+<dd><p>Convert CIF file to PDB file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cif_path</strong><span class="classifier">str</span></dt><dd><p>The path to the CIF file to be converted.</p>
+</dd>
+<dt><strong>pdb_path</strong><span class="classifier">str</span></dt><dd><p>The path where the converted PDB file will be saved.</p>
+</dd>
+<dt><strong>chains</strong><span class="classifier">Optional[dict], default is None</span></dt><dd><p>If provided, only the chains specified in the dictionary will be kept
+and they will be renamed according to the dictionary.
+Note: The new chain names must be single characters to be PDB compatible.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.atoms.normalize_orientation">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.atoms.</span></span><span class="sig-name descname"><span class="pre">normalize_orientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/atoms.html#normalize_orientation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.atoms.normalize_orientation" title="Link to this definition">¶</a></dt>
+<dd><p>Align the structure along principal axes.</p>
+<p>The structure is transformed such that it is projected on the xy plane,
+minimizing variance along the z-axis and translating the centroid to the origin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>model</strong><span class="classifier">AtomArray</span></dt><dd><p>The AtomArray object to apply the normalization transformation to.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>AtomArray</dt><dd><p>The same atoms with transformed coordinates.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pinder.core.structure.contacts">
+<span id="pinder-core-structure-contacts-module"></span><h2>pinder.core.structure.contacts module<a class="headerlink" href="#module-pinder.core.structure.contacts" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.ContactPairs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">ContactPairs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">residue_contacts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_contacts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#ContactPairs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.ContactPairs" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.ContactPairs.residue_contacts">
+<span class="sig-name descname"><span class="pre">residue_contacts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pinder.core.structure.contacts.ContactPairs.residue_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.ContactPairs.atom_contacts">
+<span class="sig-name descname"><span class="pre">atom_contacts</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pinder.core.structure.contacts.ContactPairs.atom_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.get_atoms_within_coordinate">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">get_atoms_within_coordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">float64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">int64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#get_atoms_within_coordinate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.get_atoms_within_coordinate" title="Link to this definition">¶</a></dt>
+<dd><p>Find atom indices (contact matrix) within distance of coords.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>atom_array</strong><span class="classifier">AtomArray | NDArray[np.double]</span></dt><dd><p>The array of atoms representing the protein structure.</p>
+</dd>
+<dt><strong>coords</strong><span class="classifier">NDArray[np.double]</span></dt><dd><p>The coordinates to find atoms within.</p>
+</dd>
+<dt><strong>radius</strong><span class="classifier">float</span></dt><dd><p>The radius within which to consider atoms as being in contact.</p>
+</dd>
+<dt><strong>cell_size</strong><span class="classifier">float</span></dt><dd><p>The size of the cell for the cell list.</p>
+</dd>
+<dt><strong>as_mask</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the contacts as a mask, by default False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NDArray[np.int_]</dt><dd><p>The contact indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.get_stack_contacts">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">get_stack_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receptor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ligand_poses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">int64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#get_stack_contacts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.get_stack_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>This function concatenates all poses in the stack into a long list of atoms.
+It then creates a cell list of the atom array for efficient measurement of adjacency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>receptor</strong><span class="classifier">AtomArray</span></dt><dd><p>The receptor atoms.</p>
+</dd>
+<dt><strong>ligand_poses</strong><span class="classifier">AtomArrayStack</span></dt><dd><p>The ligand poses.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float, optional</span></dt><dd><p>The threshold for contact distance, by default 4.0.</p>
+</dd>
+<dt><strong>cell_size</strong><span class="classifier">float or None, optional</span></dt><dd><p>The cell size for the cell list, by default None. If None, the threshold is used as the cell size.</p>
+</dd>
+<dt><strong>as_mask</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the contacts as a mask, by default False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NDArray[np.int_]</dt><dd><p>The contact indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.get_atom_neighbors">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">get_atom_neighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_mask</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#get_atom_neighbors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.get_atom_neighbors" title="Link to this definition">¶</a></dt>
+<dd><p>Find atoms within a specified distance of coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>atom_array</strong><span class="classifier">AtomArray</span></dt><dd><p>The array of atoms.</p>
+</dd>
+<dt><strong>query_array</strong><span class="classifier">AtomArray</span></dt><dd><p>The array of query atoms.</p>
+</dd>
+<dt><strong>radius</strong><span class="classifier">float</span></dt><dd><p>The radius within which to find neighboring atoms.</p>
+</dd>
+<dt><strong>cell_size</strong><span class="classifier">float or None, optional</span></dt><dd><p>The cell size for the cell list, by default None. If None, the radius is used as the cell size.</p>
+</dd>
+<dt><strong>as_mask</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return the contacts as a mask, by default False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>AtomArray</dt><dd><p>The array of neighboring atoms.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.pairwise_contacts">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">pairwise_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calpha_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_and_residue_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#pairwise_contacts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.pairwise_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate pairwise contacts between two chains.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pdb_file</strong><span class="classifier">Path | AtomArray | AtomArrayStack</span></dt><dd><p>The pdb file or atom array.</p>
+</dd>
+<dt><strong>chain1</strong><span class="classifier">str | list[str]</span></dt><dd><p>The first chain or list of chains.</p>
+</dd>
+<dt><strong>chain2</strong><span class="classifier">str | list[str]</span></dt><dd><p>The second chain or list of chains.</p>
+</dd>
+<dt><strong>radius</strong><span class="classifier">float, optional</span></dt><dd><p>The radius for contact distance, by default 5.0.</p>
+</dd>
+<dt><strong>cell_size</strong><span class="classifier">float or None, optional</span></dt><dd><p>The cell size for the cell list, by default None. If None, the radius is used as the cell size.</p>
+</dd>
+<dt><strong>calpha_only</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to consider only alpha carbons, by default False.</p>
+</dd>
+<dt><strong>backbone_only</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to consider only backbone atoms, by default False.</p>
+</dd>
+<dt><strong>heavy_only</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to consider only heavy atoms, by default True.</p>
+</dd>
+<dt><strong>atom_and_residue_level</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to return atomic and residue-level contact pairs.
+Default is False (only residue-level).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>_AtomResContacts | _StackAtomResContacts</dt><dd><p>The contact pairs. If atom_and_residue_level, returns a tuple of
+residue contacts and atom contacts, respectively. If the input
+structure contains multiple models, the returned value is a list of
+contact pairs in the same order that the input stack was given.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pairwise_contacts</span><span class="p">(</span><span class="n">pdb_file</span><span class="o">=</span><span class="s1">&#39;1abc.pdb&#39;</span><span class="p">,</span> <span class="n">chain1</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">chain2</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.pairwise_chain_contacts">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">pairwise_chain_contacts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#pairwise_chain_contacts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.pairwise_chain_contacts" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate pairwise contacts between chains in a protein structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>atom_array</strong><span class="classifier">AtomArray</span></dt><dd><p>The array of atoms representing the protein structure.</p>
+</dd>
+<dt><strong>radius</strong><span class="classifier">float, optional</span></dt><dd><p>The radius within which to consider atoms as being in contact, by default 4.5.</p>
+</dd>
+<dt><strong>cell_size</strong><span class="classifier">float | None, optional</span></dt><dd><p>The size of the cell used for the contact calculation. If None, it is set to the value of radius.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>pd.DataFrame | None</dt><dd><p>A DataFrame containing the chain pairs and their contacts, or None if no contacts are found.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pinder.core.structure.atoms</span> <span class="kn">import</span> <span class="n">atom_array_from_pdb_file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atom_array</span> <span class="o">=</span> <span class="n">atom_array_from_pdb_file</span><span class="p">(</span><span class="s1">&#39;1abc.pdb&#39;</span><span class="p">)</span> 
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pairwise_chain_contacts</span><span class="p">(</span><span class="n">atom_array</span><span class="p">)</span> 
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.pairwise_clashes">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">pairwise_clashes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdb_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calpha_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backbone_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heavy_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#pairwise_clashes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.pairwise_clashes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.contacts.label_structure_gaps">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.contacts.</span></span><span class="sig-name descname"><span class="pre">label_structure_gaps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atom_array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/contacts.html#label_structure_gaps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.contacts.label_structure_gaps" title="Link to this definition">¶</a></dt>
+<dd><p>Find gaps in residue numbering between C-alpha atoms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>atom_array</strong><span class="classifier">AtomArray</span></dt><dd><p>The array of atoms for which to find gaps.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>chains</strong><span class="classifier">list</span></dt><dd><p>A sorted list of unique chain IDs from the atom array.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pinder.core.structure.models">
+<span id="pinder-core-structure-models-module"></span><h2>pinder.core.structure.models module<a class="headerlink" href="#module-pinder.core.structure.models" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pinder.core.structure.models.Base">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinder.core.structure.models.</span></span><span class="sig-name descname"><span class="pre">Base</span></span><a class="reference internal" href="../_modules/pinder/core/structure/models.html#Base"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.models.Base" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.Base.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'use_enum_values':</span> <span class="pre">True,</span> <span class="pre">'validate_assignment':</span> <span class="pre">True}</span></em><a class="headerlink" href="#pinder.core.structure.models.Base.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.Base.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#pinder.core.structure.models.Base.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.Base.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#pinder.core.structure.models.Base.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinder.core.structure.models.</span></span><span class="sig-name descname"><span class="pre">ChainConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoy_receptor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['R']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoy_ligand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['L']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_receptor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['R']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">native_ligand</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['L']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pinder/core/structure/models.html#ChainConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.models.ChainConfig" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pinder.core.structure.models.Base" title="pinder.core.structure.models.Base"><code class="xref py py-class docutils literal notranslate"><span class="pre">Base</span></code></a></p>
+<p>Preparation configuration settings.</p>
+<p>Default configuration for preparation of normalized monomers,
+ready for use in PPI generation tasks.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.decoy_receptor">
+<span class="sig-name descname"><span class="pre">decoy_receptor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.decoy_receptor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.decoy_ligand">
+<span class="sig-name descname"><span class="pre">decoy_ligand</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.decoy_ligand" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.native_receptor">
+<span class="sig-name descname"><span class="pre">native_receptor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.native_receptor" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.native_ligand">
+<span class="sig-name descname"><span class="pre">native_ligand</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.native_ligand" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.model_computed_fields" title="Link to this definition">¶</a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'extra':</span> <span class="pre">'forbid',</span> <span class="pre">'use_enum_values':</span> <span class="pre">True,</span> <span class="pre">'validate_assignment':</span> <span class="pre">True}</span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.model_config" title="Link to this definition">¶</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.ChainConfig.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'decoy_ligand':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default=['L']),</span> <span class="pre">'decoy_receptor':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default=['R']),</span> <span class="pre">'native_ligand':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default=['L']),</span> <span class="pre">'native_receptor':</span> <span class="pre">FieldInfo(annotation=List[str],</span> <span class="pre">required=False,</span> <span class="pre">default=['R'])}</span></em><a class="headerlink" href="#pinder.core.structure.models.ChainConfig.model_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pinder.core.structure.models.BackboneDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinder.core.structure.models.</span></span><span class="sig-name descname"><span class="pre">BackboneDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pinder/core/structure/models.html#BackboneDefinition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.models.BackboneDefinition" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.BackboneDefinition.biotite">
+<span class="sig-name descname"><span class="pre">biotite</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'biotite'</span></em><a class="headerlink" href="#pinder.core.structure.models.BackboneDefinition.biotite" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.BackboneDefinition.dockq">
+<span class="sig-name descname"><span class="pre">dockq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'dockq'</span></em><a class="headerlink" href="#pinder.core.structure.models.BackboneDefinition.dockq" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pinder.core.structure.models.DatasetName">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinder.core.structure.models.</span></span><span class="sig-name descname"><span class="pre">DatasetName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pinder/core/structure/models.html#DatasetName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.models.DatasetName" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.DatasetName.pinder_s">
+<span class="sig-name descname"><span class="pre">pinder_s</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinder_s'</span></em><a class="headerlink" href="#pinder.core.structure.models.DatasetName.pinder_s" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.DatasetName.pinder_xl">
+<span class="sig-name descname"><span class="pre">pinder_xl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinder_xl'</span></em><a class="headerlink" href="#pinder.core.structure.models.DatasetName.pinder_xl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.DatasetName.pinder_af2">
+<span class="sig-name descname"><span class="pre">pinder_af2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'pinder_af2'</span></em><a class="headerlink" href="#pinder.core.structure.models.DatasetName.pinder_af2" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pinder.core.structure.models.MonomerName">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinder.core.structure.models.</span></span><span class="sig-name descname"><span class="pre">MonomerName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pinder/core/structure/models.html#MonomerName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.models.MonomerName" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.MonomerName.holo">
+<span class="sig-name descname"><span class="pre">holo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'holo'</span></em><a class="headerlink" href="#pinder.core.structure.models.MonomerName.holo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.MonomerName.apo">
+<span class="sig-name descname"><span class="pre">apo</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'apo'</span></em><a class="headerlink" href="#pinder.core.structure.models.MonomerName.apo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinder.core.structure.models.MonomerName.predicted">
+<span class="sig-name descname"><span class="pre">predicted</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'predicted'</span></em><a class="headerlink" href="#pinder.core.structure.models.MonomerName.predicted" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pinder.core.structure.superimpose">
+<span id="pinder-core-structure-superimpose-module"></span><h2>pinder.core.structure.superimpose module<a class="headerlink" href="#module-pinder.core.structure.superimpose" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.superimpose.superimpose_chain">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.superimpose.</span></span><span class="sig-name descname"><span class="pre">superimpose_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fixed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mobile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">substitution_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SubstitutionMatrix</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'BLOSUM62'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gap_penalty</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">(-10,</span> <span class="pre">-1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_anchors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlier_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">AffineTransformation</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">int64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dtype</span><span class="p"><span class="pre">[</span></span><span class="pre">int64</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/superimpose.html#superimpose_chain"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.superimpose.superimpose_chain" title="Link to this definition">¶</a></dt>
+<dd><p>Superimpose one protein chain onto another one, considering sequence differences and
+conformational outliers.</p>
+<p>The method finds corresponding residues by sequence alignment and selects their
+<span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms as superimposition <em>anchors</em>.
+Then iteratively the anchor atoms are superimposed and outliers
+(in terms of high squared distance between matching anchor atoms) are removed, until
+either no outliers are left or the maximum number of iterations is reached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fixed</strong><span class="classifier">AtomArray, shape(n,) or AtomArrayStack, shape(m,n) or ndarray, shape(n,), dtype=float or ndarray, shape(m,n), dtype=float</span></dt><dd><p>The fixed structure(s).
+Alternatively coordinates can be given.</p>
+</dd>
+<dt><strong>mobile</strong><span class="classifier">AtomArray, shape(n,) or AtomArrayStack, shape(m,n) or ndarray, shape(n,), dtype=float or ndarray, shape(m,n), dtype=float</span></dt><dd><p>The structure(s) which is/are superimposed on the <cite>fixed</cite> structure.
+Alternatively coordinates can be given.</p>
+</dd>
+<dt><strong>substitution_matrix</strong><span class="classifier">str or SubstitutionMatrix,</span></dt><dd><p>The (name of the) substitution matrix used for sequence alignment.</p>
+</dd>
+<dt><strong>gap_penalty</strong><span class="classifier">int or tuple of int, optional</span></dt><dd><p>The gap penalty for sequence alignment.
+A single value indicates a linear penalty, while a tuple indicates an affine penalty.</p>
+</dd>
+<dt><strong>min_anchors: int, optional</strong></dt><dd><p>If less than <cite>min_anchors</cite> anchors are found by sequence alignment, the method ditches the
+alignment and matches all <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms.
+If the number of <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms does not match in this fallback case, an exception
+is raised.
+Furthermore, the outlier removal is stopped, if less than <cite>min_anchors</cite> anchors would be
+left.</p>
+</dd>
+<dt><strong>outlier_threshold</strong><span class="classifier">float, optional</span></dt><dd><p>The threshold for considering a conformational outlier.
+The threshold is given in units of IQR.
+This means that a residue is considered an outlier, if its squared distance is
+<cite>outlier_threshold</cite> x IQR above the upper quartile.</p>
+</dd>
+<dt><strong>max_iterations</strong><span class="classifier">int, optional</span></dt><dd><p>The maximum number of iterations for removing conformational outliers.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>fitted</strong><span class="classifier">AtomArray or AtomArrayStack or ndarray, shape(n,), dtype=float or ndarray, shape(m,n), dtype=float</span></dt><dd><p>A copy of the <cite>mobile</cite> structure(s), superimposed on the fixed structure.
+Only coordinates are returned, if coordinates were given in <cite>mobile</cite>.</p>
+</dd>
+<dt><strong>transform</strong><span class="classifier">AffineTransformation</span></dt><dd><p>This object contains the affine transformation(s) that were applied on <cite>mobile</cite>.
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">AffineTransformation.apply()</span></code> can be used to transform another AtomArray
+in the same way.</p>
+</dd>
+<dt><strong>fixed_anchor_indices, mobile_anchor_indices</strong><span class="classifier">ndarray, shape(k,), dtype=int</span></dt><dd><p>The indices of the anchor <span class="math notranslate nohighlight">\(C_{\alpha}\)</span> atoms in the fixed and mobile
+structure, respectively.
+These atoms were used for the superimposition.</p>
+</dd>
+<dt>Note:</dt><dd><p>As this method relies on amino acid sequence alignment, it works only for proteins
+with decent homology.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pinder.core.structure.surgery">
+<span id="pinder-core-structure-surgery-module"></span><h2>pinder.core.structure.surgery module<a class="headerlink" href="#module-pinder.core.structure.surgery" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.surgery.remove_annotations">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.surgery.</span></span><span class="sig-name descname"><span class="pre">remove_annotations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['element',</span> <span class="pre">'ins_code']</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/surgery.html#remove_annotations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.surgery.remove_annotations" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.surgery.fix_annotation_mismatch">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.surgery.</span></span><span class="sig-name descname"><span class="pre">fix_annotation_mismatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoys</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">['element',</span> <span class="pre">'ins_code']</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/surgery.html#fix_annotation_mismatch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.surgery.fix_annotation_mismatch" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.surgery.fix_mismatched_atoms">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.surgery.</span></span><span class="sig-name descname"><span class="pre">fix_mismatched_atoms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">native</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoy_stack</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArrayStack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_atom_delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/surgery.html#fix_mismatched_atoms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.surgery.fix_mismatched_atoms" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.surgery.set_canonical_chain_order">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.surgery.</span></span><span class="sig-name descname"><span class="pre">set_canonical_chain_order</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pinder.core.structure.models.ChainConfig" title="pinder.core.structure.models.ChainConfig"><span class="pre">ChainConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">AtomArrayStack</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">AtomArray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/surgery.html#set_canonical_chain_order"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.surgery.set_canonical_chain_order" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinder.core.structure.surgery.remove_duplicate_calpha">
+<span class="sig-prename descclassname"><span class="pre">pinder.core.structure.surgery.</span></span><span class="sig-name descname"><span class="pre">remove_duplicate_calpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AtomArray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">AtomArray</span></span></span><a class="reference internal" href="../_modules/pinder/core/structure/surgery.html#remove_duplicate_calpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pinder.core.structure.surgery.remove_duplicate_calpha" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pinder.core.structure">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pinder.core.structure" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">pinder.core.structure package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pinder.core.structure.atoms">pinder.core.structure.atoms module</a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.biotite_pdbxfile"><code class="docutils literal notranslate"><span class="pre">biotite_pdbxfile()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.biotite_pdbfile"><code class="docutils literal notranslate"><span class="pre">biotite_pdbfile()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.rust_pdbfile"><code class="docutils literal notranslate"><span class="pre">rust_pdbfile()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.atom_array_from_pdb_file"><code class="docutils literal notranslate"><span class="pre">atom_array_from_pdb_file()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.atom_vdw_radius"><code class="docutils literal notranslate"><span class="pre">atom_vdw_radius()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.backbone_mask"><code class="docutils literal notranslate"><span class="pre">backbone_mask()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.mask_from_res_list"><code class="docutils literal notranslate"><span class="pre">mask_from_res_list()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.apply_mask"><code class="docutils literal notranslate"><span class="pre">apply_mask()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.filter_atoms"><code class="docutils literal notranslate"><span class="pre">filter_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_backbone_atom_masks"><code class="docutils literal notranslate"><span class="pre">get_backbone_atom_masks()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.assign_receptor_ligand"><code class="docutils literal notranslate"><span class="pre">assign_receptor_ligand()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.renumber_res_ids"><code class="docutils literal notranslate"><span class="pre">renumber_res_ids()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.standardize_atom_array"><code class="docutils literal notranslate"><span class="pre">standardize_atom_array()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.stack_filter_intersect"><code class="docutils literal notranslate"><span class="pre">stack_filter_intersect()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_seq_alignments"><code class="docutils literal notranslate"><span class="pre">get_seq_alignments()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_seq_identity"><code class="docutils literal notranslate"><span class="pre">get_seq_identity()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.calc_num_mismatches"><code class="docutils literal notranslate"><span class="pre">calc_num_mismatches()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.align_sequences"><code class="docutils literal notranslate"><span class="pre">align_sequences()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.resn2seq"><code class="docutils literal notranslate"><span class="pre">resn2seq()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_seq_aligned_structures"><code class="docutils literal notranslate"><span class="pre">get_seq_aligned_structures()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_per_chain_seq_alignments"><code class="docutils literal notranslate"><span class="pre">get_per_chain_seq_alignments()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.invert_chain_seq_map"><code class="docutils literal notranslate"><span class="pre">invert_chain_seq_map()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_buried_sasa"><code class="docutils literal notranslate"><span class="pre">get_buried_sasa()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_resolved_resi_from_atom_array"><code class="docutils literal notranslate"><span class="pre">get_resolved_resi_from_atom_array()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.get_resolved_resi"><code class="docutils literal notranslate"><span class="pre">get_resolved_resi()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.write_pdb"><code class="docutils literal notranslate"><span class="pre">write_pdb()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.rename_chains"><code class="docutils literal notranslate"><span class="pre">rename_chains()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.cif_to_pdb"><code class="docutils literal notranslate"><span class="pre">cif_to_pdb()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.atoms.normalize_orientation"><code class="docutils literal notranslate"><span class="pre">normalize_orientation()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pinder.core.structure.contacts">pinder.core.structure.contacts module</a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.ContactPairs"><code class="docutils literal notranslate"><span class="pre">ContactPairs</span></code></a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.ContactPairs.residue_contacts"><code class="docutils literal notranslate"><span class="pre">ContactPairs.residue_contacts</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.ContactPairs.atom_contacts"><code class="docutils literal notranslate"><span class="pre">ContactPairs.atom_contacts</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.get_atoms_within_coordinate"><code class="docutils literal notranslate"><span class="pre">get_atoms_within_coordinate()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.get_stack_contacts"><code class="docutils literal notranslate"><span class="pre">get_stack_contacts()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.get_atom_neighbors"><code class="docutils literal notranslate"><span class="pre">get_atom_neighbors()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.pairwise_contacts"><code class="docutils literal notranslate"><span class="pre">pairwise_contacts()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.pairwise_chain_contacts"><code class="docutils literal notranslate"><span class="pre">pairwise_chain_contacts()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.pairwise_clashes"><code class="docutils literal notranslate"><span class="pre">pairwise_clashes()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.contacts.label_structure_gaps"><code class="docutils literal notranslate"><span class="pre">label_structure_gaps()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pinder.core.structure.models">pinder.core.structure.models module</a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.models.Base"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.models.Base.model_config"><code class="docutils literal notranslate"><span class="pre">Base.model_config</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.Base.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">Base.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.Base.model_fields"><code class="docutils literal notranslate"><span class="pre">Base.model_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig"><code class="docutils literal notranslate"><span class="pre">ChainConfig</span></code></a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.decoy_receptor"><code class="docutils literal notranslate"><span class="pre">ChainConfig.decoy_receptor</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.decoy_ligand"><code class="docutils literal notranslate"><span class="pre">ChainConfig.decoy_ligand</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.native_receptor"><code class="docutils literal notranslate"><span class="pre">ChainConfig.native_receptor</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.native_ligand"><code class="docutils literal notranslate"><span class="pre">ChainConfig.native_ligand</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">ChainConfig.model_computed_fields</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.model_config"><code class="docutils literal notranslate"><span class="pre">ChainConfig.model_config</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.ChainConfig.model_fields"><code class="docutils literal notranslate"><span class="pre">ChainConfig.model_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder.core.structure.models.BackboneDefinition"><code class="docutils literal notranslate"><span class="pre">BackboneDefinition</span></code></a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.models.BackboneDefinition.biotite"><code class="docutils literal notranslate"><span class="pre">BackboneDefinition.biotite</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.BackboneDefinition.dockq"><code class="docutils literal notranslate"><span class="pre">BackboneDefinition.dockq</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder.core.structure.models.DatasetName"><code class="docutils literal notranslate"><span class="pre">DatasetName</span></code></a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.models.DatasetName.pinder_s"><code class="docutils literal notranslate"><span class="pre">DatasetName.pinder_s</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.DatasetName.pinder_xl"><code class="docutils literal notranslate"><span class="pre">DatasetName.pinder_xl</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.DatasetName.pinder_af2"><code class="docutils literal notranslate"><span class="pre">DatasetName.pinder_af2</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder.core.structure.models.MonomerName"><code class="docutils literal notranslate"><span class="pre">MonomerName</span></code></a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.models.MonomerName.holo"><code class="docutils literal notranslate"><span class="pre">MonomerName.holo</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.MonomerName.apo"><code class="docutils literal notranslate"><span class="pre">MonomerName.apo</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.models.MonomerName.predicted"><code class="docutils literal notranslate"><span class="pre">MonomerName.predicted</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pinder.core.structure.superimpose">pinder.core.structure.superimpose module</a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.superimpose.superimpose_chain"><code class="docutils literal notranslate"><span class="pre">superimpose_chain()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pinder.core.structure.surgery">pinder.core.structure.surgery module</a><ul>
+<li><a class="reference internal" href="#pinder.core.structure.surgery.remove_annotations"><code class="docutils literal notranslate"><span class="pre">remove_annotations()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.surgery.fix_annotation_mismatch"><code class="docutils literal notranslate"><span class="pre">fix_annotation_mismatch()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.surgery.fix_mismatched_atoms"><code class="docutils literal notranslate"><span class="pre">fix_mismatched_atoms()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.surgery.set_canonical_chain_order"><code class="docutils literal notranslate"><span class="pre">set_canonical_chain_order()</span></code></a></li>
+<li><a class="reference internal" href="#pinder.core.structure.surgery.remove_duplicate_calpha"><code class="docutils literal notranslate"><span class="pre">remove_duplicate_calpha()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pinder.core.structure">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="pinder.core.loader.html">
+                    <span class="icon">&lt;</span><span>pinder.core.loader package</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="pinder.core.submit.html"><span>pinder.core.submit package</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, VantAI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+
+<p id="theme_credit"></p>
+  </body>
+</html>

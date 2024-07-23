@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dataset changelog &#8212; pinder 0.1.dev1+g8ad1ead documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/basic_mod.css?v=59943e95" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=28804041" />
+    <script src="_static/documentation_options.js?v=40280a1a"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Limitations" href="limitations_link.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage"><img src="_static/pinder.png"/></a></h1>
+            <a id="source_link" href="https://github.com/pinder-org/pinder/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="source/pinder.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_readme.html">Pinder abstractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq_link.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="limitations_link.html">Limitations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Dataset changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="dataset-changelog">
+<h1>Dataset changelog<a class="headerlink" href="#dataset-changelog" title="Link to this heading">¶</a></h1>
+<section id="pinder-2024-02-release">
+<h2>Pinder 2024-02 release<a class="headerlink" href="#pinder-2024-02-release" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>New dataset release version <code class="docutils literal notranslate"><span class="pre">2024-02</span></code>, with RCSB PDB entries ingested up until February 2024</p></li>
+<li><p>We’ve increased Foldseek’s sensitivity and now utilize LDDT (new) to better capture the alignment of flexible chains.</p></li>
+<li><p>We’ve added unit tests and QC reports that sanity check the splits using sequence alignments from MMseqs, domain annotations from ECOD, iAlign similary amongst other methods.</p></li>
+<li><p>Improved alignment sensitivity by optimizing Foldseek parameters</p></li>
+<li><p>We introduced an additional de-leaking step where we search for transitive neighbors in the interface alignment graph and use this to remove leakage across clusters</p></li>
+<li><p>With the re-run, we were able to increase the total dataset size, including newer RCSB entries that were not part of the previous ingest (this one goes up to Feb 2024)</p></li>
+<li><p>Most importantly, this increases <code class="docutils literal notranslate"><span class="pre">pinder-af2</span></code> holdout size from 69 before to 180 total now.</p>
+<ul>
+<li><p>In addition to an overall larger size, we further improved the de-leaking process by scoring pairs of dimers with Foldseek or MMSeqs hits via iAlign to extract interface similarity.</p></li>
+<li><p>The final <code class="docutils literal notranslate"><span class="pre">pinder-af2</span></code> set is comprised of systems that come from a PDB entry that was released after the AF2 training date (time split) and low or no interface similarity to AF2 training members.</p></li>
+<li><p>There are 675 clusters in the time-split and 180 systems in the final iAlign-deleaked set.</p></li>
+</ul>
+</li>
+</ul>
+<section id="updated-dataset-counts">
+<h3>Updated dataset counts<a class="headerlink" href="#updated-dataset-counts" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Dataset</p></th>
+<th class="head text-right"><p>Size</p></th>
+<th class="head text-right"><p>PDB IDs</p></th>
+<th class="head text-right"><p>Clusters</p></th>
+<th class="head text-right"><p>Apo pairs</p></th>
+<th class="head text-right"><p>AF2 Pairs</p></th>
+<th class="head text-right"><p>Apo <span class="math notranslate nohighlight">\(\geq 1\)</span></p></th>
+<th class="head text-right"><p>AF2 <span class="math notranslate nohighlight">\(\geq 1\)</span></p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PINDER-XL</span></code></p></td>
+<td class="text-right"><p>1,955</p></td>
+<td class="text-right"><p>1,955</p></td>
+<td class="text-right"><p>1,955</p></td>
+<td class="text-right"><p>342</p></td>
+<td class="text-right"><p>1,747</p></td>
+<td class="text-right"><p>436</p></td>
+<td class="text-right"><p>1,775</p></td>
+<td class="text-left"><p>Full test set, 1,955 cluster representatives</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PINDER-S</span></code></p></td>
+<td class="text-right"><p>250</p></td>
+<td class="text-right"><p>250</p></td>
+<td class="text-right"><p>250</p></td>
+<td class="text-right"><p>93</p></td>
+<td class="text-right"><p>250</p></td>
+<td class="text-right"><p>143</p></td>
+<td class="text-right"><p>250</p></td>
+<td class="text-left"><p>A smaller subset of PINDER-XL, comprised of 250 clusters (188 heterodimer and 62 homodimers) sampled for diverse Uniprot and PFAM annotations, with full AFDB coverage, to evaluate methods for which sampling from the full set is too slow</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">PINDER-AF2</span></code></p></td>
+<td class="text-right"><p>180</p></td>
+<td class="text-right"><p>180</p></td>
+<td class="text-right"><p>180</p></td>
+<td class="text-right"><p>30</p></td>
+<td class="text-right"><p>127</p></td>
+<td class="text-right"><p>37</p></td>
+<td class="text-right"><p>133</p></td>
+<td class="text-left"><p>A smaller subset of PINDER-XL, comprised of 180 clusters, 30 of which have paired apo structures and 131 with paired AFDB structures, which were deleaked against the AF2MM training set with a more rigorous deleaking process to remove any members with interfaces similar to the AF2MM training set as determined by iAlign, to evaluate methods against AF2MM</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Val</span></code></p></td>
+<td class="text-right"><p>1,958</p></td>
+<td class="text-right"><p>1,958</p></td>
+<td class="text-right"><p>1,958</p></td>
+<td class="text-right"><p>342</p></td>
+<td class="text-right"><p>1,789</p></td>
+<td class="text-right"><p>441</p></td>
+<td class="text-right"><p>1,817</p></td>
+<td class="text-left"><p>Validation set, consisting of 1,958 cluster representatives</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Train</span></code></p></td>
+<td class="text-right"><p>1,560,682</p></td>
+<td class="text-right"><p>62,706</p></td>
+<td class="text-right"><p>42,220</p></td>
+<td class="text-right"><p>136,498</p></td>
+<td class="text-right"><p>566,171</p></td>
+<td class="text-right"><p>274,194</p></td>
+<td class="text-right"><p>621,276</p></td>
+<td class="text-left"><p>Training set, consisting of 1,560,682 dimers from 42,220 clusters</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diversity-stats">
+<h3>Diversity stats<a class="headerlink" href="#diversity-stats" title="Link to this heading">¶</a></h3>
+<section id="test-val-size">
+<h4>Test + val size<a class="headerlink" href="#test-val-size" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><em>Pinder cluster-level diversity: 12.41%</em></p></li>
+<li><p><em>Acceptance criteria: test + val &gt; 5-10% of overall number of clusters</em></p></li>
+</ul>
+</section>
+<section id="interface-size-distribution">
+<h4>Interface size distribution<a class="headerlink" href="#interface-size-distribution" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Interface residue length distributions between splits</p></li>
+<li><p>Acceptance criteria: no specific criteria, we just want to ensure there is some overlap across splits</p></li>
+</ul>
+<p><img alt="" src="_images/interface_length_distribution.png" />
+<img alt="" src="_images/intermolecular_contacts_distribution_max500.png" /></p>
+</section>
+<section id="planarity-distribution">
+<h4>Planarity distribution<a class="headerlink" href="#planarity-distribution" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Planarity distribution between splits (lower means more transient interaction)</p></li>
+<li><p>Acceptance criteria: no specific criteria, we just want to ensure there is some overlap across splits</p></li>
+</ul>
+<p><img alt="" src="_images/planarity_distribution.png" /></p>
+</section>
+<section id="ecod-domain-domain-diversity">
+<h4>ECOD domain-domain diversity<a class="headerlink" href="#ecod-domain-domain-diversity" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>ECOD domain is defined as
+(1) ECOD id which overlaps with the interface most
+(2) Minimum of 25% of interface &amp; 10 AA should be covered</p></li>
+<li><p>“Pair diversity”</p>
+<ul>
+<li><p><em>test: 9.65%</em></p></li>
+<li><p><em>val: 10.82%</em></p></li>
+<li><p><em>test+val: 18.11%</em></p></li>
+</ul>
+</li>
+<li><p><em>Acceptance criteria: &gt;5%</em></p></li>
+</ul>
+</section>
+<section id="both-chains-unique-ecod-domain-unique-binding-site-ratio">
+<h4>Both chains unique ECOD domain (unique binding site ratio)<a class="headerlink" href="#both-chains-unique-ecod-domain-unique-binding-site-ratio" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Percentage of test systems with ECOD ids unique to test (both chains)</p>
+<ul>
+<li><p>Check if single domain exists in train irrespective of pairs</p></li>
+<li><p>If neither of the ECOD domains exist in train then this system is completely unique to the test</p></li>
+</ul>
+</li>
+<li><p>test: 30.91%</p></li>
+<li><p>val: 33.15%</p></li>
+<li><p>Acceptance criteria: ~1/3rd</p></li>
+</ul>
+</section>
+<section id="ecod-single-chain-domain-diversity">
+<h4>ECOD single chain domain diversity<a class="headerlink" href="#ecod-single-chain-domain-diversity" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>ECOD domain diversity based on chains</p></li>
+<li><p>“Single-chain diversity”</p>
+<ul>
+<li><p><em>test: 18.47%</em></p></li>
+<li><p><em>val: 21.14%</em></p></li>
+<li><p><em>test+val: 33.83%</em></p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="_images/top_50_ecod_families.png" /></p>
+</section>
+<section id="pfam-clan-distribution">
+<h4>Pfam-clan distribution<a class="headerlink" href="#pfam-clan-distribution" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Pfam-clan level diversity (broader than ECOD families)</p>
+<ul>
+<li><p>Note: not all chains are annotated</p></li>
+</ul>
+</li>
+<li><p><em>test: 52.65%</em></p></li>
+</ul>
+<p><img alt="" src="_images/top_50_pfam_clans.png" /></p>
+</section>
+</section>
+<section id="leakage-qc">
+<h3>Leakage QC<a class="headerlink" href="#leakage-qc" title="Link to this heading">¶</a></h3>
+<section id="uniprot">
+<h4>UniProt<a class="headerlink" href="#uniprot" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Intersection of uniprot pairs between train &amp; test</p>
+<ul>
+<li><p><em>test: 3.17%</em></p></li>
+<li><p><em>val: 3.63%</em></p></li>
+</ul>
+</li>
+<li><p><em>Acceptance criteria: &lt;5%</em></p></li>
+</ul>
+</section>
+<section id="ecod">
+<h4>ECOD<a class="headerlink" href="#ecod" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Percent of test set with same ECOD pair as train</p>
+<ul>
+<li><p><em>test: 6.39%</em></p></li>
+<li><p><em>val: 8.02%</em></p></li>
+</ul>
+</li>
+<li><p><em>Acceptance criteria: &lt;10%</em></p></li>
+</ul>
+</section>
+<section id="sequence-similarity-global">
+<h4>Sequence similarity (global)<a class="headerlink" href="#sequence-similarity-global" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Test vs subsampled train (1 per cluster with clusters &gt;20: 4,658 total systems)</p>
+<ul>
+<li><p>0.05% (2/3915) from sampling 0.24% of the training set (3627 entries).</p></li>
+<li><p>subsampling 1.2% of the training set (a different set of 18,135 train systems) results in 0.07% leakage (3/3915)</p></li>
+</ul>
+</li>
+<li><p>Acceptance criteria: N/A</p></li>
+</ul>
+</section>
+</section>
+<section id="parameter-optimization">
+<h3>Parameter optimization<a class="headerlink" href="#parameter-optimization" title="Link to this heading">¶</a></h3>
+<p>Foldseek and MMseqs2 alignments are used directly to de-leak, therefore looking at the leakage given these methods will yield no leakage unless the alignments produced are different from our pipeline. This could be because of bugs or inconsistencies between Foldseek/MMseqs2 runs. We performed Foldseek/MMseqs2 alignments between subsampled train data vs test and looked at the following:</p>
+<ol class="arabic simple">
+<li><p>Alignment consistency with same parameter settings</p></li>
+<li><p>Alignment performance with different settings
+a. Tested Foldseek in slow-mode (performs tm-align at post instead of 3di)
+b. Tested different e-value cut-offs for both
+c. Higher “max n alignments per sequence” in MMseqs2</p></li>
+<li><p>Test on single chain ECOD homology classification
+a. True alignment if both of the aligned chains have the same ECOD family.
+b. False if they have different ECOD family.</p></li>
+</ol>
+<p><strong>Alignment consistency:</strong></p>
+<ul class="simple">
+<li><p>Foldseek alignments yielded ~90% (thr &gt; 0.6) of overlap between the old and new alignments, both runs having similar total numbers above 0.6 lddt.</p></li>
+<li><p>MMseqs2 yielded substantially higher number of alignments. This was due to the lower number of sequences in the sequence subset used, which gave more freedom to the “max n alignments per sequence” parameter (1000). Therefore, most of these are suspected to be short and unspecific alignments at the used 30% ident. cutoff:</p></li>
+</ul>
+<p><img alt="" src="_images/mmseqs_alnlen_distribution.png" />
+<img alt="" src="_images/foldseek_alnlen_distribution.png" /></p>
+<p><strong>Alignment at different settings:</strong></p>
+<ul class="simple">
+<li><p>The only setting with substantially different outcome was the use of “slow-mode” in Foldseek instead of “fast-mode” used in our pipeline (makes use of Foldseek alphabet + sequence similarity)</p>
+<ul>
+<li><p>In general we see more alignments above the lddt threshold</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Assessment of differences in terms of performance:</strong></p>
+<ul class="simple">
+<li><p>MMseqs2 contribution is minimal (possibly random) with increased hits, confirming the hypothesis of short unspecific hits (FP)</p>
+<ul>
+<li><p>default max hits:</p>
+<ul>
+<li><p>TP: 1012 FP: 750</p></li>
+</ul>
+</li>
+<li><p>increased max hits:</p>
+<ul>
+<li><p>TP: 1088 FP: 29560</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Foldseek fast-mode is better in terms of precision. This can be attributed to the VQ-VAE task used in Foldseek alphabet training which was based on SCOPe classification. This leads to good alignments for relevant folds and suboptimal alignments for “unimportant” folds which lead to low mean global lddt compared to tm-align pass.</p>
+<ul>
+<li><p>fast-mode (alignment-type 2, 3Di+AA Gotoh-Smith-Waterman) at 0.5 lddt threshold:</p>
+<ul>
+<li><p>TP: 2328 FP: 3586</p></li>
+</ul>
+</li>
+<li><p>slow-mode (alignment-type 1, TMalign) at 0.6 lddt threshold:</p>
+<ul>
+<li><p>TP: 2200 FP: 3560</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="_images/foldseek_precision_vs_threshold.png" />
+<img alt="" src="_images/foldseek_recall_vs_threshold.png" /></p>
+<p><strong>Conclusion:</strong></p>
+<ul class="simple">
+<li><p>Our current settings for both Foldseek and MMseqs2 are good and no need to change anything.</p></li>
+<li><p>Alignment graph cutoff for Foldseek graph can be changed to 0.5 or 0.55 to cover more TPs, but may not make a substantial difference.</p></li>
+</ul>
+</section>
+</section>
+<section id="pinder-2023-11-patch-update">
+<h2>Pinder 2023-11 (patch update)<a class="headerlink" href="#pinder-2023-11-patch-update" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Previously, test set was defined by randomly sampling two accessions from each cluster</p></li>
+<li><p>This was done without redundancy removal, leading to redundant systems across pinder-xl, pinder-s and pinder-af2</p></li>
+<li><p>This update removes redundant test members as defined by having the same receptor and ligand UniProt IDs</p></li>
+<li><p>Representative was selected based on lowest number of interface atom gaps, highest sequence resolution, and crystal resolution (in that order)</p></li>
+<li><p>If both cluster members had identical characteristics, a representative was selected at random</p></li>
+<li><p>The structural files in the bucket remain unchanged; however, the index file was updated to remove the redundant rows.</p>
+<ul>
+<li><p><strong>NOTE: In order to update to the new index file please remove the index.csv.gz from your <code class="docutils literal notranslate"><span class="pre">PINDER_BASE_DIR</span></code> env variable or default location in <code class="docutils literal notranslate"><span class="pre">~/.local/share/pinder</span></code></strong></p></li>
+<li><p>Alternatively, you can use the new CLI tool <code class="docutils literal notranslate"><span class="pre">pinder_update_index</span> <span class="pre">--help</span></code></p></li>
+</ul>
+</li>
+</ul>
+<section id="updated-test-dataset-counts">
+<h3>Updated test dataset counts<a class="headerlink" href="#updated-test-dataset-counts" title="Link to this heading">¶</a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Dataset</p></th>
+<th class="head text-left"><p>Monomer</p></th>
+<th class="head text-right"><p>Current count</p></th>
+<th class="head text-right"><p>Previous count (with redundant test members)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>pinder_xl</p></td>
+<td class="text-left"><p>holo</p></td>
+<td class="text-right"><p>1455</p></td>
+<td class="text-right"><p>1756</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pinder_xl</p></td>
+<td class="text-left"><p>apo</p></td>
+<td class="text-right"><p>323</p></td>
+<td class="text-right"><p>401</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>pinder_xl</p></td>
+<td class="text-left"><p>predicted</p></td>
+<td class="text-right"><p>1296</p></td>
+<td class="text-right"><p>1575</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pinder_s</p></td>
+<td class="text-left"><p>holo</p></td>
+<td class="text-right"><p>101</p></td>
+<td class="text-right"><p>117</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>pinder_s</p></td>
+<td class="text-left"><p>apo</p></td>
+<td class="text-right"><p>59</p></td>
+<td class="text-right"><p>71</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pinder_s</p></td>
+<td class="text-left"><p>predicted</p></td>
+<td class="text-right"><p>90</p></td>
+<td class="text-right"><p>106</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>pinder_af2</p></td>
+<td class="text-left"><p>holo</p></td>
+<td class="text-right"><p>69</p></td>
+<td class="text-right"><p>72</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>pinder_af2</p></td>
+<td class="text-left"><p>apo</p></td>
+<td class="text-right"><p>15</p></td>
+<td class="text-right"><p>15</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>pinder_af2</p></td>
+<td class="text-left"><p>predicted</p></td>
+<td class="text-right"><p>50</p></td>
+<td class="text-right"><p>52</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="pinder-2023-11">
+<h2>Pinder 2023-11<a class="headerlink" href="#pinder-2023-11" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Initial release</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PINDER_RELEASE=2023-11</span></code></p></li>
+</ul>
+<section id="total-dataset-size">
+<h3>Total dataset size<a class="headerlink" href="#total-dataset-size" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># compressed</span>
+<span class="mi">34</span><span class="n">G</span>     <span class="n">pdbs</span><span class="o">.</span><span class="n">zip</span>
+<span class="mi">867</span><span class="n">M</span>    <span class="n">csvs</span><span class="o">.</span><span class="n">zip</span>
+
+<span class="c1"># unpacked</span>
+<span class="mi">156</span><span class="n">G</span>    <span class="n">pdbs</span>
+<span class="mf">1.6</span><span class="n">G</span>    <span class="n">csvs</span>
+</pre></div>
+</div>
+</section>
+<section id="file-manifest">
+<h3>File manifest<a class="headerlink" href="#file-manifest" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">pinder</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">csv</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">pinder</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">metadata</span><span class="o">.</span><span class="n">csv</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">pinder</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">csvs</span><span class="o">.</span><span class="n">zip</span>
+<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">pinder</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">csvs</span><span class="o">/</span>
+<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">pinder</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">pdbs</span><span class="o">.</span><span class="n">zip</span>
+<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">pinder</span><span class="o">/</span><span class="mi">2023</span><span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="n">pdbs</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Dataset changelog</a><ul>
+<li><a class="reference internal" href="#pinder-2024-02-release">Pinder 2024-02 release</a><ul>
+<li><a class="reference internal" href="#updated-dataset-counts">Updated dataset counts</a></li>
+<li><a class="reference internal" href="#diversity-stats">Diversity stats</a><ul>
+<li><a class="reference internal" href="#test-val-size">Test + val size</a></li>
+<li><a class="reference internal" href="#interface-size-distribution">Interface size distribution</a></li>
+<li><a class="reference internal" href="#planarity-distribution">Planarity distribution</a></li>
+<li><a class="reference internal" href="#ecod-domain-domain-diversity">ECOD domain-domain diversity</a></li>
+<li><a class="reference internal" href="#both-chains-unique-ecod-domain-unique-binding-site-ratio">Both chains unique ECOD domain (unique binding site ratio)</a></li>
+<li><a class="reference internal" href="#ecod-single-chain-domain-diversity">ECOD single chain domain diversity</a></li>
+<li><a class="reference internal" href="#pfam-clan-distribution">Pfam-clan distribution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#leakage-qc">Leakage QC</a><ul>
+<li><a class="reference internal" href="#uniprot">UniProt</a></li>
+<li><a class="reference internal" href="#ecod">ECOD</a></li>
+<li><a class="reference internal" href="#sequence-similarity-global">Sequence similarity (global)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#parameter-optimization">Parameter optimization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder-2023-11-patch-update">Pinder 2023-11 (patch update)</a><ul>
+<li><a class="reference internal" href="#updated-test-dataset-counts">Updated test dataset counts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pinder-2023-11">Pinder 2023-11</a><ul>
+<li><a class="reference internal" href="#total-dataset-size">Total dataset size</a></li>
+<li><a class="reference internal" href="#file-manifest">File manifest</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="limitations_link.html">
+                    <span class="icon">&lt;</span><span>Limitations</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, VantAI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+
+<p id="theme_credit"></p>
+  </body>
+</html>

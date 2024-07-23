@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pinder.data.foldseek_utils &#8212; pinder 0.1.dev1+g8ad1ead documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic_mod.css?v=59943e95" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=28804041" />
+    <script src="../../../_static/documentation_options.js?v=40280a1a"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/js/petite-vue.js"></script>
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../../../index.html" title="Go to homepage"><img src="../../../_static/pinder.png"/></a></h1>
+            <a id="source_link" href="https://github.com/pinder-org/pinder/">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+            <path fill="white" d="M 244.8,8 C 106.1,8 0,113.3 0,252 c 0,110.9 69.8,205.8 169.5,239.2 12.8,2.3 17.3,-5.6 17.3,-12.1 0,-6.2 -0.3,-40.4 -0.3,-61.4 0,0 -70,15 -84.7,-29.8 0,0 -11.4,-29.1 -27.8,-36.6 0,0 -22.9,-15.7 1.6,-15.4 0,0 24.9,2 38.6,25.8 21.9,38.6 58.6,27.5 72.9,20.9 2.3,-16 8.8,-27.1 16,-33.7 -55.9,-6.2 -112.3,-14.3 -112.3,-110.5 0,-27.5 7.6,-41.3 23.6,-58.9 -2.6,-6.5 -11.1,-33.3 2.6,-67.9 20.9,-6.5 69,27 69,27 20,-5.6 41.5,-8.5 62.8,-8.5 21.3,0 42.8,2.9 62.8,8.5 0,0 48.1,-33.6 69,-27 13.7,34.7 5.2,61.4 2.6,67.9 16,17.7 25.8,31.5 25.8,58.9 0,96.5 -58.9,104.2 -114.8,110.5 9.2,7.9 17,22.9 17,46.4 0,33.7 -0.3,75.4 -0.3,83.6 0,6.5 4.6,14.4 17.3,12.1 C 428.2,457.8 496,362.9 496,252 496,113.3 383.5,8 244.8,8 Z"/>
+        </svg>
+    
+</a>
+        
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../../../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../readme_link.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../source/pinder.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../example_readme.html">Pinder abstractions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../faq_link.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../limitations_link.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog_link.html">Dataset changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for pinder.data.foldseek_utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">check_call</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">digits</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">pinder.core.index.system</span> <span class="kn">import</span> <span class="n">PinderSystem</span>
+<span class="kn">from</span> <span class="nn">pinder.core.loader.structure</span> <span class="kn">import</span> <span class="n">Structure</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils.log</span> <span class="kn">import</span> <span class="n">setup_logger</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils.paths</span> <span class="kn">import</span> <span class="n">parallel_copy_files</span>
+<span class="kn">from</span> <span class="nn">pinder.core.utils.process</span> <span class="kn">import</span> <span class="n">process_map</span>
+<span class="kn">from</span> <span class="nn">pinder.data.config</span> <span class="kn">import</span> <span class="n">GraphConfig</span><span class="p">,</span> <span class="n">FoldseekConfig</span><span class="p">,</span> <span class="n">MMSeqsConfig</span>
+<span class="kn">from</span> <span class="nn">pinder.data.csv_utils</span> <span class="kn">import</span> <span class="n">read_csv_non_default_na</span>
+<span class="kn">from</span> <span class="nn">pinder.data.pipeline</span> <span class="kn">import</span> <span class="n">scatter</span>
+
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">setup_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="n">FOLDSEEK_FIELDS</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qstart&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qend&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qlen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tstart&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tend&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tlen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;alnlen&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="n">MMSEQ2_FIELDS</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qstart&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qend&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qlen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tstart&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tend&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;tlen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;alnlen&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="fasta2dict">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.fasta2dict">[docs]</a>
+<span class="k">def</span> <span class="nf">fasta2dict</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">fasta_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">fasta_txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">fasta_txt</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">record</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">header</span><span class="p">,</span> <span class="n">seq</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">fasta_dict</span><span class="p">[</span><span class="n">header</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq</span>
+    <span class="k">return</span> <span class="n">fasta_dict</span></div>
+
+
+
+<div class="viewcode-block" id="create_fasta_from_systems">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.create_fasta_from_systems">[docs]</a>
+<span class="k">def</span> <span class="nf">create_fasta_from_systems</span><span class="p">(</span>
+    <span class="n">systems</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PinderSystem</span><span class="p">],</span> <span class="n">fasta_file</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">unique_seqs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">system</span> <span class="ow">in</span> <span class="n">systems</span><span class="p">:</span>
+        <span class="n">unique_seqs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">holo_ligand</span><span class="o">.</span><span class="n">fasta</span><span class="p">)</span>
+        <span class="n">unique_seqs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">holo_receptor</span><span class="o">.</span><span class="n">fasta</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">unique_seqs</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="extract_fasta_from_pdb">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.extract_fasta_from_pdb">[docs]</a>
+<span class="k">def</span> <span class="nf">extract_fasta_from_pdb</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">struct</span> <span class="o">=</span> <span class="n">Structure</span><span class="p">(</span><span class="n">pdb_file</span><span class="p">)</span>
+    <span class="n">fasta</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">fasta</span>
+    <span class="k">return</span> <span class="n">fasta</span></div>
+
+
+
+<div class="viewcode-block" id="parallel_extract_fasta">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.parallel_extract_fasta">[docs]</a>
+<span class="k">def</span> <span class="nf">parallel_extract_fasta</span><span class="p">(</span>
+    <span class="n">pdb_files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">],</span>
+    <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract fasta-formatted sequences from a collection of PDB files in parallel.</span>
+<span class="sd">    Operates in parallel and assumes that source files all exist.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pdb_files : list[Path]</span>
+<span class="sd">        List of PDB files to extract fasta strings for.</span>
+<span class="sd">    max_workers : int, optional</span>
+<span class="sd">        Limit number of parallel processes spawned to `max_workers`.</span>
+<span class="sd">    parallel : bool</span>
+<span class="sd">        Whether to extract fasta in parallel.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fasta_seqs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">process_map</span><span class="p">(</span>
+        <span class="n">extract_fasta_from_pdb</span><span class="p">,</span> <span class="n">pdb_files</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">fasta_seqs</span></div>
+
+
+
+<div class="viewcode-block" id="create_fasta_from_foldseek_inputs">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.create_fasta_from_foldseek_inputs">[docs]</a>
+<span class="k">def</span> <span class="nf">create_fasta_from_foldseek_inputs</span><span class="p">(</span>
+    <span class="n">foldseek_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">fasta_file</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">fasta_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">use_cache</span> <span class="ow">and</span> <span class="n">fasta_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="k">return</span>
+    <span class="n">foldseek_pdbs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">foldseek_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pdb&quot;</span><span class="p">))</span>
+    <span class="n">pdb_seqs</span> <span class="o">=</span> <span class="n">parallel_extract_fasta</span><span class="p">(</span>
+        <span class="n">pdb_files</span><span class="o">=</span><span class="n">foldseek_pdbs</span><span class="p">,</span>
+        <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span>
+        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">all_seqs</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pdb_seqs</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">all_seqs</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="create_foldseek_input_dir">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.create_foldseek_input_dir">[docs]</a>
+<span class="k">def</span> <span class="nf">create_foldseek_input_dir</span><span class="p">(</span>
+    <span class="n">index</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">foldseek_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">pdb_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">foldseek_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">foldseek_dir</span><span class="p">)</span>
+    <span class="n">foldseek_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pdb_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">pdb_dir</span><span class="p">)</span>
+    <span class="n">index_df</span> <span class="o">=</span> <span class="n">read_csv_non_default_na</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;pdb_id&quot;</span><span class="p">:</span> <span class="s2">&quot;str&quot;</span><span class="p">})</span>
+    <span class="n">index_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;foldseek_L_pdb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pdb_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ch_L</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span><span class="si">}</span><span class="s2">.pdb&quot;</span>
+        <span class="k">for</span> <span class="n">pdb_id</span><span class="p">,</span> <span class="n">ch_L</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">index_df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pdb_id&quot;</span><span class="p">,</span> <span class="s2">&quot;chain_L&quot;</span><span class="p">]))</span>
+    <span class="p">]</span>
+    <span class="n">index_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;foldseek_R_pdb&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pdb_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">ch_R</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span><span class="si">}</span><span class="s2">.pdb&quot;</span>
+        <span class="k">for</span> <span class="n">pdb_id</span><span class="p">,</span> <span class="n">ch_R</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">index_df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;pdb_id&quot;</span><span class="p">,</span> <span class="s2">&quot;chain_R&quot;</span><span class="p">]))</span>
+    <span class="p">]</span>
+    <span class="n">foldseek_R</span> <span class="o">=</span> <span class="n">index_df</span><span class="p">[[</span><span class="s2">&quot;pdb_id&quot;</span><span class="p">,</span> <span class="s2">&quot;holo_R_pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;foldseek_R_pdb&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">foldseek_R</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;holo_R_pdb&quot;</span><span class="p">:</span> <span class="s2">&quot;holo_pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;foldseek_R_pdb&quot;</span><span class="p">:</span> <span class="s2">&quot;foldseek_pdb&quot;</span><span class="p">},</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">foldseek_L</span> <span class="o">=</span> <span class="n">index_df</span><span class="p">[[</span><span class="s2">&quot;pdb_id&quot;</span><span class="p">,</span> <span class="s2">&quot;holo_L_pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;foldseek_L_pdb&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">foldseek_L</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+        <span class="p">{</span><span class="s2">&quot;holo_L_pdb&quot;</span><span class="p">:</span> <span class="s2">&quot;holo_pdb&quot;</span><span class="p">,</span> <span class="s2">&quot;foldseek_L_pdb&quot;</span><span class="p">:</span> <span class="s2">&quot;foldseek_pdb&quot;</span><span class="p">},</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">foldseek_inputs</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">foldseek_R</span><span class="p">,</span> <span class="n">foldseek_L</span><span class="p">])</span>
+        <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s2">&quot;foldseek_pdb&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">src_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">pdb_dir</span> <span class="o">/</span> <span class="n">holo_pdb</span> <span class="k">for</span> <span class="n">holo_pdb</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">foldseek_inputs</span><span class="o">.</span><span class="n">holo_pdb</span><span class="p">)]</span>
+    <span class="n">dest_files</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">foldseek_dir</span> <span class="o">/</span> <span class="n">fold_pdb</span> <span class="k">for</span> <span class="n">fold_pdb</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">foldseek_inputs</span><span class="o">.</span><span class="n">foldseek_pdb</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">parallel_copy_files</span><span class="p">(</span>
+        <span class="n">src_files</span><span class="p">,</span>
+        <span class="n">dest_files</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">,</span>
+        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+        <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">foldseek_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.pdb&#39;</span><span class="p">)))</span><span class="si">}</span><span class="s2"> single chain PDB files in </span><span class="si">{</span><span class="n">foldseek_dir</span><span class="si">}</span><span class="s2"> for foldseek.&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="run_foldseek">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_foldseek">[docs]</a>
+<span class="k">def</span> <span class="nf">run_foldseek</span><span class="p">(</span>
+    <span class="n">input_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">target_db_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">FoldseekConfig</span> <span class="o">=</span> <span class="n">FoldseekConfig</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run foldseek easy-search on a directory of PDB structures.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_dir : Path</span>
+<span class="sd">        Input directory for foldseek targets.</span>
+<span class="sd">    output_dir : Path</span>
+<span class="sd">        The output directory to store foldseek alignments.</span>
+<span class="sd">    target_db_dir : Optional[Path]</span>
+<span class="sd">        Optional target DB input directory for foldseek. If not specified, defaults to input_dir.</span>
+<span class="sd">    config : FoldseekConfig</span>
+<span class="sd">        The configuration object containing foldseek parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out_folder</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+    <span class="n">out_folder</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">target_db_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target_db_dir</span> <span class="o">=</span> <span class="n">input_dir</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">out_folder</span><span class="p">)</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">alignment_filename</span>
+    <span class="n">foldseek_command</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;foldseek&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;easy-search&quot;</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">input_dir</span><span class="p">),</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">target_db_dir</span><span class="p">),</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">output_file</span><span class="p">),</span>
+        <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;-s&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">sensitivity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-e&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">evalue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--max-seqs&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">max_seqs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--alignment-type&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">alignment_type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--format-output&quot;</span><span class="p">,</span>
+        <span class="n">FOLDSEEK_FIELDS</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">score_type</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">foldseek_command</span><span class="p">))</span>
+    <span class="n">check_call</span><span class="p">(</span><span class="n">foldseek_command</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">out_folder</span> <span class="o">/</span> <span class="s2">&quot;foldseek_error.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="run_mmseqs">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_mmseqs">[docs]</a>
+<span class="k">def</span> <span class="nf">run_mmseqs</span><span class="p">(</span>
+    <span class="n">input_fasta</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">target_fasta</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">MMSeqsConfig</span> <span class="o">=</span> <span class="n">MMSeqsConfig</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+    <span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">target_fasta</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mmseqs_dir</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs2&quot;</span>
+        <span class="n">mmseqs_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">target_fasta</span> <span class="o">=</span> <span class="n">input_fasta</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mmseqs_dir</span> <span class="o">=</span> <span class="n">output_dir</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">input_fasta</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Input fasta </span><span class="si">{</span><span class="n">input_fasta</span><span class="si">}</span><span class="s2"> not found! &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Attempting to generate from output_dir </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">!&quot;</span>
+        <span class="p">)</span>
+        <span class="n">create_fasta_from_foldseek_inputs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">input_fasta</span><span class="p">)</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="n">input_fasta</span><span class="si">}</span><span class="s2"> for mmseqs2.&quot;</span><span class="p">)</span>
+
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">mmseqs_dir</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">alignment_filename</span>
+    <span class="k">if</span> <span class="n">output_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">use_cache</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running mmseqs easy-search on </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;mmseqs&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;easy-search&quot;</span><span class="p">,</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">input_fasta</span><span class="p">),</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">target_fasta</span><span class="p">),</span>
+        <span class="nb">str</span><span class="p">(</span><span class="n">output_file</span><span class="p">),</span>
+        <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;tmp&quot;</span><span class="p">),</span>
+        <span class="s2">&quot;-s&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">sensitivity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;-e&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">evalue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--min-seq-id&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">min_seq_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--max-seqs&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">max_seqs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;--format-output&quot;</span><span class="p">,</span>
+        <span class="n">MMSEQ2_FIELDS</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">score_type</span><span class="p">),</span>
+    <span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">command</span><span class="p">))</span>
+    <span class="n">check_call</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">mmseqs_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs_error.txt&quot;</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="create_dbs">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.create_dbs">[docs]</a>
+<span class="k">def</span> <span class="nf">create_dbs</span><span class="p">(</span>
+    <span class="n">db_root_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">chains_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">max_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">parallel</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">db_root_path</span><span class="p">)</span>
+    <span class="n">db_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">chains_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">chains_path</span><span class="p">)</span>
+    <span class="n">chains</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chains_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pdb&quot;</span><span class="p">))</span>
+    <span class="n">n_chains</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">chains</span><span class="p">)</span>
+    <span class="c1"># Split into chunks of max size = db_size</span>
+    <span class="n">chain_chunks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">chains</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">db_size</span> <span class="p">:</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">db_size</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">n_chains</span> <span class="o">+</span> <span class="n">db_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">db_size</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">src_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dest_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chain_chunk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chain_chunks</span><span class="p">):</span>
+        <span class="c1"># Create flat list of src and dest files to copy to their respective db_subdir</span>
+        <span class="n">db_subdir</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;db&quot;</span>
+        <span class="n">db_subdir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">src_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">chain_chunk</span><span class="p">)</span>
+        <span class="n">dest_files</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">db_subdir</span> <span class="o">/</span> <span class="n">chain</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">chain_chunk</span><span class="p">])</span>
+    <span class="n">parallel_copy_files</span><span class="p">(</span>
+        <span class="n">src_files</span><span class="p">,</span>
+        <span class="n">dest_files</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">,</span>
+        <span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">,</span>
+        <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="run_db_vs_db">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_db_vs_db">[docs]</a>
+<span class="k">def</span> <span class="nf">run_db_vs_db</span><span class="p">(</span>
+    <span class="n">db_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">FoldseekConfig</span> <span class="o">=</span> <span class="n">FoldseekConfig</span><span class="p">(),</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+    <span class="n">subdir1</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;db&quot;</span>
+    <span class="n">subdir2</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;db&quot;</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">alignments</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">alignment_filename</span>
+    <span class="k">if</span> <span class="n">alignments</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">use_cache</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;foldseek pair </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> already present. Skipping...&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">run_foldseek</span><span class="p">(</span>
+            <span class="n">subdir1</span><span class="p">,</span>
+            <span class="n">output_dir</span><span class="p">,</span>
+            <span class="n">subdir2</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">alignments</span></div>
+
+
+
+<div class="viewcode-block" id="run_foldseek_db_pair">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_foldseek_db_pair">[docs]</a>
+<span class="k">def</span> <span class="nf">run_foldseek_db_pair</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">db_indices</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">foldseek_config</span><span class="p">:</span> <span class="n">FoldseekConfig</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">foldseek_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">foldseek_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek_dbs&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">db_indices</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">db_indices</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running foldseek DB </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">al_file</span> <span class="o">=</span> <span class="n">run_db_vs_db</span><span class="p">(</span>
+        <span class="n">db_path</span><span class="p">,</span>
+        <span class="n">i</span><span class="p">,</span>
+        <span class="n">j</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">foldseek_config</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="create_dbs_and_run">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.create_dbs_and_run">[docs]</a>
+<span class="k">def</span> <span class="nf">create_dbs_and_run</span><span class="p">(</span>
+    <span class="n">fold_db_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">chains_path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">FoldseekConfig</span> <span class="o">=</span> <span class="n">FoldseekConfig</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">fold_db_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fold_db_path</span><span class="p">)</span>
+    <span class="n">chains_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">chains_path</span><span class="p">)</span>
+    <span class="n">create_dbs</span><span class="p">(</span><span class="n">fold_db_path</span><span class="p">,</span> <span class="n">chains_path</span><span class="p">,</span> <span class="n">db_size</span><span class="p">)</span>
+    <span class="n">chains</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">chains_path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pdb&quot;</span><span class="p">))</span>
+    <span class="n">alignment_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">scatter</span><span class="o">.</span><span class="n">chunk_all_vs_all_indices</span><span class="p">(</span><span class="n">chains</span><span class="p">,</span> <span class="n">db_size</span><span class="p">):</span>
+        <span class="n">al_file</span> <span class="o">=</span> <span class="n">run_db_vs_db</span><span class="p">(</span>
+            <span class="n">fold_db_path</span><span class="p">,</span>
+            <span class="n">i</span><span class="p">,</span>
+            <span class="n">j</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">alignment_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">al_file</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fold_db_path</span> <span class="o">/</span> <span class="n">config</span><span class="o">.</span><span class="n">alignment_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">al_file</span> <span class="ow">in</span> <span class="n">alignment_files</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">al_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">al</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="n">al_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="setup_foldseek_dbs">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.setup_foldseek_dbs">[docs]</a>
+<span class="k">def</span> <span class="nf">setup_foldseek_dbs</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">foldseek_db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">foldseek_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span>
+    <span class="n">foldseek_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">create_foldseek_input_dir</span><span class="p">(</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;index.1.csv.gz&quot;</span><span class="p">,</span>
+        <span class="n">foldseek_dir</span><span class="o">=</span><span class="n">foldseek_dir</span><span class="p">,</span>
+        <span class="n">pdb_dir</span><span class="o">=</span><span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;pdbs&quot;</span><span class="p">,</span>
+        <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">foldseek_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek_dbs&quot;</span>
+    <span class="n">create_dbs</span><span class="p">(</span><span class="n">db_path</span><span class="p">,</span> <span class="n">foldseek_dir</span><span class="p">,</span> <span class="n">db_size</span><span class="o">=</span><span class="n">foldseek_db_size</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">_collate_alignment_files</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">output_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">db_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">alignment_filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;alignment.txt&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">foldseek_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span>
+    <span class="n">chains</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">foldseek_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*.pdb&quot;</span><span class="p">))</span>
+    <span class="n">alignment_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">scatter</span><span class="o">.</span><span class="n">chunk_all_vs_all_indices</span><span class="p">(</span><span class="n">chains</span><span class="p">,</span> <span class="n">db_size</span><span class="p">):</span>
+        <span class="n">output_dir</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">alignment_file</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="n">alignment_filename</span>
+        <span class="k">if</span> <span class="n">alignment_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="n">alignment_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alignment_file</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Collating </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">alignment_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> alignment files&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">al_file</span> <span class="ow">in</span> <span class="n">alignment_files</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">al_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">al</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+
+<div class="viewcode-block" id="collate_foldseek_alignments">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.collate_foldseek_alignments">[docs]</a>
+<span class="k">def</span> <span class="nf">collate_foldseek_alignments</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">foldseek_db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">alignment_filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;alignment.txt&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">foldseek_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">foldseek_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek_dbs&quot;</span>
+    <span class="n">collated_alignment</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="n">alignment_filename</span>
+    <span class="k">if</span> <span class="n">collated_alignment</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">use_cache</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">_collate_alignment_files</span><span class="p">(</span>
+        <span class="n">pinder_dir</span><span class="p">,</span>
+        <span class="n">collated_alignment</span><span class="p">,</span>
+        <span class="n">db_path</span><span class="p">,</span>
+        <span class="n">foldseek_db_size</span><span class="p">,</span>
+        <span class="n">alignment_filename</span><span class="o">=</span><span class="n">alignment_filename</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="collate_mmseqs_alignments">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.collate_mmseqs_alignments">[docs]</a>
+<span class="k">def</span> <span class="nf">collate_mmseqs_alignments</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">foldseek_db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">alignment_filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;alignment.txt&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">mmseqs_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs2&quot;</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">mmseqs_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs_dbs&quot;</span>
+    <span class="n">collated_alignment</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="n">alignment_filename</span>
+    <span class="k">if</span> <span class="n">collated_alignment</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">use_cache</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">_collate_alignment_files</span><span class="p">(</span>
+        <span class="n">pinder_dir</span><span class="p">,</span>
+        <span class="n">collated_alignment</span><span class="p">,</span>
+        <span class="n">db_path</span><span class="p">,</span>
+        <span class="n">foldseek_db_size</span><span class="p">,</span>
+        <span class="n">alignment_filename</span><span class="o">=</span><span class="n">alignment_filename</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="aln_to_df">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.aln_to_df">[docs]</a>
+<span class="k">def</span> <span class="nf">aln_to_df</span><span class="p">(</span>
+    <span class="n">alignment_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">colnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">score_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">default_score_val</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">alignment_file</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">colnames</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">score_col</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">default_score_val</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<div class="viewcode-block" id="filter_foldseek_edges">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.filter_foldseek_edges">[docs]</a>
+<span class="k">def</span> <span class="nf">filter_foldseek_edges</span><span class="p">(</span>
+    <span class="n">aln_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">graph_config</span><span class="p">:</span> <span class="n">GraphConfig</span> <span class="o">=</span> <span class="n">GraphConfig</span><span class="p">()</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">query_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;(query != target)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;(alnlen &gt;= </span><span class="si">{</span><span class="n">graph_config</span><span class="o">.</span><span class="n">min_alignment_length</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;(lddt &gt;= </span><span class="si">{</span><span class="n">graph_config</span><span class="o">.</span><span class="n">score_threshold</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;(lddt &lt;= </span><span class="si">{</span><span class="n">graph_config</span><span class="o">.</span><span class="n">upper_threshold</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">query_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; and &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">query_list</span><span class="p">)</span>
+    <span class="n">aln_df</span> <span class="o">=</span> <span class="n">aln_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query_str</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">aln_df</span></div>
+
+
+
+<div class="viewcode-block" id="filter_mmseqs_edges">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.filter_mmseqs_edges">[docs]</a>
+<span class="k">def</span> <span class="nf">filter_mmseqs_edges</span><span class="p">(</span>
+    <span class="n">aln_df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">graph_config</span><span class="p">:</span> <span class="n">GraphConfig</span> <span class="o">=</span> <span class="n">GraphConfig</span><span class="p">()</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">query_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;(query != target)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;(alnlen &gt;= </span><span class="si">{</span><span class="n">graph_config</span><span class="o">.</span><span class="n">min_alignment_length</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;(pident &gt;= </span><span class="si">{</span><span class="n">graph_config</span><span class="o">.</span><span class="n">mmseqs_score_threshold</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s2">&quot;(pident &lt;= </span><span class="si">{</span><span class="n">graph_config</span><span class="o">.</span><span class="n">mmseqs_upper_threshold</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">query_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot; and &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">query_list</span><span class="p">)</span>
+    <span class="n">aln_df</span> <span class="o">=</span> <span class="n">aln_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">query_str</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">aln_df</span></div>
+
+
+
+<div class="viewcode-block" id="alignment_to_parquet">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.alignment_to_parquet">[docs]</a>
+<span class="k">def</span> <span class="nf">alignment_to_parquet</span><span class="p">(</span>
+    <span class="n">alignment_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">alignment_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">foldseek_config</span><span class="p">:</span> <span class="n">FoldseekConfig</span> <span class="o">=</span> <span class="n">FoldseekConfig</span><span class="p">(),</span>
+    <span class="n">mmseqs_config</span><span class="p">:</span> <span class="n">MMSeqsConfig</span> <span class="o">=</span> <span class="n">MMSeqsConfig</span><span class="p">(),</span>
+    <span class="n">graph_config</span><span class="p">:</span> <span class="n">GraphConfig</span> <span class="o">=</span> <span class="n">GraphConfig</span><span class="p">(),</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">remove_original</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">alignment_pqt</span> <span class="o">=</span> <span class="n">alignment_file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alignment_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.parquet&quot;</span>
+    <span class="n">filtered_pqt</span> <span class="o">=</span> <span class="n">alignment_file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;filtered_</span><span class="si">{</span><span class="n">alignment_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.parquet&quot;</span>
+    <span class="k">if</span> <span class="n">use_cache</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">(</span><span class="n">alignment_pqt</span><span class="p">,</span> <span class="n">filtered_pqt</span><span class="p">)]):</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skipping </span><span class="si">{</span><span class="n">alignment_type</span><span class="si">}</span><span class="s2"> parquet conversion, files exist...&quot;</span><span class="p">)</span>
+        <span class="c1"># Remove uncompressed text file</span>
+        <span class="k">if</span> <span class="n">alignment_file</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">remove_original</span><span class="p">:</span>
+            <span class="n">alignment_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+        <span class="k">return</span>
+    <span class="n">foldseek_score_col</span> <span class="o">=</span> <span class="n">foldseek_config</span><span class="o">.</span><span class="n">score_type</span>
+    <span class="n">mmseqs_score_col</span> <span class="o">=</span> <span class="n">mmseqs_config</span><span class="o">.</span><span class="n">score_type</span>
+    <span class="n">foldseek_colnames</span> <span class="o">=</span> <span class="n">FOLDSEEK_FIELDS</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">foldseek_score_col</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+    <span class="n">mmseqs_colnames</span> <span class="o">=</span> <span class="n">MMSEQ2_FIELDS</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mmseqs_score_col</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reading </span><span class="si">{</span><span class="n">alignment_type</span><span class="si">}</span><span class="s2"> alignment </span><span class="si">{</span><span class="n">alignment_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">alignment_type</span> <span class="o">==</span> <span class="s2">&quot;foldseek&quot;</span><span class="p">:</span>
+        <span class="n">colnames</span> <span class="o">=</span> <span class="n">foldseek_colnames</span>
+        <span class="n">score_col</span> <span class="o">=</span> <span class="n">foldseek_score_col</span>
+    <span class="k">elif</span> <span class="n">alignment_type</span> <span class="o">==</span> <span class="s2">&quot;mmseqs&quot;</span><span class="p">:</span>
+        <span class="n">colnames</span> <span class="o">=</span> <span class="n">mmseqs_colnames</span>
+        <span class="n">score_col</span> <span class="o">=</span> <span class="n">mmseqs_score_col</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alignment_type</span><span class="si">}</span><span class="s2"> not recognized or missing schema!&quot;</span><span class="p">)</span>
+
+    <span class="n">aln_df</span> <span class="o">=</span> <span class="n">aln_to_df</span><span class="p">(</span><span class="n">alignment_file</span><span class="p">,</span> <span class="n">colnames</span><span class="o">=</span><span class="n">colnames</span><span class="p">,</span> <span class="n">score_col</span><span class="o">=</span><span class="n">score_col</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Writing </span><span class="si">{</span><span class="n">alignment_pqt</span><span class="si">}</span><span class="s2"> with shape </span><span class="si">{</span><span class="n">aln_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">aln_df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">alignment_pqt</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtering </span><span class="si">{</span><span class="n">alignment_type</span><span class="si">}</span><span class="s2"> alignment...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">alignment_type</span> <span class="o">==</span> <span class="s2">&quot;foldseek&quot;</span><span class="p">:</span>
+        <span class="n">aln_df</span> <span class="o">=</span> <span class="n">filter_foldseek_edges</span><span class="p">(</span><span class="n">aln_df</span><span class="p">,</span> <span class="n">graph_config</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">alignment_type</span> <span class="o">==</span> <span class="s2">&quot;mmseqs&quot;</span><span class="p">:</span>
+        <span class="n">aln_df</span> <span class="o">=</span> <span class="n">filter_mmseqs_edges</span><span class="p">(</span><span class="n">aln_df</span><span class="p">,</span> <span class="n">graph_config</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Writing </span><span class="si">{</span><span class="n">filtered_pqt</span><span class="si">}</span><span class="s2"> with shape </span><span class="si">{</span><span class="n">aln_df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">aln_df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">filtered_pqt</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Remove uncompressed text file</span>
+    <span class="k">if</span> <span class="n">remove_original</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing </span><span class="si">{</span><span class="n">alignment_file</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="n">alignment_file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="run_foldseek_on_pinder_chains">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_foldseek_on_pinder_chains">[docs]</a>
+<span class="k">def</span> <span class="nf">run_foldseek_on_pinder_chains</span><span class="p">(</span>
+    <span class="n">pdb_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;index.1.csv.gz&quot;</span><span class="p">,</span>
+    <span class="n">foldseek_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/tmp/foldseek&quot;</span><span class="p">),</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">FoldseekConfig</span> <span class="o">=</span> <span class="n">FoldseekConfig</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Runs foldseek on the PINDER dataset.</span>
+
+<span class="sd">    You may need to set your PINDER_DATA_DIR environment variable to the location of the development PINDER dataset.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pdb_dir : Path</span>
+<span class="sd">        Input directory containing pinder PDBs to use for populating foldseek inputs.</span>
+<span class="sd">    index : str</span>
+<span class="sd">        The Pinder index CSV file name.</span>
+<span class="sd">    foldseek_dir : Path</span>
+<span class="sd">        The directory for storing foldseek input PDBs. Defaults to /tmp/foldseek.</span>
+<span class="sd">    config : FoldseekConfig</span>
+<span class="sd">        The configuration object containing foldseek parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">pdb_dir</span><span class="p">)</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input PDB directory </span><span class="si">{</span><span class="n">pdb_dir</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">create_foldseek_input_dir</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">foldseek_dir</span><span class="p">,</span> <span class="n">pdb_dir</span><span class="o">=</span><span class="n">pdb_dir</span><span class="p">)</span>
+    <span class="n">create_dbs_and_run</span><span class="p">(</span>
+        <span class="n">Path</span><span class="p">(</span><span class="n">foldseek_dir</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;foldseek_dbs&quot;</span><span class="p">,</span>
+        <span class="n">foldseek_dir</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="run_mmseqs_on_pinder_chains">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_mmseqs_on_pinder_chains">[docs]</a>
+<span class="k">def</span> <span class="nf">run_mmseqs_on_pinder_chains</span><span class="p">(</span>
+    <span class="n">pdb_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;index.1.csv.gz&quot;</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/tmp/foldseek&quot;</span><span class="p">),</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">MMSeqsConfig</span> <span class="o">=</span> <span class="n">MMSeqsConfig</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Runs mmseqs easy-search on the PINDER dataset.</span>
+
+<span class="sd">    You may need to set your PINDER_DATA_DIR environment variable to the location of the development PINDER dataset.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pdb_dir : Path</span>
+<span class="sd">        Input directory for foldseek</span>
+<span class="sd">    index : str</span>
+<span class="sd">        The Pinder index CSV file name.</span>
+<span class="sd">    output_dir : Path</span>
+<span class="sd">        The output directory containing foldseek input PDBs. Defaults to /tmp/foldseek.</span>
+<span class="sd">    config : MMSeqsConfig</span>
+<span class="sd">        The configuration object containing mmseqs parameters.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">pdb_dir</span><span class="p">)</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input directory </span><span class="si">{</span><span class="n">pdb_dir</span><span class="si">}</span><span class="s2"> does not exist.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Foldseek PDB directory does not exist. Attempting to populate...&quot;</span><span class="p">)</span>
+        <span class="n">create_foldseek_input_dir</span><span class="p">(</span>
+            <span class="n">index</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">pdb_dir</span><span class="o">=</span><span class="n">pdb_dir</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span>
+        <span class="p">)</span>
+
+    <span class="n">fasta_file</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="s2">&quot;input.fasta&quot;</span>
+    <span class="n">create_fasta_from_foldseek_inputs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">fasta_file</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="n">fasta_file</span><span class="si">}</span><span class="s2"> for mmseqs2.&quot;</span><span class="p">)</span>
+    <span class="n">run_mmseqs</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="setup_mmseqs_dbs">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.setup_mmseqs_dbs">[docs]</a>
+<span class="k">def</span> <span class="nf">setup_mmseqs_dbs</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">mmseqs_db_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50_000</span><span class="p">,</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">mmseqs_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs2&quot;</span>
+    <span class="n">mmseqs_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">foldseek_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;foldseek&quot;</span>
+    <span class="n">fasta_file</span> <span class="o">=</span> <span class="n">mmseqs_dir</span> <span class="o">/</span> <span class="s2">&quot;input.fasta&quot;</span>
+    <span class="n">create_fasta_from_foldseek_inputs</span><span class="p">(</span><span class="n">foldseek_dir</span><span class="p">,</span> <span class="n">fasta_file</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created </span><span class="si">{</span><span class="n">fasta_file</span><span class="si">}</span><span class="s2"> for mmseqs2.&quot;</span><span class="p">)</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">mmseqs_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs_dbs&quot;</span>
+    <span class="n">fasta_dict</span> <span class="o">=</span> <span class="n">fasta2dict</span><span class="p">(</span><span class="n">fasta_file</span><span class="p">)</span>
+    <span class="c1"># Split into chunks of fasta files with max size = db_size</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fasta_chunk</span> <span class="ow">in</span> <span class="n">scatter</span><span class="o">.</span><span class="n">chunk_dict_with_indices</span><span class="p">(</span><span class="n">fasta_dict</span><span class="p">,</span> <span class="n">mmseqs_db_size</span><span class="p">):</span>
+        <span class="n">db_subdir</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;db&quot;</span>
+        <span class="n">db_subdir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fasta_str_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">header</span><span class="p">,</span> <span class="n">seq</span> <span class="ow">in</span> <span class="n">fasta_chunk</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">fasta_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;&gt;</span><span class="si">{</span><span class="n">header</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">])</span>
+            <span class="n">fasta_str_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fasta_str</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">db_subdir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;input_</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">.fasta&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fasta_str_list</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="run_mmseqs_db_pair">
+<a class="viewcode-back" href="../../../source/pinder.data.html#pinder.data.foldseek_utils.run_mmseqs_db_pair">[docs]</a>
+<span class="k">def</span> <span class="nf">run_mmseqs_db_pair</span><span class="p">(</span>
+    <span class="n">pinder_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">db_indices</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">mmseqs_config</span><span class="p">:</span> <span class="n">MMSeqsConfig</span> <span class="o">=</span> <span class="n">MMSeqsConfig</span><span class="p">(),</span>
+    <span class="n">use_cache</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">mmseqs_dir</span> <span class="o">=</span> <span class="n">pinder_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs2&quot;</span>
+    <span class="n">db_path</span> <span class="o">=</span> <span class="n">mmseqs_dir</span> <span class="o">/</span> <span class="s2">&quot;mmseqs_dbs&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">db_indices</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">db_indices</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Running mmseqs DB </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">subdir1</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;db&quot;</span>
+    <span class="n">subdir2</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="s2">&quot;db&quot;</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">alignments</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="n">mmseqs_config</span><span class="o">.</span><span class="n">alignment_filename</span>
+    <span class="k">if</span> <span class="n">alignments</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="ow">and</span> <span class="n">use_cache</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mmseqs pair </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> already present. Skipping...&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fasta_file</span> <span class="o">=</span> <span class="n">subdir1</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;input_</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">.fasta&quot;</span>
+        <span class="n">target_fasta</span> <span class="o">=</span> <span class="n">subdir2</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;input_</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">.fasta&quot;</span>
+        <span class="n">run_mmseqs</span><span class="p">(</span>
+            <span class="n">fasta_file</span><span class="p">,</span>
+            <span class="n">output_dir</span><span class="p">,</span>
+            <span class="n">target_fasta</span><span class="o">=</span><span class="n">target_fasta</span><span class="p">,</span>
+            <span class="n">use_cache</span><span class="o">=</span><span class="n">use_cache</span><span class="p">,</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">mmseqs_config</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2023, VantAI.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    </div>
+
+<p id="theme_credit"></p>
+  </body>
+</html>
